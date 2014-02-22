@@ -14,6 +14,9 @@ import java.util.Date;
  */
 @DatabaseTable(tableName="Entretien")
 public class Entretien {
+
+    public Entretien() {
+    }
     @DatabaseField(columnName="id",id=true)
     private int id;
     @DatabaseField
@@ -23,8 +26,7 @@ public class Entretien {
     @DatabaseField
     private Date dateEntretien; 
 
-    public Entretien() {
-    }
+  
 
     public Entretien(int id, String description, int kmEntretienFait, Date dateEntretien) {
         this.id = id;
