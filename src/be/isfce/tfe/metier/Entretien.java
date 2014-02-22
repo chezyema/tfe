@@ -16,8 +16,11 @@ import java.util.Date;
 public class Entretien {
     @DatabaseField(columnName="id",id=true)
     private int id;
-    private  String description;
+    @DatabaseField
+    private  String description ;
+    @DatabaseField
     private  int kmEntretienFait;
+    @DatabaseField
     private Date dateEntretien; 
 
     public Entretien() {
