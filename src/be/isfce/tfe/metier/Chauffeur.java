@@ -18,7 +18,7 @@ public class Chauffeur {
     public Chauffeur() {
     }
 
-    public Chauffeur(int id, String NomChauffeur, String PrenomChauffeur, String Adresse, Date DateNaissance, int NumTelephone, String Email) {
+    public Chauffeur(int id, String NomChauffeur, String PrenomChauffeur, String Adresse, Date DateNaissance, int NumTelephone, String Email,Date SelectionMedicale) {
         this.id = id;
         this.NomChauffeur = NomChauffeur;
         this.PrenomChauffeur = PrenomChauffeur;
@@ -26,6 +26,7 @@ public class Chauffeur {
         this.DateNaissance = DateNaissance;
         this.NumTelephone = NumTelephone;
         this.Email = Email;
+        this.SelectionMedicale = SelectionMedicale;
     }
 
     public int getId() {
@@ -55,6 +56,9 @@ public class Chauffeur {
     public String getEmail() {
         return Email;
     }
+    public Date getSelectionMesicale(){
+        return SelectionMedicale;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -83,6 +87,9 @@ public class Chauffeur {
     public void setEmail(String Email) {
         this.Email = Email;
     }
+    public void setSelectionMedicale(Date SelectionMedicale){
+        this.SelectionMedicale = SelectionMedicale;
+    }
     @DatabaseField(columnName="id",id=true)  
     private int id;
     @DatabaseField
@@ -98,5 +105,7 @@ public class Chauffeur {
     private int NumTelephone;
     @DatabaseField
     private String Email;
+    @DatabaseField
+    private Date SelectionMedicale;
     
 }

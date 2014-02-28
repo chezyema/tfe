@@ -28,6 +28,11 @@ public class Eleve {
     private int TelResponsable;
       @DatabaseField
     private String EmailResponsable;
+      @DatabaseField
+     private Ecole Coordonnee;
+       @DatabaseField
+      private Circuit Empreinter; 
+      
 
     public void setId(int id) {
         this.id = id;
@@ -55,6 +60,12 @@ public class Eleve {
 
     public void setEmailResponsable(String EmailResponsable) {
         this.EmailResponsable = EmailResponsable;
+    }
+    public void setCoordonnee(Ecole Coordonnee){
+        this.Coordonnee = Coordonnee;
+    }
+    public void setEmpreinter(Circuit Empreinter){
+        this.Empreinter = Empreinter;
     }
 
     public int getId() {
@@ -84,8 +95,15 @@ public class Eleve {
     public String getEmailResponsable() {
         return EmailResponsable;
     }
+    public Ecole getCoordonnee(){
+        return Coordonnee;
+    }
+    public Circuit getEmpreinter(){
+        return Empreinter;
+    
+    }
 
-    public Eleve(int id, String NomEleve, String PrenomEleve, String AdresseEleve, String NomResponsable, int TelResponsable, String EmailResponsable) {
+    public Eleve(int id, String NomEleve, String PrenomEleve, String AdresseEleve, String NomResponsable, int TelResponsable, String EmailResponsable,Ecole Coordonnee,Circuit Empreinter) {
         this.id = id;
         this.NomEleve = NomEleve;
         this.PrenomEleve = PrenomEleve;
@@ -93,6 +111,8 @@ public class Eleve {
         this.NomResponsable = NomResponsable;
         this.TelResponsable = TelResponsable;
         this.EmailResponsable = EmailResponsable;
+        this.Coordonnee = Coordonnee;
+        this.Empreinter = Empreinter;
     }
 
     public Eleve() {

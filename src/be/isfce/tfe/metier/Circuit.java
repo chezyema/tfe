@@ -6,6 +6,7 @@ package be.isfce.tfe.metier;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -24,6 +25,9 @@ public class Circuit {
     private int KmDepart;
     @DatabaseField
     private int KmFin;
+    @DatabaseField
+    private  ArrayList <Arret> LesArrets; 
+    
 
     public Circuit() {
     }

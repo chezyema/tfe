@@ -24,15 +24,19 @@ public class Entretien {
     @DatabaseField
     private  int kmEntretienFait;
     @DatabaseField
-    private Date dateEntretien; 
+    private Date dateEntretien;
+    @DatabaseField
+    private MaterielRoulant Coordonnee; 
+    
 
   
 
-    public Entretien(int id, String description, int kmEntretienFait, Date dateEntretien) {
+    public Entretien(int id, String description, int kmEntretienFait, Date dateEntretien,MaterielRoulant Coordonnee) {
         this.id = id;
         this.description = description;
         this.kmEntretienFait = kmEntretienFait;
         this.dateEntretien = dateEntretien;
+        this.Coordonnee = Coordonnee;
     }
 
     public int getId() {
@@ -65,6 +69,12 @@ public class Entretien {
 
     public void setDateEntretien(Date dateEntretien) {
         this.dateEntretien = dateEntretien;
+    }
+    public MaterielRoulant getCoordonnee (){
+        return Coordonnee;
+    }
+    public void setCoordonnee(MaterielRoulant Coordonnee){
+        this.Coordonnee = Coordonnee;
     }
     
     
