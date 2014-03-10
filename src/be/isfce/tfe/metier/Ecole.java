@@ -4,98 +4,96 @@
  */
 package be.isfce.tfe.metier;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+import java.util.ArrayList;
+
+
 
 /**
  *
  * @author yema
  */
-@DatabaseTable(tableName="Ecole")
+
 public class Ecole {
-     @DatabaseField(columnName="id",id=true)
+     
     private int id;
-      @DatabaseField
-    private String NomEcole;
-      @DatabaseField
-    private String AdresseEcole;
-      @DatabaseField
-    private int TelEcole;
-      @DatabaseField
-    private String EmailEcole;
-      @DatabaseField
+      
+    private String nomecole;
+      
+    private String adresseecole;
+     
+    private int telecole;
+      
+    private String emailecole;
+      
          
-    private String NomDirecteur;
-      @DatabaseField  
-    private String AnneeScolaire;
+    private String nomdirecteur;
+       
+    private String anneescolaire;
+    
+    private  ArrayList <Eleve> leseleves;  
+    
+
+    public void setNomecole(String nomecole) {
+        this.nomecole = nomecole;
+    }
+
+    public void setAdresseecole(String adresseecole) {
+        this.adresseecole = adresseecole;
+    }
+
+    public void setTelecole(int telecole) {
+        this.telecole = telecole;
+    }
+
+    public void setEmailecole(String emailecole) {
+        this.emailecole = emailecole;
+    }
+
+    public void setNomdirecteur(String nomdirecteur) {
+        this.nomdirecteur = nomdirecteur;
+    }
+
+    public void setAnneescolaire(String anneescolaire) {
+        this.anneescolaire = anneescolaire;
+    }
+    
+    
+
+    public void setLeseleves(ArrayList<Eleve> leseleves) {
+        this.leseleves = leseleves;
+    }
+    
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setNomEcole(String NomEcole) {
-        this.NomEcole = NomEcole;
-    }
+    
 
-    public void setAdresseEcole(String AdresseEcole) {
-        this.AdresseEcole = AdresseEcole;
-    }
+    
 
-    public void setTelEcole(int TelEcole) {
-        this.TelEcole = TelEcole;
-    }
+  
 
     public void setEmailEcole(String EmailEcole) {
-        this.EmailEcole = EmailEcole;
+        this.emailecole = EmailEcole;
     }
 
     public void setNomDirecteur(String NomDirecteur) {
-        this.NomDirecteur = NomDirecteur;
+        this.nomdirecteur = NomDirecteur;
     }
 
     public void setAnneeScolaire(String AnneeScolaire) {
-        this.AnneeScolaire = AnneeScolaire;
+        this.anneescolaire = AnneeScolaire;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getNomEcole() {
-        return NomEcole;
-    }
+    
 
-    public String getAdresseEcole() {
-        return AdresseEcole;
-    }
+    
 
-    public int getTelEcole() {
-        return TelEcole;
-    }
-
-    public String getEmailEcole() {
-        return EmailEcole;
-    }
-
-    public String getNomDirecteur() {
-        return NomDirecteur;
-    }
-
-    public String getAnneeScolaire() {
-        return AnneeScolaire;
-    }
-
-    public Ecole(int id, String NomEcole, String AdresseEcole, int TelEcole, String EmailEcole, String NomDirecteur, String AnneeScolaire) {
-        this.id = id;
-        this.NomEcole = NomEcole;
-        this.AdresseEcole = AdresseEcole;
-        this.TelEcole = TelEcole;
-        this.EmailEcole = EmailEcole;
-        this.NomDirecteur = NomDirecteur;
-        this.AnneeScolaire = AnneeScolaire;
-    }
-
-    public Ecole() {
-    }
+    
     
 }

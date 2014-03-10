@@ -4,32 +4,35 @@
  */
 package be.isfce.tfe.metier;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+import java.util.ArrayList;
+
+
 
 /**
  *
  * @author yema
  */
-@DatabaseTable(tableName="CarteCarburant")
+
 public class CarteCarburant {
-     @DatabaseField(columnName="id",id=true)
+     
     private int id;
-     @DatabaseField
-    private int KmUtilisation;
-     @DatabaseField
-    private int  LitreCarburant;
+     
+    private int kmutilisation;
+     
+    private int  litrecarburant;
+    
+    private  ArrayList <UtilisationCarte> lesutilisations; 
 
     public void setId(int id) {
         this.id = id;
     }
 
     public void setKmUtilisation(int KmUtilisation) {
-        this.KmUtilisation = KmUtilisation;
+        this.kmutilisation = KmUtilisation;
     }
 
     public void setLitreCarburant(int LitreCarburant) {
-        this.LitreCarburant = LitreCarburant;
+        this.litrecarburant = LitreCarburant;
     }
 
     public int getId() {
@@ -37,20 +40,19 @@ public class CarteCarburant {
     }
 
     public int getKmUtilisation() {
-        return KmUtilisation;
+        return kmutilisation;
     }
 
     public int getLitreCarburant() {
-        return LitreCarburant;
+        return litrecarburant;
     }
 
-    public CarteCarburant(int id, int KmUtilisation, int LitreCarburant) {
-        this.id = id;
-        this.KmUtilisation = KmUtilisation;
-        this.LitreCarburant = LitreCarburant;
+    public void setLesUtilisations(ArrayList<UtilisationCarte> LesUtilisations) {
+        this.lesutilisations = LesUtilisations;
     }
 
-    public CarteCarburant() {
-    }
+    
+
+    
     
 }

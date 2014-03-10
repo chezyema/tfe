@@ -4,30 +4,40 @@
  */
 package be.isfce.tfe.metier;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  *
  * @author yema
  */
-@DatabaseTable(tableName="DocumentsAdministratifs")
+
 public class DocumentsAdministratifs {
     
-     @DatabaseField(columnName="id",id=true)
+     
      private int id;
-     @DatabaseField
-    private String Libelle;
-     @DatabaseField
+     
+    private String libelle;
+     
     private Date DateValiditer;
+    private  ArrayList <Chauffeur> leschauffeurs; 
+    private  ArrayList <MaterielRoulant> lesvehicules;  
+
+    public void setLeschauffeurs(ArrayList<Chauffeur> leschauffeurs) {
+        this.leschauffeurs = leschauffeurs;
+    }
+
+    public void setLesvehicules(ArrayList<MaterielRoulant> lesvehicules) {
+        this.lesvehicules = lesvehicules;
+    }
 
     public void setId(int id) {
         this.id = id;
     }
 
     public void setLibelle(String Libelle) {
-        this.Libelle = Libelle;
+        this.libelle = Libelle;
     }
 
     public void setDateValiditer(Date DateValiditer) {
@@ -39,20 +49,23 @@ public class DocumentsAdministratifs {
     }
 
     public String getLibelle() {
-        return Libelle;
+        return libelle;
     }
 
     public Date getDateValiditer() {
         return DateValiditer;
     }
 
-    public DocumentsAdministratifs(int id, String Libelle, Date DateValiditer) {
-        this.id = id;
-        this.Libelle = Libelle;
-        this.DateValiditer = DateValiditer;
+    public void setLesChauffeurs(ArrayList<Chauffeur> LesChauffeurs) {
+        this.leschauffeurs = LesChauffeurs;
     }
 
-    public DocumentsAdministratifs() {
+    public void setLesVehicules(ArrayList<MaterielRoulant> LesVehicules) {
+        this.lesvehicules = LesVehicules;
     }
+
+    
+
+    
     
 }

@@ -4,28 +4,30 @@
  */
 package be.isfce.tfe.metier;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+import java.util.ArrayList;
+
+
 
 /**
  *
  * @author yema
  */
-@DatabaseTable
 public class Arret {
     
-    @DatabaseField(columnName="id",id=true)
+    
     private int id;
-    @DatabaseField
+    
     private String adresse;
+    private  ArrayList <Circuit> lescircuits; 
 
-    public Arret() {
+    public void setLesCircuits(ArrayList<Circuit> lesCircuits) {
+        this.lescircuits = lesCircuits;
     }
 
-    public Arret(int id, String adresse) {
-        this.id = id;
-        this.adresse = adresse;
-    }
+    
+
+
+    
  
     public int getId() {
         return id;

@@ -4,108 +4,115 @@
  */
 package be.isfce.tfe.metier;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  *
  * @author yema
  */
-@DatabaseTable(tableName="Chauffeur")
+
 public class Chauffeur {
 
     public Chauffeur() {
     }
 
-    public Chauffeur(int id, String NomChauffeur, String PrenomChauffeur, String Adresse, Date DateNaissance, int NumTelephone, String Email,Date SelectionMedicale) {
-        this.id = id;
-        this.NomChauffeur = NomChauffeur;
-        this.PrenomChauffeur = PrenomChauffeur;
-        this.Adresse = Adresse;
-        this.DateNaissance = DateNaissance;
-        this.NumTelephone = NumTelephone;
-        this.Email = Email;
-        this.SelectionMedicale = SelectionMedicale;
+    public void setLesCircuits(ArrayList<Circuit> LesCircuits) {
+        this.lescircuits = LesCircuits;
     }
 
-    public int getId() {
+    public void setLesvehicules(ArrayList<MaterielRoulant> lesvehicules) {
+        this.lesvehicules = lesvehicules;
+    }
+
+    public void setLesdocuments(ArrayList<DocumentsAdministratifs> lesdocuments) {
+        this.lesdocuments = lesdocuments;
+    }
+
+    
+
+    public long getId() {
         return id;
     }
 
     public String getNomChauffeur() {
-        return NomChauffeur;
+        return nomchauffeur;
     }
 
     public String getPrenomChauffeur() {
-        return PrenomChauffeur;
+        return prenomchauffeur;
     }
 
     public String getAdresse() {
-        return Adresse;
+        return adresse;
     }
 
     public Date getDateNaissance() {
-        return DateNaissance;
+        return datedenaissance;
     }
 
     public int getNumTelephone() {
-        return NumTelephone;
+        return numtelephone;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
     public Date getSelectionMesicale(){
-        return SelectionMedicale;
+        return selectionmedicale;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
     public void setNomChauffeur(String NomChauffeur) {
-        this.NomChauffeur = NomChauffeur;
+        this.nomchauffeur = NomChauffeur;
     }
 
     public void setPrenomChauffeur(String PrenomChauffeur) {
-        this.PrenomChauffeur = PrenomChauffeur;
+        this.prenomchauffeur = PrenomChauffeur;
     }
 
     public void setAdresse(String Adresse) {
-        this.Adresse = Adresse;
+        this.adresse = Adresse;
     }
 
     public void setDateNaissance(Date DateNaissance) {
-        this.DateNaissance = DateNaissance;
+        this.datedenaissance = DateNaissance;
     }
 
     public void setNumTelephone(int NumTelephone) {
-        this.NumTelephone = NumTelephone;
+        this.numtelephone = NumTelephone;
     }
 
     public void setEmail(String Email) {
-        this.Email = Email;
+        this.email = Email;
     }
     public void setSelectionMedicale(Date SelectionMedicale){
-        this.SelectionMedicale = SelectionMedicale;
+        this.selectionmedicale = SelectionMedicale;
     }
-    @DatabaseField(columnName="id",id=true)  
-    private int id;
-    @DatabaseField
-    private String NomChauffeur;
-    @DatabaseField
-    private String PrenomChauffeur;
-    @DatabaseField
+      
+    private long id;
+   
+    private String nomchauffeur;
     
-    private String Adresse;
-    @DatabaseField
-    private Date DateNaissance;
-    @DatabaseField
-    private int NumTelephone;
-    @DatabaseField
-    private String Email;
-    @DatabaseField
-    private Date SelectionMedicale;
+    private String prenomchauffeur;
+    
+    
+    private String adresse;
+    
+    private Date datedenaissance;
+    
+    private int numtelephone;
+    
+    private String email;
+    
+    private Date selectionmedicale;
+    
+    private  ArrayList <Circuit> lescircuits; 
+    private  ArrayList <MaterielRoulant> lesvehicules; 
+    private ArrayList <DocumentsAdministratifs> lesdocuments;
     
 }

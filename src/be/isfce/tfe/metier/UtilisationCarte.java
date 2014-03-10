@@ -4,33 +4,42 @@
  */
 package be.isfce.tfe.metier;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  *
  * @author yema
  */
-@DatabaseTable(tableName="CarteUtilisation")
+
 public class UtilisationCarte {
     
-     @DatabaseField
-     private Date DateUtilisation;
+     
+     private Date dateutilisation;
+     private  ArrayList <MaterielRoulant> lesvehicules; 
+     private  ArrayList <CarteCarburant> lescartes; 
 
     public Date getDateUtilisation() {
-        return DateUtilisation;
+        return dateutilisation;
     }
 
     public void setDateUtilisation(Date DateUtilisation) {
-        this.DateUtilisation = DateUtilisation;
+        this.dateutilisation = DateUtilisation;
     }
 
     public UtilisationCarte(Date DateUtilisation) {
-        this.DateUtilisation = DateUtilisation;
+        this.dateutilisation = DateUtilisation;
     }
 
-    public UtilisationCarte() {
+    public void setLesVehicules(ArrayList<MaterielRoulant> LesVehicules) {
+        this.lesvehicules = LesVehicules;
     }
+
+    public void setLesCartes(ArrayList<CarteCarburant> LesCartes) {
+        this.lescartes = LesCartes;
+    }
+
+    
     
 }

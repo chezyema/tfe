@@ -4,40 +4,32 @@
  */
 package be.isfce.tfe.metier;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+
 import java.util.Date;
 
 /**
  *
  * @author yema
  */
-@DatabaseTable(tableName="Entretien")
+
 public class Entretien {
 
-    public Entretien() {
-    }
-    @DatabaseField(columnName="id",id=true)
+    
+    
     private int id;
-    @DatabaseField
+    
     private  String description ;
-    @DatabaseField
+    
     private  int kmEntretienFait;
-    @DatabaseField
+    
     private Date dateEntretien;
-    @DatabaseField
-    private MaterielRoulant Coordonnee; 
+    
+    private MaterielRoulant coordonnee; 
     
 
   
 
-    public Entretien(int id, String description, int kmEntretienFait, Date dateEntretien,MaterielRoulant Coordonnee) {
-        this.id = id;
-        this.description = description;
-        this.kmEntretienFait = kmEntretienFait;
-        this.dateEntretien = dateEntretien;
-        this.Coordonnee = Coordonnee;
-    }
+    
 
     public int getId() {
         return id;
@@ -71,10 +63,10 @@ public class Entretien {
         this.dateEntretien = dateEntretien;
     }
     public MaterielRoulant getCoordonnee (){
-        return Coordonnee;
+        return coordonnee;
     }
     public void setCoordonnee(MaterielRoulant Coordonnee){
-        this.Coordonnee = Coordonnee;
+        this.coordonnee = Coordonnee;
     }
     
     

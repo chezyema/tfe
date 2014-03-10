@@ -4,50 +4,55 @@
  */
 package be.isfce.tfe.metier;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+import java.util.ArrayList;
+
+
 
 /**
  *
  * @author yema
  */
-@DatabaseTable(tableName="MaterielRoulant")
 public class MaterielRoulant {
-    @DatabaseField(columnName="id",id=true)
+    
     private int id;
-    @DatabaseField
-    private String Marque;
-    @DatabaseField
-    private String Type;
-    @DatabaseField
-    private String Carburant;
-    @DatabaseField
-    private String NumImmatr;
-    @DatabaseField 
-    private int NbDePlaces;
+    
+    private String marque;
+   
+    private String type;
+   
+    private String carburant;
+    
+    private String numImmatr;
+     
+    private int nbdeplaces;
+    
+    private  ArrayList <Entretien> lesentretiens; 
+    private  ArrayList <Chauffeur> Leschauffeurs; 
+    private  ArrayList <Circuit> lescircuits; 
+    private  ArrayList <UtilisationCarte> lesmemos; 
 
     public void setId(int id) {
         this.id = id;
     }
 
     public void setMarque(String Marque) {
-        this.Marque = Marque;
+        this.marque = Marque;
     }
 
     public void setType(String Type) {
-        this.Type = Type;
+        this.type = Type;
     }
 
     public void setCarburant(String Carburant) {
-        this.Carburant = Carburant;
+        this.carburant = Carburant;
     }
 
     public void setNumImmatr(String NumImmatr) {
-        this.NumImmatr = NumImmatr;
+        this.numImmatr = NumImmatr;
     }
 
     public void setNbDePlaces(int NbDePlaces) {
-        this.NbDePlaces = NbDePlaces;
+        this.nbdeplaces = NbDePlaces;
     }
 
     public int getId() {
@@ -55,35 +60,43 @@ public class MaterielRoulant {
     }
 
     public String getMarque() {
-        return Marque;
+        return marque;
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public String getCarburant() {
-        return Carburant;
+        return carburant;
     }
 
     public String getNumImmatr() {
-        return NumImmatr;
+        return numImmatr;
     }
 
     public int getNbDePlaces() {
-        return NbDePlaces;
+        return nbdeplaces;
     }
 
-    public MaterielRoulant(int id, String Marque, String Type, String Carburant, String NumImmatr, int NbDePlaces) {
-        this.id = id;
-        this.Marque = Marque;
-        this.Type = Type;
-        this.Carburant = Carburant;
-        this.NumImmatr = NumImmatr;
-        this.NbDePlaces = NbDePlaces;
+    public void setLesEntretiens(ArrayList<Entretien> LesEntretiens) {
+        this.lesentretiens = LesEntretiens;
     }
 
-    public MaterielRoulant() {
+    public void setLesChauffeurs(ArrayList<Chauffeur> LesChauffeurs) {
+        this.Leschauffeurs = LesChauffeurs;
     }
+
+    public void setLesCircuits(ArrayList<Circuit> LesCircuits) {
+        this.lescircuits = LesCircuits;
+    }
+
+    public void setLesMemos(ArrayList<UtilisationCarte> LesMemos) {
+        this.lesmemos = LesMemos;
+    }
+
+    
+
+    
     
 }

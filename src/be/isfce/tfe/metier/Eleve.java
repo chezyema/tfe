@@ -4,34 +4,35 @@
  */
 package be.isfce.tfe.metier;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+
 
 /**
  *
  * @author yema
  */
-@DatabaseTable(tableName="Eleve")
+
 public class Eleve {
-      @DatabaseField(columnName="id",id=true)
-    private int id;
-      @DatabaseField
       
-    private String NomEleve;
-      @DatabaseField
-    private String PrenomEleve;
-      @DatabaseField
-    private String AdresseEleve;
-      @DatabaseField
-    private String NomResponsable;
-      @DatabaseField
-    private int TelResponsable;
-      @DatabaseField
-    private String EmailResponsable;
-      @DatabaseField
-     private Ecole Coordonnee;
-       @DatabaseField
-      private Circuit Empreinter; 
+    private int id;
+      
+      
+    private String nomeleve;
+      
+    private String prenomeleve;
+     
+    private String adresseeleve;
+      
+    private String nomresponsable;
+      
+    private int telresponsable;
+      
+    private String emailresponsable;
+      
+     private Ecole coordonnee;
+       
+      private Circuit empreinter; 
+      
+      
       
 
     public void setId(int id) {
@@ -39,33 +40,33 @@ public class Eleve {
     }
 
     public void setNomEleve(String NomEleve) {
-        this.NomEleve = NomEleve;
+        this.nomeleve = NomEleve;
     }
 
     public void setPrenomEleve(String PrenomEleve) {
-        this.PrenomEleve = PrenomEleve;
+        this.prenomeleve = PrenomEleve;
     }
 
     public void setAdresseEleve(String AdresseEleve) {
-        this.AdresseEleve = AdresseEleve;
+        this.adresseeleve = AdresseEleve;
     }
 
     public void setNomResponsable(String NomResponsable) {
-        this.NomResponsable = NomResponsable;
+        this.nomresponsable = NomResponsable;
     }
 
     public void setTelResponsable(int TelResponsable) {
-        this.TelResponsable = TelResponsable;
+        this.telresponsable = TelResponsable;
     }
 
     public void setEmailResponsable(String EmailResponsable) {
-        this.EmailResponsable = EmailResponsable;
+        this.emailresponsable = EmailResponsable;
     }
     public void setCoordonnee(Ecole Coordonnee){
-        this.Coordonnee = Coordonnee;
+        this.coordonnee = Coordonnee;
     }
     public void setEmpreinter(Circuit Empreinter){
-        this.Empreinter = Empreinter;
+        this.empreinter = Empreinter;
     }
 
     public int getId() {
@@ -73,49 +74,38 @@ public class Eleve {
     }
 
     public String getNomEleve() {
-        return NomEleve;
+        return nomeleve;
     }
 
     public String getPrenomEleve() {
-        return PrenomEleve;
+        return prenomeleve;
     }
 
     public String getAdresseEleve() {
-        return AdresseEleve;
+        return adresseeleve;
     }
 
     public String getNomResponsable() {
-        return NomResponsable;
+        return nomresponsable;
     }
 
     public int getTelResponsable() {
-        return TelResponsable;
+        return telresponsable;
     }
 
     public String getEmailResponsable() {
-        return EmailResponsable;
+        return emailresponsable;
     }
     public Ecole getCoordonnee(){
-        return Coordonnee;
+        return coordonnee;
     }
     public Circuit getEmpreinter(){
-        return Empreinter;
+        return empreinter;
     
     }
 
-    public Eleve(int id, String NomEleve, String PrenomEleve, String AdresseEleve, String NomResponsable, int TelResponsable, String EmailResponsable,Ecole Coordonnee,Circuit Empreinter) {
-        this.id = id;
-        this.NomEleve = NomEleve;
-        this.PrenomEleve = PrenomEleve;
-        this.AdresseEleve = AdresseEleve;
-        this.NomResponsable = NomResponsable;
-        this.TelResponsable = TelResponsable;
-        this.EmailResponsable = EmailResponsable;
-        this.Coordonnee = Coordonnee;
-        this.Empreinter = Empreinter;
-    }
+    
 
-    public Eleve() {
-    }
+  
     
 }

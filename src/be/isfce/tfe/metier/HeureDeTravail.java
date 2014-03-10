@@ -4,42 +4,48 @@
  */
 package be.isfce.tfe.metier;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+import java.util.ArrayList;
+
+
 
 /**
  *
  * @author yema
  */
-@DatabaseTable(tableName="HeureDeTravail")
+
 public class HeureDeTravail {
-    @DatabaseField
-    private String HeureDeDebut;
-    @DatabaseField
-    private String HeureDeFin;
+    
+    private String heurededebut;
+    
+    private String heuredefin;
+    
+    private  ArrayList <Circuit> lescircuits; 
 
     public void setHeureDeDebut(String HeureDeDebut) {
-        this.HeureDeDebut = HeureDeDebut;
+        this.heurededebut = HeureDeDebut;
     }
 
     public void setHeureDeFin(String HeureDeFin) {
-        this.HeureDeFin = HeureDeFin;
+        this.heuredefin = HeureDeFin;
     }
 
     public String getHeureDeDebut() {
-        return HeureDeDebut;
+        return heurededebut;
     }
 
     public String getHeureDeFin() {
-        return HeureDeFin;
+        return heuredefin;
     }
 
     public HeureDeTravail(String HeureDeDebut, String HeureDeFin) {
-        this.HeureDeDebut = HeureDeDebut;
-        this.HeureDeFin = HeureDeFin;
+        this.heurededebut = HeureDeDebut;
+        this.heuredefin = HeureDeFin;
     }
 
-    public HeureDeTravail() {
+    public void setLesCircuits(ArrayList<Circuit> LesCircuits) {
+        this.lescircuits = LesCircuits;
     }
+
+    
     
 }
