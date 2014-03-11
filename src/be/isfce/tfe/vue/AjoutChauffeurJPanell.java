@@ -198,13 +198,13 @@ public class AjoutChauffeurJPanell extends javax.swing.JPanel {
 
         String nomchauffeur = nomchauffeurTextField.getText();
         VerifString(nomchauffeur);
-        
+
         String prenom = prenomTextField.getText();
         VerifString(prenom);
-        
-        String adresse = adresseTextField.getText(); 
-        
-        
+
+        String adresse = adresseTextField.getText();
+
+
         //TODO A faire avec tous les attributs.
 
 

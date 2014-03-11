@@ -6,32 +6,20 @@ package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
 
-
-
 /**
  *
  * @author yema
  */
-
 public class Ecole {
-     
+
     private int id;
-      
     private String nomecole;
-      
     private String adresseecole;
-     
     private int telecole;
-      
     private String emailecole;
-      
-         
     private String nomdirecteur;
-       
     private String anneescolaire;
-    
-    private  ArrayList <Eleve> leseleves;  
-    
+    private ArrayList<Eleve> leseleves;
 
     public void setNomecole(String nomecole) {
         this.nomecole = nomecole;
@@ -56,23 +44,14 @@ public class Ecole {
     public void setAnneescolaire(String anneescolaire) {
         this.anneescolaire = anneescolaire;
     }
-    
-    
 
     public void setLeseleves(ArrayList<Eleve> leseleves) {
         this.leseleves = leseleves;
     }
-    
 
     public void setId(int id) {
         this.id = id;
     }
-
-    
-
-    
-
-  
 
     public void setEmailEcole(String EmailEcole) {
         this.emailecole = EmailEcole;
@@ -89,11 +68,4 @@ public class Ecole {
     public int getId() {
         return id;
     }
-
-    
-
-    
-
-    
-    
 }

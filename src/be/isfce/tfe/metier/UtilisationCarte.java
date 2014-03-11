@@ -4,7 +4,6 @@
  */
 package be.isfce.tfe.metier;
 
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,13 +11,11 @@ import java.util.Date;
  *
  * @author yema
  */
-
 public class UtilisationCarte {
-    
-     
-     private Date dateutilisation;
-     private  ArrayList <MaterielRoulant> lesvehicules; 
-     private  ArrayList <CarteCarburant> lescartes; 
+
+    private Date dateutilisation;
+    private ArrayList<MaterielRoulant> lesvehicules;
+    private ArrayList<CarteCarburant> lescartes;
 
     public Date getDateUtilisation() {
         return dateutilisation;
@@ -39,7 +36,4 @@ public class UtilisationCarte {
     public void setLesCartes(ArrayList<CarteCarburant> LesCartes) {
         this.lescartes = LesCartes;
     }
-
-    
-    
 }

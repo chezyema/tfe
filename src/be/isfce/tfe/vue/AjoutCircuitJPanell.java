@@ -142,7 +142,6 @@ public class AjoutCircuitJPanell extends javax.swing.JPanel {
     private void modifiercircuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifiercircuitActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_modifiercircuitActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dateeffectuer6;
     private javax.swing.JToggleButton enregistercircuit;

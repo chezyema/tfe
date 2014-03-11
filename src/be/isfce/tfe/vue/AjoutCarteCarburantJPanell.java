@@ -105,7 +105,6 @@ public class AjoutCarteCarburantJPanell extends javax.swing.JPanel {
     private void initialiserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initialiserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_initialiserActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ajoutercarte;
     private javax.swing.JButton anulerinfo;

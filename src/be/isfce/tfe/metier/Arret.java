@@ -6,29 +6,20 @@ package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
 
-
-
 /**
  *
  * @author yema
  */
 public class Arret {
-    
-    
+
     private int id;
-    
     private String adresse;
-    private  ArrayList <Circuit> lescircuits; 
+    private ArrayList<Circuit> lescircuits;
 
     public void setLesCircuits(ArrayList<Circuit> lesCircuits) {
         this.lescircuits = lesCircuits;
     }
 
-    
-
-
-    
- 
     public int getId() {
         return id;
     }
@@ -44,6 +35,4 @@ public class Arret {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
-    
-    
 }

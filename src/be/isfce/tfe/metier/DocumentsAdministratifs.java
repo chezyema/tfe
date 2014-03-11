@@ -4,7 +4,6 @@
  */
 package be.isfce.tfe.metier;
 
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,17 +11,13 @@ import java.util.Date;
  *
  * @author yema
  */
-
 public class DocumentsAdministratifs {
-    
-     
-     private int id;
-     
+
+    private int id;
     private String libelle;
-     
     private Date DateValiditer;
-    private  ArrayList <Chauffeur> leschauffeurs; 
-    private  ArrayList <MaterielRoulant> lesvehicules;  
+    private ArrayList<Chauffeur> leschauffeurs;
+    private ArrayList<MaterielRoulant> lesvehicules;
 
     public void setLeschauffeurs(ArrayList<Chauffeur> leschauffeurs) {
         this.leschauffeurs = leschauffeurs;
@@ -63,9 +58,4 @@ public class DocumentsAdministratifs {
     public void setLesVehicules(ArrayList<MaterielRoulant> LesVehicules) {
         this.lesvehicules = LesVehicules;
     }
-
-    
-
-    
-    
 }

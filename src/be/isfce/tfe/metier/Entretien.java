@@ -4,32 +4,19 @@
  */
 package be.isfce.tfe.metier;
 
-
 import java.util.Date;
 
 /**
  *
  * @author yema
  */
-
 public class Entretien {
 
-    
-    
     private int id;
-    
-    private  String description ;
-    
-    private  int kmEntretienFait;
-    
+    private String description;
+    private int kmEntretienFait;
     private Date dateEntretien;
-    
-    private MaterielRoulant coordonnee; 
-    
-
-  
-
-    
+    private MaterielRoulant coordonnee;
 
     public int getId() {
         return id;
@@ -62,13 +49,12 @@ public class Entretien {
     public void setDateEntretien(Date dateEntretien) {
         this.dateEntretien = dateEntretien;
     }
-    public MaterielRoulant getCoordonnee (){
+
+    public MaterielRoulant getCoordonnee() {
         return coordonnee;
     }
-    public void setCoordonnee(MaterielRoulant Coordonnee){
+
+    public void setCoordonnee(MaterielRoulant Coordonnee) {
         this.coordonnee = Coordonnee;
     }
-    
-    
-    
 }

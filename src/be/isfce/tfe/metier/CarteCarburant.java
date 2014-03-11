@@ -6,22 +6,16 @@ package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
 
-
-
 /**
  *
  * @author yema
  */
-
 public class CarteCarburant {
-     
+
     private int id;
-     
     private int kmutilisation;
-     
-    private int  litrecarburant;
-    
-    private  ArrayList <UtilisationCarte> lesutilisations; 
+    private int litrecarburant;
+    private ArrayList<UtilisationCarte> lesutilisations;
 
     public void setId(int id) {
         this.id = id;
@@ -50,9 +44,4 @@ public class CarteCarburant {
     public void setLesUtilisations(ArrayList<UtilisationCarte> LesUtilisations) {
         this.lesutilisations = LesUtilisations;
     }
-
-    
-
-    
-    
 }

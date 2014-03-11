@@ -6,20 +6,15 @@ package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
 
-
-
 /**
  *
  * @author yema
  */
-
 public class HeureDeTravail {
-    
+
     private String heurededebut;
-    
     private String heuredefin;
-    
-    private  ArrayList <Circuit> lescircuits; 
+    private ArrayList<Circuit> lescircuits;
 
     public void setHeureDeDebut(String HeureDeDebut) {
         this.heurededebut = HeureDeDebut;
@@ -45,7 +40,4 @@ public class HeureDeTravail {
     public void setLesCircuits(ArrayList<Circuit> LesCircuits) {
         this.lescircuits = LesCircuits;
     }
-
-    
-    
 }

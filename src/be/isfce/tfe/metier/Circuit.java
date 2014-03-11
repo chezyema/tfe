@@ -4,7 +4,6 @@
  */
 package be.isfce.tfe.metier;
 
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,22 +11,16 @@ import java.util.Date;
  *
  * @author yema
  */
-
 public class Circuit {
-    
+
     private int id;
-    
     private String nomcircuit;
-    
     private String tempsprevu;
-    
     private int kmdepart;
-    
     private int kmfin;
-    
-    private  ArrayList <Arret> lesarrets; 
-    private  ArrayList <Chauffeur> leschauffeurs; 
-    private  ArrayList <Eleve> leseleves; 
+    private ArrayList<Arret> lesarrets;
+    private ArrayList<Chauffeur> leschauffeurs;
+    private ArrayList<Eleve> leseleves;
 
     public void setLesArrets(ArrayList<Arret> LesArrets) {
         this.lesarrets = LesArrets;
@@ -40,11 +33,6 @@ public class Circuit {
     public void setLesEleves(ArrayList<Eleve> LesEleves) {
         this.leseleves = LesEleves;
     }
-    
-
-    
-
-    
 
     public int getId() {
         return id;
@@ -93,7 +81,5 @@ public class Circuit {
     public void setDateCircuit(Date DateCircuit) {
         this.DateCircuit = DateCircuit;
     }
-    
     private Date DateCircuit;
-    
 }

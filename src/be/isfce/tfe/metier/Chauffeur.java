@@ -4,7 +4,6 @@
  */
 package be.isfce.tfe.metier;
 
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,7 +11,6 @@ import java.util.Date;
  *
  * @author yema
  */
-
 public class Chauffeur {
 
     public Chauffeur() {
@@ -29,8 +27,6 @@ public class Chauffeur {
     public void setLesdocuments(ArrayList<DocumentsAdministratifs> lesdocuments) {
         this.lesdocuments = lesdocuments;
     }
-
-    
 
     public long getId() {
         return id;
@@ -59,7 +55,8 @@ public class Chauffeur {
     public String getEmail() {
         return email;
     }
-    public Date getSelectionMesicale(){
+
+    public Date getSelectionMesicale() {
         return selectionmedicale;
     }
 
@@ -90,29 +87,19 @@ public class Chauffeur {
     public void setEmail(String Email) {
         this.email = Email;
     }
-    public void setSelectionMedicale(Date SelectionMedicale){
+
+    public void setSelectionMedicale(Date SelectionMedicale) {
         this.selectionmedicale = SelectionMedicale;
     }
-      
     private long id;
-   
     private String nomchauffeur;
-    
     private String prenomchauffeur;
-    
-    
     private String adresse;
-    
     private Date datedenaissance;
-    
     private int numtelephone;
-    
     private String email;
-    
     private Date selectionmedicale;
-    
-    private  ArrayList <Circuit> lescircuits; 
-    private  ArrayList <MaterielRoulant> lesvehicules; 
-    private ArrayList <DocumentsAdministratifs> lesdocuments;
-    
+    private ArrayList<Circuit> lescircuits;
+    private ArrayList<MaterielRoulant> lesvehicules;
+    private ArrayList<DocumentsAdministratifs> lesdocuments;
 }

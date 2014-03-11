@@ -4,36 +4,21 @@
  */
 package be.isfce.tfe.metier;
 
-
-
 /**
  *
  * @author yema
  */
-
 public class Eleve {
-      
+
     private int id;
-      
-      
     private String nomeleve;
-      
     private String prenomeleve;
-     
     private String adresseeleve;
-      
     private String nomresponsable;
-      
     private int telresponsable;
-      
     private String emailresponsable;
-      
-     private Ecole coordonnee;
-       
-      private Circuit empreinter; 
-      
-      
-      
+    private Ecole coordonnee;
+    private Circuit empreinter;
 
     public void setId(int id) {
         this.id = id;
@@ -62,10 +47,12 @@ public class Eleve {
     public void setEmailResponsable(String EmailResponsable) {
         this.emailresponsable = EmailResponsable;
     }
-    public void setCoordonnee(Ecole Coordonnee){
+
+    public void setCoordonnee(Ecole Coordonnee) {
         this.coordonnee = Coordonnee;
     }
-    public void setEmpreinter(Circuit Empreinter){
+
+    public void setEmpreinter(Circuit Empreinter) {
         this.empreinter = Empreinter;
     }
 
@@ -96,16 +83,13 @@ public class Eleve {
     public String getEmailResponsable() {
         return emailresponsable;
     }
-    public Ecole getCoordonnee(){
+
+    public Ecole getCoordonnee() {
         return coordonnee;
     }
-    public Circuit getEmpreinter(){
+
+    public Circuit getEmpreinter() {
         return empreinter;
-    
+
     }
-
-    
-
-  
-    
 }

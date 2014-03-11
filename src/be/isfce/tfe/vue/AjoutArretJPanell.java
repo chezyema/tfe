@@ -98,7 +98,6 @@ public class AjoutArretJPanell extends javax.swing.JPanel {
     private void ajouterarretActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterarretActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ajouterarretActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel adressearret;
     private javax.swing.JButton ajouterarret;

@@ -25,6 +25,6 @@ public class TFE {
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.pack();
         jf.setVisible(true);
-        
+
     }
 }

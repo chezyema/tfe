@@ -6,30 +6,22 @@ package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
 
-
-
 /**
  *
  * @author yema
  */
 public class MaterielRoulant {
-    
+
     private int id;
-    
     private String marque;
-   
     private String type;
-   
     private String carburant;
-    
     private String numImmatr;
-     
     private int nbdeplaces;
-    
-    private  ArrayList <Entretien> lesentretiens; 
-    private  ArrayList <Chauffeur> Leschauffeurs; 
-    private  ArrayList <Circuit> lescircuits; 
-    private  ArrayList <UtilisationCarte> lesmemos; 
+    private ArrayList<Entretien> lesentretiens;
+    private ArrayList<Chauffeur> Leschauffeurs;
+    private ArrayList<Circuit> lescircuits;
+    private ArrayList<UtilisationCarte> lesmemos;
 
     public void setId(int id) {
         this.id = id;
@@ -94,9 +86,4 @@ public class MaterielRoulant {
     public void setLesMemos(ArrayList<UtilisationCarte> LesMemos) {
         this.lesmemos = LesMemos;
     }
-
-    
-
-    
-    
 }
