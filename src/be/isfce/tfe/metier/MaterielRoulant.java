@@ -18,10 +18,20 @@ public class MaterielRoulant {
     private String carburant;
     private String numImmatr;
     private int nbdeplaces;
+    private int kmactuel;
     private ArrayList<Entretien> lesentretiens;
     private ArrayList<Chauffeur> Leschauffeurs;
     private ArrayList<Circuit> lescircuits;
     private ArrayList<UtilisationCarte> lesmemos;
+    
+    
+    public int getKmactuel() {
+        return kmactuel;
+    }
+
+    public void setKmactuel(int kmactuel) {
+        this.kmactuel = kmactuel;
+    }
 
     public void setId(int id) {
         this.id = id;

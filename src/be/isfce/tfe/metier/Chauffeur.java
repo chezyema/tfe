@@ -16,6 +16,14 @@ public class Chauffeur {
     public Chauffeur() {
     }
 
+    public void setValiditercap(Date validitercap) {
+        this.validitercap = validitercap;
+    }
+
+    public Date getValiditercap() {
+        return validitercap;
+    }
+
     public void setLesCircuits(ArrayList<Circuit> LesCircuits) {
         this.lescircuits = LesCircuits;
     }
@@ -48,8 +56,33 @@ public class Chauffeur {
         return datedenaissance;
     }
 
-    public int getNumTelephone() {
+    public long getNumTelephone() {
         return numtelephone;
+    }
+
+    public void setCodepostale(long codepostale) {
+        this.codepostale = codepostale;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public void setValiditercartechauffeur(Date validitercartechauffeur) {
+        this.validitercartechauffeur = validitercartechauffeur;
+    }
+
+    public long getCodepostale() {
+        return codepostale;
+        
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public Date getValiditercartechauffeur() {
+        return validitercartechauffeur;
     }
 
     public String getEmail() {
@@ -80,7 +113,7 @@ public class Chauffeur {
         this.datedenaissance = DateNaissance;
     }
 
-    public void setNumTelephone(int NumTelephone) {
+    public void setNumTelephone(long NumTelephone) {
         this.numtelephone = NumTelephone;
     }
 
@@ -94,11 +127,15 @@ public class Chauffeur {
     private long id;
     private String nomchauffeur;
     private String prenomchauffeur;
-    private String adresse;
     private Date datedenaissance;
-    private int numtelephone;
+    private String adresse;
+    private long codepostale;
+    private String ville;
+    private long numtelephone;
     private String email;
     private Date selectionmedicale;
+    private Date validitercartechauffeur;
+    private Date validitercap;
     private ArrayList<Circuit> lescircuits;
     private ArrayList<MaterielRoulant> lesvehicules;
     private ArrayList<DocumentsAdministratifs> lesdocuments;

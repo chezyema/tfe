@@ -4,6 +4,9 @@
  */
 package be.isfce.tfe.vue;
 
+import be.isfce.tfe.metier.CarteCarburant;
+import be.isfce.tfe.metier.DocumentsAdministratifs;
+
 /**
  *
  * @author yema
@@ -29,9 +32,9 @@ public class AjoutDocumentsJPanell extends javax.swing.JPanel {
         iddocument = new javax.swing.JLabel();
         libelledocument = new javax.swing.JLabel();
         datedevaliditer = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        iddocumentTextField = new javax.swing.JTextField();
+        libelleTextField = new javax.swing.JTextField();
+        datevaliditerTextField = new javax.swing.JTextField();
         Ajouterdocument = new javax.swing.JToggleButton();
         Modifierdocument = new javax.swing.JToggleButton();
         supprimerdocument = new javax.swing.JToggleButton();
@@ -44,26 +47,31 @@ public class AjoutDocumentsJPanell extends javax.swing.JPanel {
 
         datedevaliditer.setText("Date de validiter:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        iddocumentTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                iddocumentTextFieldActionPerformed(evt);
             }
         });
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        libelleTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                libelleTextFieldActionPerformed(evt);
             }
         });
 
-        jTextField3.setText("jTextField3");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        datevaliditerTextField.setText("jTextField3");
+        datevaliditerTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                datevaliditerTextFieldActionPerformed(evt);
             }
         });
 
         Ajouterdocument.setText("Enregistrer");
+        Ajouterdocument.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AjouterdocumentActionPerformed(evt);
+            }
+        });
 
         Modifierdocument.setText("Reset");
 
@@ -96,9 +104,9 @@ public class AjoutDocumentsJPanell extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
-                                .addComponent(jTextField2)
-                                .addComponent(jTextField1)))
+                                .addComponent(datevaliditerTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+                                .addComponent(libelleTextField)
+                                .addComponent(iddocumentTextField)))
                         .addContainerGap(28, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -111,15 +119,15 @@ public class AjoutDocumentsJPanell extends javax.swing.JPanel {
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(iddocument)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(iddocumentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(libelledocument)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(libelleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(datedevaliditer)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(datevaliditerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Ajouterdocument)
@@ -129,26 +137,39 @@ public class AjoutDocumentsJPanell extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void iddocumentTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iddocumentTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_iddocumentTextFieldActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void libelleTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_libelleTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_libelleTextFieldActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void datevaliditerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datevaliditerTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_datevaliditerTextFieldActionPerformed
+
+    private void AjouterdocumentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjouterdocumentActionPerformed
+        // TODO add your handling code here:
+        DocumentsAdministratifs documents = new DocumentsAdministratifs();
+        String id = iddocumentTextField.getText();
+        documents.setId(Integer.valueOf(id));
+        System.out.println(id);
+        
+         String libelle = libelleTextField.getText();
+         documents.setLibelle(libelle);
+          System.out.println(libelle);
+    }//GEN-LAST:event_AjouterdocumentActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton Ajouterdocument;
     private javax.swing.JToggleButton Modifierdocument;
     private javax.swing.JLabel datedevaliditer;
+    private javax.swing.JTextField datevaliditerTextField;
     private javax.swing.JLabel iddocument;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField iddocumentTextField;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField libelleTextField;
     private javax.swing.JLabel libelledocument;
     private javax.swing.JToggleButton rechercherdocument;
     private javax.swing.JToggleButton supprimerdocument;

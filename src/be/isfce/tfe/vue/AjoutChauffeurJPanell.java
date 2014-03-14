@@ -5,6 +5,7 @@
 package be.isfce.tfe.vue;
 
 import be.isfce.tfe.metier.Chauffeur;
+import java.util.Date;
 
 /**
  *
@@ -47,6 +48,14 @@ public class AjoutChauffeurJPanell extends javax.swing.JPanel {
         modification = new javax.swing.JButton();
         retour = new javax.swing.JButton();
         enregistrerChauffeur = new javax.swing.JButton();
+        codepostale = new javax.swing.JLabel();
+        codepostaleTextField = new javax.swing.JTextField();
+        ville = new javax.swing.JLabel();
+        villeTextField = new javax.swing.JTextField();
+        validitercap = new javax.swing.JLabel();
+        validitercapTextField = new javax.swing.JTextField();
+        cartechauffeurLabel = new javax.swing.JLabel();
+        validitercartechauffeurTextField1 = new javax.swing.JTextField();
 
         idChauffeur.setText("registre national:");
 
@@ -92,6 +101,14 @@ public class AjoutChauffeurJPanell extends javax.swing.JPanel {
             }
         });
 
+        codepostale.setText("Code postale:");
+
+        ville.setText("Ville:");
+
+        validitercap.setText("Validiter CAP:");
+
+        cartechauffeurLabel.setText("Validiter carte chauffeur:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,80 +116,112 @@ public class AjoutChauffeurJPanell extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(validitercap)
+                            .addComponent(modification))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(enregistrerChauffeur)
+                                    .addComponent(retour))
+                                .addGap(254, 254, 254))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(97, 97, 97)
+                                .addComponent(validitercapTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(numChauffeur)
+                            .addComponent(idChauffeur)
+                            .addComponent(nomChauffeur)
+                            .addComponent(prenomChauffeur)
+                            .addComponent(dateChauffeur)
+                            .addComponent(AdresseChauffeur)
+                            .addComponent(ville)
                             .addComponent(smChauffeur)
-                            .addComponent(emailChauffeur, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                            .addComponent(emailChauffeur, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cartechauffeurLabel)
+                            .addComponent(numChauffeur))
+                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(numTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(prenomTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nomchauffeurTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(villeTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(emailTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
+                                .addComponent(smTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(registreNationalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idChauffeur)
-                                    .addComponent(nomChauffeur)
-                                    .addComponent(prenomChauffeur)
-                                    .addComponent(AdresseChauffeur)
-                                    .addComponent(dateChauffeur))
-                                .addGap(70, 70, 70)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(registreNationalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(dateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(numTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(smTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(adresseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(prenomTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nomchauffeurTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(modification)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(retour)
-                                .addGap(274, 274, 274)
-                                .addComponent(enregistrerChauffeur)))
-                        .addContainerGap(310, Short.MAX_VALUE))))
+                                .addComponent(adresseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(codepostale)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(codepostaleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(validitercartechauffeurTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(206, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idChauffeur)
-                    .addComponent(registreNationalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomChauffeur)
-                    .addComponent(nomchauffeurTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(prenomChauffeur)
-                    .addComponent(prenomTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(idChauffeur)
+                            .addComponent(registreNationalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nomChauffeur)
+                            .addComponent(nomchauffeurTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(prenomChauffeur)
+                            .addComponent(prenomTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dateChauffeur))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AdresseChauffeur)
+                            .addComponent(adresseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(codepostale)
+                            .addComponent(codepostaleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ville)
+                            .addComponent(villeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(numChauffeur)
+                            .addComponent(numTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailChauffeur))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(smChauffeur)
+                            .addComponent(smTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cartechauffeurLabel)
+                            .addComponent(validitercartechauffeurTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addComponent(validitercap))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(validitercapTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
+                .addComponent(retour)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AdresseChauffeur)
-                    .addComponent(adresseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dateChauffeur)
-                    .addComponent(dateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(numChauffeur, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(numTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(emailChauffeur)
-                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(smChauffeur)
-                    .addComponent(smTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(modification)
-                    .addComponent(retour)
-                    .addComponent(enregistrerChauffeur)))
+                    .addComponent(enregistrerChauffeur)
+                    .addComponent(modification))
+                .addGap(14, 14, 14))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -196,13 +245,62 @@ public class AjoutChauffeurJPanell extends javax.swing.JPanel {
             System.out.println("REGISTRE NATIONAL CORRECT");
         }
 
-        String nomchauffeur = nomchauffeurTextField.getText();
-        VerifString(nomchauffeur);
+        String nomChauffeur = nomchauffeurTextField.getText();
+        if(!VerifString(nomChauffeur)){
+             System.out.println(" NOM INCORRECT");}
+        else{
+            
+            chauffeur.setNomChauffeur(String.valueOf(nomChauffeur));
+            System.out.println("NOM CORRECT");
+        }
 
         String prenom = prenomTextField.getText();
-        VerifString(prenom);
+        if(!VerifString(prenom)){
+             System.out.println(" PRENOM INCORRECT");}
+        else{
+            
+            chauffeur.setPrenomChauffeur(String.valueOf(prenomChauffeur));
+            System.out.println("PRENOM CORRECT");
+        }
+        
 
         String adresse = adresseTextField.getText();
+        chauffeur.setAdresse(adresse);
+        
+        String codepostale = codepostaleTextField.getText();
+        if (!checkCodePostale(codepostale)) {
+            
+            System.out.println("CODE POSTALE INCORRECT");
+        } else {
+            chauffeur.setCodepostale(Long.valueOf(codepostale));
+            
+            System.out.println("CODE POSTALE CORRECT");
+        }
+        
+         String ville = villeTextField.getText();
+         VerifString(ville);
+         chauffeur.setVille(ville);
+         
+          String numtel = numTextField.getText();
+          checkNumTel(numtel);
+          numtel = numtel.replace("-", "");
+          numtel = numtel.replace(".", "");
+          numtel = numtel.replace("/", "");
+          chauffeur.setNumTelephone(Long.valueOf(numtel));
+          
+          String email = emailTextField.getText();
+          chauffeur.setEmail(email);
+          
+          
+          
+          
+      
+         
+        
+
+        
+        
+        
 
 
         //TODO A faire avec tous les attributs.
@@ -233,6 +331,50 @@ public class AjoutChauffeurJPanell extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_enregistrerChauffeurActionPerformed
+     private boolean checkCodePostale(String codepostale) {
+
+        if (codepostale == null || codepostale.isEmpty()) {
+            System.out.println("veuillez inserer une donnée svp");
+            return false;
+        }
+        if (codepostale.length()<= '4'&& codepostale.length()<'6') {
+            System.out.println("veuillez introduire le bon format");
+            return false;
+        }
+        try {
+            Long.valueOf(codepostale);
+        } catch (NumberFormatException e) {
+            System.out.println("Error");
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+
+
+
+    } 
+      private boolean checkNumTel(String numtel) {
+
+        if (numtel == null || numtel.isEmpty()) {
+            System.out.println("veuillez inserer une donnée svp");
+            return false;
+        }
+        if (numtel.length() != 9 || numtel.length()!= 10 ) {
+            System.out.println("veuillez introduire le bon format");
+            return false;
+        }
+        try {
+            Long.valueOf(numtel);
+        } catch (NumberFormatException e) {
+            System.out.println("Error");
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+
+
+
+    }                                                    
 
     private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
         // TODO add your handling code here:
@@ -261,6 +403,9 @@ public class AjoutChauffeurJPanell extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AdresseChauffeur;
     private javax.swing.JTextField adresseTextField;
+    private javax.swing.JLabel cartechauffeurLabel;
+    private javax.swing.JLabel codepostale;
+    private javax.swing.JTextField codepostaleTextField;
     private javax.swing.JLabel dateChauffeur;
     private javax.swing.JTextField dateTextField;
     private javax.swing.JLabel emailChauffeur;
@@ -278,5 +423,10 @@ public class AjoutChauffeurJPanell extends javax.swing.JPanel {
     private javax.swing.JButton retour;
     private javax.swing.JLabel smChauffeur;
     private javax.swing.JTextField smTextField;
+    private javax.swing.JLabel validitercap;
+    private javax.swing.JTextField validitercapTextField;
+    private javax.swing.JTextField validitercartechauffeurTextField1;
+    private javax.swing.JLabel ville;
+    private javax.swing.JTextField villeTextField;
     // End of variables declaration//GEN-END:variables
 }

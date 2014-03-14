@@ -23,20 +23,20 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="idcarte" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="kmutilisation" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="dateutilisation" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="litrecarburant" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextField3" alignment="0" pref="225" max="32767" attributes="0"/>
+                          <Component id="numcartecarburantTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="kmutilisationTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="litrecarburantTextField" alignment="0" pref="225" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="ajoutercarte" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                       <Component id="anulerinfo" min="-2" pref="91" max="-2" attributes="0"/>
-                      <EmptySpace pref="98" max="32767" attributes="0"/>
+                      <EmptySpace pref="104" max="32767" attributes="0"/>
                       <Component id="initialiser" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -50,17 +50,17 @@
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="idcarte" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="numcartecarburantTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="kmutilisation" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                  <Component id="kmutilisationTextField" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="dateutilisation" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="litrecarburant" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="litrecarburantTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -84,21 +84,24 @@
         <Property name="text" type="java.lang.String" value="Kmutilisation:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="dateutilisation">
+    <Component class="javax.swing.JLabel" name="litrecarburant">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Date utilisation:"/>
+        <Property name="text" type="java.lang.String" value="Litre de carburant:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="numcartecarburantTextField">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="kmutilisationTextField">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="litrecarburantTextField">
     </Component>
     <Component class="javax.swing.JButton" name="ajoutercarte">
       <Properties>
         <Property name="text" type="java.lang.String" value="Enregister"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ajoutercarteActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="anulerinfo">
       <Properties>

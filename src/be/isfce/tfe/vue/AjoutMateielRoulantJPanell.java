@@ -4,6 +4,10 @@
  */
 package be.isfce.tfe.vue;
 
+import be.isfce.tfe.metier.MaterielRoulant;
+
+
+
 /**
  *
  * @author yema
@@ -32,15 +36,17 @@ public class AjoutMateielRoulantJPanell extends javax.swing.JPanel {
         numimmatr = new javax.swing.JLabel();
         carburant = new javax.swing.JLabel();
         nbplaces = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        identifiantTextField = new javax.swing.JTextField();
+        marqueTextField = new javax.swing.JTextField();
+        typeTextField = new javax.swing.JTextField();
+        plaqueTextField = new javax.swing.JTextField();
+        carburantTextField = new javax.swing.JTextField();
+        nbdeplaceTextField = new javax.swing.JTextField();
         ajoutervehicule = new javax.swing.JToggleButton();
         modifiervehicule = new javax.swing.JToggleButton();
         supprimervehicule = new javax.swing.JToggleButton();
+        kilometrage = new javax.swing.JLabel();
+        kilometrageTextField = new javax.swing.JTextField();
 
         idvehicule.setText("Identifiant:");
 
@@ -54,19 +60,24 @@ public class AjoutMateielRoulantJPanell extends javax.swing.JPanel {
 
         nbplaces.setText("Nombres de Places:");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        marqueTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                marqueTextFieldActionPerformed(evt);
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        plaqueTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                plaqueTextFieldActionPerformed(evt);
             }
         });
 
         ajoutervehicule.setText("Enregistrer");
+        ajoutervehicule.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajoutervehiculeActionPerformed(evt);
+            }
+        });
 
         modifiervehicule.setText("Reset");
         modifiervehicule.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +87,8 @@ public class AjoutMateielRoulantJPanell extends javax.swing.JPanel {
         });
 
         supprimervehicule.setText("Annuler");
+
+        kilometrage.setText("Kilometrage:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -91,28 +104,32 @@ public class AjoutMateielRoulantJPanell extends javax.swing.JPanel {
                         .addGap(125, 125, 125)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(identifiantTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jTextField2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(numimmatr)
-                            .addComponent(typevehicule)
-                            .addComponent(carburant)
-                            .addComponent(nbplaces))
-                        .addGap(69, 69, 69)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4)))
+                            .addComponent(marqueTextField)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 48, Short.MAX_VALUE)
                         .addComponent(ajoutervehicule, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                         .addComponent(modifiervehicule, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61)
-                        .addComponent(supprimervehicule, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(supprimervehicule, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(numimmatr)
+                            .addComponent(typevehicule)
+                            .addComponent(carburant)
+                            .addComponent(nbplaces)
+                            .addComponent(kilometrage, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nbdeplaceTextField)
+                            .addComponent(carburantTextField)
+                            .addComponent(typeTextField)
+                            .addComponent(plaqueTextField)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(kilometrageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -121,28 +138,32 @@ public class AjoutMateielRoulantJPanell extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idvehicule)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(identifiantTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(marquevehicule)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(marqueTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(typevehicule)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(typeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numimmatr)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(plaqueTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(carburant)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(carburantTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nbplaces)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
+                    .addComponent(nbdeplaceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(kilometrage)
+                    .addComponent(kilometrageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ajoutervehicule)
                     .addComponent(modifiervehicule)
@@ -155,28 +176,106 @@ public class AjoutMateielRoulantJPanell extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_modifiervehiculeActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void marqueTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marqueTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_marqueTextFieldActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void plaqueTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plaqueTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_plaqueTextFieldActionPerformed
+
+    private void ajoutervehiculeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutervehiculeActionPerformed
+        // TODO add your handling code here:
+        MaterielRoulant materielroulant = new MaterielRoulant();
+        
+         String id = identifiantTextField.getText();
+        materielroulant.setId(Integer.valueOf(id));
+        System.out.println(id);
+        
+        
+
+        String marque = marqueTextField.getText();
+        if(!VerifString(marque)){
+             System.out.println(" MARQUE INCORRECT");}
+        else{
+            
+            materielroulant.setMarque(String.valueOf(marque));
+            System.out.println(marque);
+        }
+
+        String type = typeTextField.getText();
+        if(!VerifString(type)){
+             System.out.println("  TYPE INCORRECT");}
+        else{
+            
+            materielroulant.setType(String.valueOf(type));
+            System.out.println(type);
+        }
+        
+        String plaque = plaqueTextField.getText();
+        plaque = plaque.replace(".", "");
+        plaque = plaque.replace("-", "");
+        materielroulant.setNumImmatr(plaque);
+        System.out.println(plaque);
+        
+        
+          String carburant = carburantTextField.getText();
+        if(!VerifString(type)){
+             System.out.println("  Carburant INCORRECT");}
+        else{
+            
+            materielroulant.setType(String.valueOf(carburant));
+            System.out.println(carburant);
+        }
+        
+          String nbdeplace = nbdeplaceTextField.getText();
+        materielroulant.setNbDePlaces(Integer.valueOf(nbdeplace));
+        System.out.println(nbdeplace);
+        
+         String kilometrage = kilometrageTextField.getText();
+        materielroulant.setKmactuel(Integer.valueOf(nbdeplace));
+        System.out.println(kilometrage);
+        
+        
+        
+        
+
+    }//GEN-LAST:event_ajoutervehiculeActionPerformed
+  
+                
+      private boolean VerifString(String caractere) {
+        if (caractere == null || caractere.isEmpty()) {
+            System.out.println("veuillez inserer une donnée svp");
+            return false;
+        }
+        for (int i = 0; i < caractere.length(); i++) {
+            if (caractere.charAt(i) == '1' || caractere.charAt(i) == '2' || caractere.charAt(i) == '3' || caractere.charAt(i) == '4'
+                    || caractere.charAt(i) == '5' || caractere.charAt(i) == '6' || caractere.charAt(i) == '7' || caractere.charAt(i) == '8'
+                    || caractere.charAt(i) == '9' || caractere.charAt(i) == '0') {
+                System.out.println("veuillez rentrer une donnée correcte");
+
+                return false;
+            }
+        }
+        return true;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton ajoutervehicule;
     private javax.swing.JLabel carburant;
+    private javax.swing.JTextField carburantTextField;
+    private javax.swing.JTextField identifiantTextField;
     private javax.swing.JLabel idvehicule;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel kilometrage;
+    private javax.swing.JTextField kilometrageTextField;
+    private javax.swing.JTextField marqueTextField;
     private javax.swing.JLabel marquevehicule;
     private javax.swing.JToggleButton modifiervehicule;
+    private javax.swing.JTextField nbdeplaceTextField;
     private javax.swing.JLabel nbplaces;
     private javax.swing.JLabel numimmatr;
+    private javax.swing.JTextField plaqueTextField;
     private javax.swing.JToggleButton supprimervehicule;
+    private javax.swing.JTextField typeTextField;
     private javax.swing.JLabel typevehicule;
     // End of variables declaration//GEN-END:variables
 }

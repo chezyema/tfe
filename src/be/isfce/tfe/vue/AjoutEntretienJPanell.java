@@ -4,6 +4,9 @@
  */
 package be.isfce.tfe.vue;
 
+
+import be.isfce.tfe.metier.Entretien;
+
 /**
  *
  * @author yema
@@ -30,10 +33,10 @@ public class AjoutEntretienJPanell extends javax.swing.JPanel {
         description = new javax.swing.JLabel();
         kmactuel = new javax.swing.JLabel();
         dateentretien = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        identretienTextField = new javax.swing.JTextField();
+        descriptionTextField = new javax.swing.JTextField();
+        kmactuelTextField = new javax.swing.JTextField();
+        dateentretienTextField = new javax.swing.JTextField();
         ajouter = new javax.swing.JToggleButton();
         modifier = new javax.swing.JToggleButton();
         supprimer = new javax.swing.JToggleButton();
@@ -47,6 +50,11 @@ public class AjoutEntretienJPanell extends javax.swing.JPanel {
         dateentretien.setText("Date entretien:");
 
         ajouter.setText("Enregistrer");
+        ajouter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajouterActionPerformed(evt);
+            }
+        });
 
         modifier.setText("Reset");
 
@@ -74,10 +82,10 @@ public class AjoutEntretienJPanell extends javax.swing.JPanel {
                             .addComponent(dateentretien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE))
+                            .addComponent(identretienTextField)
+                            .addComponent(descriptionTextField)
+                            .addComponent(kmactuelTextField)
+                            .addComponent(dateentretienTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -87,19 +95,19 @@ public class AjoutEntretienJPanell extends javax.swing.JPanel {
                 .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(identretien)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(identretienTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(description)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(descriptionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kmactuel)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kmactuelTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dateentretien)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dateentretienTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ajouter)
@@ -108,16 +116,56 @@ public class AjoutEntretienJPanell extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ajouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterActionPerformed
+        // TODO add your handling code here:
+        Entretien entretien = new Entretien();
+        String identretien = identretienTextField.getText();
+        entretien.setId(Integer.valueOf(identretien));
+        System.out.println(identretien);
+        
+          String description = descriptionTextField.getText();
+        if(!VerifString(description)){
+             System.out.println(" NOM INCORRECT");}
+        else{
+            
+            entretien.setDescription(String.valueOf(description));
+            System.out.println(description);
+        }
+        
+        String kmactuel = kmactuelTextField.getText();
+        entretien.setKmEntretienFait(Integer.valueOf(kmactuel));
+        System.out.println(kmactuel);
+        
+
+        
+    }//GEN-LAST:event_ajouterActionPerformed
+private boolean VerifString(String caractere) {
+        if (caractere == null || caractere.isEmpty()) {
+            System.out.println("veuillez inserer une donnée svp");
+            return false;
+        }
+        for (int i = 0; i < caractere.length(); i++) {
+            if (caractere.charAt(i) == '1' || caractere.charAt(i) == '2' || caractere.charAt(i) == '3' || caractere.charAt(i) == '4'
+                    || caractere.charAt(i) == '5' || caractere.charAt(i) == '6' || caractere.charAt(i) == '7' || caractere.charAt(i) == '8'
+                    || caractere.charAt(i) == '9' || caractere.charAt(i) == '0') {
+                System.out.println("veuillez rentrer une donnée correcte");
+
+                return false;
+            }
+        }
+        return true;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton ajouter;
     private javax.swing.JLabel dateentretien;
+    private javax.swing.JTextField dateentretienTextField;
     private javax.swing.JLabel description;
+    private javax.swing.JTextField descriptionTextField;
     private javax.swing.JLabel identretien;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField identretienTextField;
     private javax.swing.JLabel kmactuel;
+    private javax.swing.JTextField kmactuelTextField;
     private javax.swing.JToggleButton modifier;
     private javax.swing.JToggleButton supprimer;
     // End of variables declaration//GEN-END:variables

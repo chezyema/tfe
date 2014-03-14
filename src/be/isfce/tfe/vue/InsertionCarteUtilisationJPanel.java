@@ -27,13 +27,13 @@ public class InsertionCarteUtilisationJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         dateutiliqation = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        dateutilisationTextField = new javax.swing.JTextField();
         enregistrer = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         dateutiliqation.setText("Date utilisation:");
 
-        jTextField1.setText("jTextField1");
+        dateutilisationTextField.setText("jTextField1");
 
         enregistrer.setText("Enregistrer");
 
@@ -47,7 +47,7 @@ public class InsertionCarteUtilisationJPanel extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addComponent(dateutiliqation)
                 .addGap(35, 35, 35)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dateutilisationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(63, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -62,7 +62,7 @@ public class InsertionCarteUtilisationJPanel extends javax.swing.JPanel {
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dateutiliqation)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dateutilisationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addComponent(enregistrer)
                 .addGap(18, 18, 18)
@@ -72,8 +72,8 @@ public class InsertionCarteUtilisationJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dateutiliqation;
+    private javax.swing.JTextField dateutilisationTextField;
     private javax.swing.JButton enregistrer;
     private javax.swing.JButton jButton1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

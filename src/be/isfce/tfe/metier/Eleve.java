@@ -10,17 +10,19 @@ package be.isfce.tfe.metier;
  */
 public class Eleve {
 
-    private int id;
+    private long id;
     private String nomeleve;
     private String prenomeleve;
     private String adresseeleve;
+    private int cdpostal;
+    private String vil;
     private String nomresponsable;
     private int telresponsable;
     private String emailresponsable;
     private Ecole coordonnee;
     private Circuit empreinter;
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -56,7 +58,7 @@ public class Eleve {
         this.empreinter = Empreinter;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -70,6 +72,22 @@ public class Eleve {
 
     public String getAdresseEleve() {
         return adresseeleve;
+    }
+
+    public int getCdpostal() {
+        return cdpostal;
+    }
+
+    public void setCdpostal(int cdpostal) {
+        this.cdpostal = cdpostal;
+    }
+
+    public void setVil(String vil) {
+        this.vil = vil;
+    }
+
+    public String getVil() {
+        return vil;
     }
 
     public String getNomResponsable() {

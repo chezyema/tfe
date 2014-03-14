@@ -17,15 +17,13 @@ public class DocumentsAdministratifs {
     private String libelle;
     private Date DateValiditer;
     private ArrayList<Chauffeur> leschauffeurs;
-    private ArrayList<MaterielRoulant> lesvehicules;
+    private MaterielRoulant document;
 
     public void setLeschauffeurs(ArrayList<Chauffeur> leschauffeurs) {
         this.leschauffeurs = leschauffeurs;
     }
 
-    public void setLesvehicules(ArrayList<MaterielRoulant> lesvehicules) {
-        this.lesvehicules = lesvehicules;
-    }
+    
 
     public void setId(int id) {
         this.id = id;
@@ -51,11 +49,19 @@ public class DocumentsAdministratifs {
         return DateValiditer;
     }
 
-    public void setLesChauffeurs(ArrayList<Chauffeur> LesChauffeurs) {
-        this.leschauffeurs = LesChauffeurs;
+    public ArrayList<Chauffeur> getLeschauffeurs() {
+        return leschauffeurs;
     }
 
-    public void setLesVehicules(ArrayList<MaterielRoulant> LesVehicules) {
-        this.lesvehicules = LesVehicules;
+    
+
+    public MaterielRoulant getDocument() {
+        return document;
     }
+
+    public void setDocument(MaterielRoulant document) {
+        this.document = document;
+    }
+
+    
 }

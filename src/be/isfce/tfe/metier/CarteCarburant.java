@@ -15,6 +15,7 @@ public class CarteCarburant {
     private int id;
     private int kmutilisation;
     private int litrecarburant;
+   
     private ArrayList<UtilisationCarte> lesutilisations;
 
     public void setId(int id) {

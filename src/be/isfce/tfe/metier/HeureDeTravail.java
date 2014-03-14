@@ -32,10 +32,7 @@ public class HeureDeTravail {
         return heuredefin;
     }
 
-    public HeureDeTravail(String HeureDeDebut, String HeureDeFin) {
-        this.heurededebut = HeureDeDebut;
-        this.heuredefin = HeureDeFin;
-    }
+    
 
     public void setLesCircuits(ArrayList<Circuit> LesCircuits) {
         this.lescircuits = LesCircuits;
