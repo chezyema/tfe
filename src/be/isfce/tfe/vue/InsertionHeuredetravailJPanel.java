@@ -4,6 +4,7 @@
  */
 package be.isfce.tfe.vue;
 
+import be.isfce.tfe.db.HeureDETravailDBHelper;
 import be.isfce.tfe.metier.HeureDeTravail;
 
 /**
@@ -34,6 +35,8 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
         heuredefinTextField = new javax.swing.JTextField();
         enregistrer = new javax.swing.JButton();
         annulerheuredetravail = new javax.swing.JButton();
+        numeroopeartion = new javax.swing.JLabel();
+        idheureTextField = new javax.swing.JTextField();
 
         heurededebut.setText("Heure de debut:");
 
@@ -48,31 +51,40 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
 
         annulerheuredetravail.setText("Annuler");
 
+        numeroopeartion.setText("Numero operation:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(heurededebut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(heuredefin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(heurededebutTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                    .addComponent(heuredefinTextField))
-                .addContainerGap(13, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(enregistrer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(annulerheuredetravail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(heuredefin, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(numeroopeartion)
+                            .addComponent(heurededebut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(heurededebutTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addComponent(heuredefinTextField)
+                            .addComponent(idheureTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(enregistrer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(annulerheuredetravail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numeroopeartion)
+                    .addComponent(idheureTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(heurededebut)
                     .addComponent(heurededebutTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -80,7 +92,7 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(heuredefin)
                     .addComponent(heuredefinTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(enregistrer)
                 .addGap(18, 18, 18)
                 .addComponent(annulerheuredetravail)
@@ -90,7 +102,15 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
 
     private void enregistrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enregistrerActionPerformed
         // TODO add your handling code here:
+        
+        
+        
          HeureDeTravail heuredetravail = new HeureDeTravail();
+         
+         String idheure = idheureTextField.getText();
+         heuredetravail.setIdheuredetravail(0);
+        System.out.println( idheure );
+         
          String heurededebut = heurededebutTextField.getText();
          heuredetravail.setHeureDeDebut(String.valueOf(heurededebut));
          System.out.println(heurededebut);
@@ -98,7 +118,10 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
          String heuredefin = heuredefinTextField.getText();
          heuredetravail.setHeureDeFin(String.valueOf(heuredefin));
          System.out.println(heuredefin);
-
+        
+         
+         HeureDETravailDBHelper.addHeureDeTravail(heuredetravail); 
+       //  HeureDETravailDBHelper.selectHeureDeTravail(heuredetravail);
     }//GEN-LAST:event_enregistrerActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -108,5 +131,7 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField heurededebutTextField;
     private javax.swing.JLabel heuredefin;
     private javax.swing.JTextField heuredefinTextField;
+    private javax.swing.JTextField idheureTextField;
+    private javax.swing.JLabel numeroopeartion;
     // End of variables declaration//GEN-END:variables
 }

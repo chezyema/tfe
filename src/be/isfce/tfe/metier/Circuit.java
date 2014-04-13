@@ -82,4 +82,9 @@ public class Circuit {
         this.DateCircuit = DateCircuit;
     }
     private Date DateCircuit;
+
+    @Override
+    public String toString() {
+        return "Circuit{" + "id=" + id + ", nomcircuit=" + nomcircuit + ", tempsprevu=" + tempsprevu + ", kmdepart=" + kmdepart + ", kmfin=" + kmfin + ", lesarrets=" + lesarrets + ", leschauffeurs=" + leschauffeurs + ", leseleves=" + leseleves + ", DateCircuit=" + DateCircuit + '}';
+    }
 }

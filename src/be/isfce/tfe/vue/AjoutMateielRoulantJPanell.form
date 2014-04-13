@@ -19,44 +19,55 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="marquevehicule" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="idvehicule" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="identifiantTextField" min="-2" pref="193" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="marqueTextField" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="0" pref="48" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="ajoutervehicule" min="-2" pref="114" max="-2" attributes="0"/>
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="modifiervehicule" min="-2" pref="134" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                       <Component id="supprimervehicule" min="-2" pref="119" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+                      <Component id="datevaliterextincteur" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="validiterexctincteur" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="numimmatr" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="typevehicule" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="anneedeconstructionjllabel" min="-2" max="-2" attributes="0"/>
                           <Component id="carburant" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="nbplaces" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="kilometrage" alignment="0" min="-2" pref="94" max="-2" attributes="0"/>
+                          <Component id="numimmatr" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="nbdeplaceTextField" max="32767" attributes="0"/>
-                          <Component id="carburantTextField" max="32767" attributes="0"/>
-                          <Component id="typeTextField" max="32767" attributes="0"/>
-                          <Component id="plaqueTextField" alignment="0" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="plaqueTextField" max="32767" attributes="0"/>
+                          <Component id="carburantTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="typeTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="nbdeplaceTextField" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="kilometrageTextField" min="-2" pref="209" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="kilometrageTextField" min="-2" pref="209" max="-2" attributes="0"/>
+                                  <Component id="anneeconstruction" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="38" pref="38" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="marquevehicule" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="idvehicule" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="marqueTextField" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="identifiantTextField" min="-2" pref="193" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -84,27 +95,42 @@
                   <Component id="typevehicule" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="typeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="numimmatr" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="plaqueTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="anneedeconstructionjllabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="anneeconstruction" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="numimmatr" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="plaqueTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="carburant" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="carburantTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nbplaces" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nbdeplaceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="kilometrage" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="kilometrageTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="28" max="32767" attributes="0"/>
+                      <Component id="datevaliterextincteur" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="validiterexctincteur" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="carburant" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="carburantTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nbplaces" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nbdeplaceTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="kilometrage" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="kilometrageTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="115" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="ajoutervehicule" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="modifiervehicule" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -118,7 +144,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="idvehicule">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Identifiant:"/>
+        <Property name="text" type="java.lang.String" value="Numero de chassis:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="marquevehicule">
@@ -191,6 +217,20 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="kilometrageTextField">
+    </Component>
+    <Component class="javax.swing.JLabel" name="anneedeconstructionjllabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Annee de construction:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="datevaliterextincteur">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Date validiter exctincteur:"/>
+      </Properties>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="validiterexctincteur">
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="anneeconstruction">
     </Component>
   </SubComponents>
 </Form>

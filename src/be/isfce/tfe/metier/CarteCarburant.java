@@ -18,6 +18,8 @@ public class CarteCarburant {
    
     private ArrayList<UtilisationCarte> lesutilisations;
 
+    
+
     public void setId(int id) {
         this.id = id;
     }

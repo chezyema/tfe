@@ -5,6 +5,7 @@
 package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -12,13 +13,15 @@ import java.util.ArrayList;
  */
 public class MaterielRoulant {
 
-    private int id;
+    private String id;
     private String marque;
     private String type;
     private String carburant;
     private String numImmatr;
     private int nbdeplaces;
     private int kmactuel;
+    private Date anneedeconstruction;
+    private Date dateexctincteur;
     private ArrayList<Entretien> lesentretiens;
     private ArrayList<Chauffeur> Leschauffeurs;
     private ArrayList<Circuit> lescircuits;
@@ -33,7 +36,7 @@ public class MaterielRoulant {
         this.kmactuel = kmactuel;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -55,9 +58,28 @@ public class MaterielRoulant {
 
     public void setNbDePlaces(int NbDePlaces) {
         this.nbdeplaces = NbDePlaces;
+        
     }
 
-    public int getId() {
+    public Date getAnneedeconstruction() {
+        return anneedeconstruction;
+    }
+
+    public Date getDateexctincteur() {
+        return dateexctincteur;
+    }
+
+    public void setAnneedeconstruction(Date anneedeconstruction) {
+        this.anneedeconstruction = anneedeconstruction;
+    }
+
+    public void setDateexctincteur(Date dateexctincteur) {
+        this.dateexctincteur = dateexctincteur;
+    }
+    
+    
+
+    public String getId() {
         return id;
     }
 

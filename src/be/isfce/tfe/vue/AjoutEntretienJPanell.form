@@ -26,20 +26,28 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="supprimer" min="-2" pref="164" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="identretien" max="32767" attributes="0"/>
-                          <Component id="description" alignment="1" max="32767" attributes="0"/>
-                          <Component id="kmactuel" alignment="1" max="32767" attributes="0"/>
-                          <Component id="dateentretien" alignment="1" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="identretien" max="32767" attributes="0"/>
+                              <Component id="description" alignment="1" max="32767" attributes="0"/>
+                              <Component id="kmactuel" alignment="1" max="32767" attributes="0"/>
+                              <Component id="dateentretien" alignment="1" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="identretienTextField" max="32767" attributes="0"/>
-                          <Component id="descriptionTextField" max="32767" attributes="0"/>
-                          <Component id="kmactuelTextField" max="32767" attributes="0"/>
-                          <Component id="dateentretienTextField" pref="258" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="identretienTextField" pref="258" max="32767" attributes="0"/>
+                              <Component id="descriptionTextField" max="32767" attributes="0"/>
+                              <Component id="kmactuelTextField" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="idvehiculeTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="dateentretienfait" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -66,12 +74,17 @@
                   <Component id="kmactuel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="kmactuelTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="dateentretien" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="dateentretienTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="dateentretien" min="-2" max="-2" attributes="0"/>
+                  <Component id="dateentretienfait" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="185" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="idvehiculeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="138" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="ajouter" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="modifier" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -109,8 +122,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="kmactuelTextField">
     </Component>
-    <Component class="javax.swing.JTextField" name="dateentretienTextField">
-    </Component>
     <Component class="javax.swing.JToggleButton" name="ajouter">
       <Properties>
         <Property name="text" type="java.lang.String" value="Enregistrer"/>
@@ -128,6 +139,15 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Annuler"/>
       </Properties>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="dateentretienfait">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Identifiant vehicule:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="idvehiculeTextField">
     </Component>
   </SubComponents>
 </Form>

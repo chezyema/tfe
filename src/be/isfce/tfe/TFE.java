@@ -15,6 +15,12 @@ import be.isfce.tfe.vue.AjoutEntretienJPanell;
 import be.isfce.tfe.vue.AjoutMateielRoulantJPanell;
 import be.isfce.tfe.vue.InsertionCarteUtilisationJPanel;
 import be.isfce.tfe.vue.InsertionHeuredetravailJPanel;
+import be.isfce.tfe.vue.AssociationvehiculechauffeurJPanell;
+import be.isfce.tfe.vue.AtravaillerJPanell;
+import be.isfce.tfe.vue.CarburantUtilisationJPanell;
+import be.isfce.tfe.vue.ContientJPanell;
+import be.isfce.tfe.vue.EstEffectuerJPanell;
+import be.isfce.tfe.vue.MrutilisationJPanell;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -40,8 +46,14 @@ public class TFE {
         JPanel jph = new AjoutMateielRoulantJPanell();
         JPanel jpi = new InsertionCarteUtilisationJPanel();
         JPanel jpj = new InsertionHeuredetravailJPanel();
+        JPanel jpk = new AssociationvehiculechauffeurJPanell();
+        JPanel jpl = new MrutilisationJPanell();
+        JPanel jpm = new EstEffectuerJPanell();
+        JPanel jpn = new ContientJPanell();
+        JPanel jpo = new CarburantUtilisationJPanell();
+        JPanel jpp = new AtravaillerJPanell();
         JFrame jf = new JFrame();
-        jf.add(jpf);
+        jf.add(jpg);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.pack();
         jf.setVisible(true);

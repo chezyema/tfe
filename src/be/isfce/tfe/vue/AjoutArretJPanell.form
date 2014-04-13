@@ -78,7 +78,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="adressearret">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Adresse arret:"/>
+        <Property name="text" type="java.lang.String" value="Adresse Arret:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="ajouterarret">

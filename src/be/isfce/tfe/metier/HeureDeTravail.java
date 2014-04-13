@@ -12,6 +12,16 @@ import java.util.ArrayList;
  */
 public class HeureDeTravail {
 
+    public void setIdheuredetravail(int idheuredetravail) {
+        this.idheuredetravail = idheuredetravail;
+    }
+
+    
+
+    public int getIdheuredetravail() {
+        return idheuredetravail;
+    }
+     private int idheuredetravail;
     private String heurededebut;
     private String heuredefin;
     private ArrayList<Circuit> lescircuits;
@@ -30,6 +40,11 @@ public class HeureDeTravail {
 
     public String getHeureDeFin() {
         return heuredefin;
+    }
+
+    @Override
+    public String toString() {
+        return "HeureDeTravail{" + "idheuredetravail=" + idheuredetravail + ", heurededebut=" + heurededebut + ", heuredefin=" + heuredefin + ", lescircuits=" + lescircuits + '}';
     }
 
     

@@ -15,9 +15,27 @@ public class Ecole {
     private int id;
     private String nomecole;
     private String adresseecole;
+    private int cdpostal;
+    private String vil;
     private int telecole;
     private String emailecole;
     private String nomdirecteur;
+
+    public int getCdpostal() {
+        return cdpostal;
+    }
+
+    public void setCdpostal(int cdpostal) {
+        this.cdpostal = cdpostal;
+    }
+
+    public void setVil(String vil) {
+        this.vil = vil;
+    }
+
+    public String getVil() {
+        return vil;
+    }
     private String anneescolaire;
     private ArrayList<Eleve> leseleves;
 
@@ -27,6 +45,34 @@ public class Ecole {
 
     public void setAdresseecole(String adresseecole) {
         this.adresseecole = adresseecole;
+    }
+
+    public String getNomecole() {
+        return nomecole;
+    }
+
+    public String getAdresseecole() {
+        return adresseecole;
+    }
+
+    public int getTelecole() {
+        return telecole;
+    }
+
+    public String getEmailecole() {
+        return emailecole;
+    }
+
+    public String getNomdirecteur() {
+        return nomdirecteur;
+    }
+
+    public String getAnneescolaire() {
+        return anneescolaire;
+    }
+
+    public ArrayList<Eleve> getLeseleves() {
+        return leseleves;
     }
 
     public void setTelecole(int telecole) {

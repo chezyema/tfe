@@ -4,25 +4,54 @@
  */
 package be.isfce.tfe.metier;
 
+import java.util.Date;
+
 /**
  *
  * @author yema
  */
 public class Eleve {
 
-    private long id;
+    private String id;
+
+    public void setDatedenaissance(Date datedenaissance) {
+        this.datedenaissance = datedenaissance;
+    }
+
+    public void setIdcircuit(int idcircuit) {
+        this.idcircuit = idcircuit;
+    }
+
+    public void setIdecole(int idecole) {
+        this.idecole = idecole;
+    }
     private String nomeleve;
     private String prenomeleve;
     private String adresseeleve;
+
+    public int getIdcircuit() {
+        return idcircuit;
+    }
+
+    public int getIdecole() {
+        return idecole;
+    }
+    private Date datedenaissance;
     private int cdpostal;
     private String vil;
     private String nomresponsable;
     private int telresponsable;
+    private int idcircuit;
+    private int idecole;
+
+    public Date getDatedenaissance() {
+        return datedenaissance;
+    }
     private String emailresponsable;
     private Ecole coordonnee;
     private Circuit empreinter;
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -58,7 +87,7 @@ public class Eleve {
         this.empreinter = Empreinter;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 

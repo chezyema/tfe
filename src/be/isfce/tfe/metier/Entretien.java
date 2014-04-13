@@ -13,9 +13,18 @@ import java.util.Date;
 public class Entretien {
 
     private int id;
+
+    public String getIdmaterielroulant() {
+        return idmaterielroulant;
+    }
+
+    public void setIdmaterielroulant(String idmaterielroulant) {
+        this.idmaterielroulant = idmaterielroulant;
+    }
     private String description;
     private int kmEntretienFait;
     private Date dateEntretien;
+    private String idmaterielroulant;
     private MaterielRoulant coordonnee;
 
     public int getId() {

@@ -56,11 +56,11 @@ public class Chauffeur {
         return datedenaissance;
     }
 
-    public long getNumTelephone() {
+    public int getNumTelephone() {
         return numtelephone;
     }
 
-    public void setCodepostale(long codepostale) {
+    public void setCodepostale(int codepostale) {
         this.codepostale = codepostale;
     }
 
@@ -72,7 +72,7 @@ public class Chauffeur {
         this.validitercartechauffeur = validitercartechauffeur;
     }
 
-    public long getCodepostale() {
+    public int getCodepostale() {
         return codepostale;
         
     }
@@ -89,9 +89,11 @@ public class Chauffeur {
         return email;
     }
 
-    public Date getSelectionMesicale() {
+    public Date getSelectionmedicale() {
         return selectionmedicale;
     }
+
+    
 
     public void setId(long id) {
         this.id = id;
@@ -113,7 +115,7 @@ public class Chauffeur {
         this.datedenaissance = DateNaissance;
     }
 
-    public void setNumTelephone(long NumTelephone) {
+    public void setNumTelephone(int NumTelephone) {
         this.numtelephone = NumTelephone;
     }
 
@@ -129,9 +131,9 @@ public class Chauffeur {
     private String prenomchauffeur;
     private Date datedenaissance;
     private String adresse;
-    private long codepostale;
+    private int codepostale;
     private String ville;
-    private long numtelephone;
+    private int numtelephone;
     private String email;
     private Date selectionmedicale;
     private Date validitercartechauffeur;

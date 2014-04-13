@@ -5,7 +5,7 @@
 package be.isfce.tfe.vue;
 
 import be.isfce.tfe.metier.CarteCarburant;
-
+import be.isfce.tfe.db.CarteCarburantDBHelper;
 /**
  *
  * @author yema
@@ -117,8 +117,10 @@ public class AjoutCarteCarburantJPanell extends javax.swing.JPanel {
         // TODO add your handling code here:
         CarteCarburant cartecarburant = new CarteCarburant();
         String id = numcartecarburantTextField.getText();
-        cartecarburant.setId(Integer.valueOf(id));
+        cartecarburant.setId(0);
         System.out.println(id);
+        
+       
         
         String kmutilisation = kmutilisationTextField.getText();
         cartecarburant.setKmUtilisation(Integer.valueOf(kmutilisation));
@@ -128,6 +130,8 @@ public class AjoutCarteCarburantJPanell extends javax.swing.JPanel {
         cartecarburant.setLitreCarburant(Integer.valueOf(litrecarburant));
         System.out.println(litrecarburant);
         
+          CarteCarburantDBHelper.addCarteCarburant(cartecarburant);
+        // CarteCarburantDBHelper.selectCarteCarburant(cartecarburant);
        
         
     }//GEN-LAST:event_ajoutercarteActionPerformed

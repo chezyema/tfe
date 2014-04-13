@@ -4,6 +4,7 @@
  */
 package be.isfce.tfe.vue;
 
+import be.isfce.tfe.db.ArretDBHelper;
 import be.isfce.tfe.metier.Arret;
 
 /**
@@ -38,7 +39,7 @@ public class AjoutArretJPanell extends javax.swing.JPanel {
 
         idarret.setText("Identifiant Arret: ");
 
-        adressearret.setText("Adresse arret:");
+        adressearret.setText("Adresse Arret:");
 
         ajouterarret.setText("Enregistrer");
         ajouterarret.addActionListener(new java.awt.event.ActionListener() {
@@ -103,13 +104,15 @@ public class AjoutArretJPanell extends javax.swing.JPanel {
         // TODO add your handling code here:
         Arret arret = new Arret();
         String idarret = idarretTextField.getText();
-        arret.setId(Integer.valueOf(idarret));
+        arret.setId(0);
         System.out.println(idarret);
         
         String adressearret = adressearretTextField.getText();
         arret.setAdresse(adressearret);
         System.out.println(adressearret);
-         
+        ArretDBHelper.addArret(arret);
+        ArretDBHelper.selectArret(arret);
+ 
         
     }//GEN-LAST:event_ajouterarretActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
