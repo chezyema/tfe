@@ -1,5 +1,7 @@
 
 package be.isfce.tfe.vue;
+import be.isfce.tfe.controleur.EleveControleur;
+import be.isfce.tfe.controleur.ValidationException;
 import be.isfce.tfe.metier.Eleve;
 import be.isfce.tfe.db.EleveDBHelper;
 import be.isfce.tfe.validation.ChauffeurValidation;
@@ -8,6 +10,7 @@ import be.isfce.tfe.validation.EmailValidation;
 import be.isfce.tfe.validation.NumTelValidation;
 import be.isfce.tfe.validation.StringValidation;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /*
  * To change this template, choose Tools | Templates
@@ -60,6 +63,8 @@ public class AjoutEleveJPanel extends javax.swing.JPanel {
         villeTextField = new javax.swing.JTextField();
         cdpostalTextField = new javax.swing.JTextField();
         cdpostale = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        eleveDateChooser = new com.toedter.calendar.JDateChooser();
 
         registrenational.setText("Registre National:");
 
@@ -93,7 +98,7 @@ public class AjoutEleveJPanel extends javax.swing.JPanel {
             }
         });
 
-        reset.setText("Reset");
+        reset.setText("Modifier");
 
         enregistreleve.setText("Enregistrer");
         enregistreleve.addActionListener(new java.awt.event.ActionListener() {
@@ -108,57 +113,57 @@ public class AjoutEleveJPanel extends javax.swing.JPanel {
 
         cdpostale.setText("Code postale:");
 
+        jLabel1.setText("Date de naissance:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(registrenational)
                             .addComponent(nom)
                             .addComponent(prenom)
-                            .addComponent(adresse))
-                        .addGap(29, 29, 29)
+                            .addComponent(adresse)
+                            .addComponent(nomduresponsable)
+                            .addComponent(telephoneresponsable)
+                            .addComponent(ville)
+                            .addComponent(cdpostale)
+                            .addComponent(jLabel1))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(292, 292, 292)
-                                .addComponent(enregistreleve, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                                .addContainerGap())
+                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cdpostalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nomresponsableTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                                    .addComponent(telresponsableTextField)
+                                    .addComponent(eleveDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(prenomeleveTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                        .addComponent(adresseTextField, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(villeTextField)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(nomeleveTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(registreNationalTextField))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(registreNationalTextField)
-                                        .addComponent(nomeleveTextField)
-                                        .addComponent(prenomeleveTextField)
-                                        .addComponent(adresseTextField)
-                                        .addComponent(nomresponsableTextField)
-                                        .addComponent(telresponsableTextField)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(villeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(cdpostale)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(cdpostalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(emailresponsableTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(annulerdonnee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(32, 32, 32)
+                                .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(enregistreleve, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(reset)
-                                .addGap(346, 346, 346)
-                                .addComponent(annulerdonnee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ville)
-                                    .addComponent(nomduresponsable)
-                                    .addComponent(telephoneresponsable)
-                                    .addComponent(emailresponsable))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                                .addComponent(emailresponsable)
+                                .addGap(68, 68, 68)
+                                .addComponent(emailresponsableTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(160, 160, 160))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,43 +176,44 @@ public class AjoutEleveJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nom)
                     .addComponent(nomeleveTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(prenom)
                     .addComponent(prenomeleveTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(adresse)
-                    .addComponent(adresseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(ville))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(villeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cdpostalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cdpostale))))
-                .addGap(29, 29, 29)
+                    .addComponent(jLabel1)
+                    .addComponent(eleveDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomduresponsable)
-                    .addComponent(nomresponsableTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                    .addComponent(adresseTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adresse))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cdpostale)
+                    .addComponent(cdpostalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(villeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ville))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomresponsableTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomduresponsable))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telephoneresponsable)
                     .addComponent(telresponsableTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailresponsable)
                     .addComponent(emailresponsableTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
-                .addComponent(enregistreleve)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enregistreleve)
                     .addComponent(annulerdonnee)
                     .addComponent(reset))
-                .addContainerGap())
+                .addGap(65, 65, 65))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -258,6 +264,13 @@ public class AjoutEleveJPanel extends javax.swing.JPanel {
             eleve.setPrenomEleve(String.valueOf(prenomeleve));
             System.out.println(prenomeleve);
         }
+        Date dateNaissance = eleveDateChooser.getDate();
+       if(dateNaissance != null){
+            eleve.setDatedenaissance(dateNaissance);
+            System.out.println(dateNaissance);
+        }else{
+            System.out.println("DATE NAISSANCE INCORRECTE");
+        }
         
 
         String adresseeleve = adresseTextField.getText();
@@ -299,16 +312,7 @@ public class AjoutEleveJPanel extends javax.swing.JPanel {
           System.out.println(telresponsable);
           
           String emailresponsable = emailresponsableTextField.getText();
-          /* Date dateNaissance = dateChooser.getDate();
-       if(dateNaissance != null){
-            eleve.setDateNaissance(dateNaissance);
-            System.out.println(dateNaissance);
-        }else{
-            System.out.println("DATE NAISSANCE INCORRECTE");
-        }
-          */
-          
-         if (!EmailValidation.validateEmailAddress(emailresponsable)) {
+          if (!EmailValidation.validateEmailAddress(emailresponsable)) {
             
             System.out.println("EMAIL INCORRECT");
         } else {
@@ -317,12 +321,22 @@ public class AjoutEleveJPanel extends javax.swing.JPanel {
             System.out.println("EMAIL CORRECT");
             System.out.println(emailresponsable);  
         }
+           try {
+             EleveControleur.estValide(eleve);
+             EleveDBHelper.addEleve(eleve);
+             EleveDBHelper.selectEleve(eleve);
+            } 
+        catch (ValidationException ex) {
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(),
+                    "Erreur",
+                    JOptionPane.ERROR_MESSAGE);
+           }
       
         
           
          
-           EleveDBHelper.addEleve(eleve);
-           EleveDBHelper.selectEleve(eleve);
+          
     }//GEN-LAST:event_enregistreleveActionPerformed
                                              
   
@@ -333,9 +347,11 @@ public class AjoutEleveJPanel extends javax.swing.JPanel {
     private javax.swing.JButton annulerdonnee;
     private javax.swing.JTextField cdpostalTextField;
     private javax.swing.JLabel cdpostale;
+    private com.toedter.calendar.JDateChooser eleveDateChooser;
     private javax.swing.JLabel emailresponsable;
     private javax.swing.JTextField emailresponsableTextField;
     private javax.swing.JButton enregistreleve;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel nom;
     private javax.swing.JLabel nomduresponsable;
     private javax.swing.JTextField nomeleveTextField;

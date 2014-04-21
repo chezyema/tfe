@@ -32,14 +32,12 @@ public class HeureDETravailDBHelper {
         }
    
     }
-   /*  public static boolean selectHeureDeTravail( HeureDeTravail horaire){
+    public static boolean selectHeureDeTravail( HeureDeTravail horaire){
         try{
-            System.out.println(horaire.toString());
+            
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from heuredetravail");
-            preparedStatement.setInt(1, horaire.getIdheuredetravail());
-            preparedStatement.setString(2, horaire.getHeureDeDebut());
-            preparedStatement.setString(3, horaire.getHeureDeFin());
-            preparedStatement.executeUpdate();
+           
+            preparedStatement.execute();
             
             return true;
         } catch (Exception e) {
@@ -47,5 +45,5 @@ public class HeureDETravailDBHelper {
             return false;
         }
    
-     }*/
+     }
 }

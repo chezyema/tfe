@@ -42,15 +42,9 @@ public class AtravaillerDBHelper {
     
        public static boolean selectAtravailler(Atravailler heuredetravail ){
         try{
- 
-            
-            
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select*from atravailler");
-            preparedStatement.setInt(1,heuredetravail.getIdheuredetravail());
-            preparedStatement.setLong(2,heuredetravail.getIdchauffeur() );
-            
-            
-            preparedStatement.executeUpdate();
+               PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select*from atravailler");
+          
+               preparedStatement.execute();
             
             return true;
         } catch (Exception e) {

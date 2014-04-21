@@ -3,9 +3,12 @@
  * and open the template in the editor.
  */
 package be.isfce.tfe.vue;
+import be.isfce.tfe.controleur.UtilisationControleur;
+import be.isfce.tfe.controleur.ValidationException;
 import be.isfce.tfe.db.TestUtlisationCarte;
 import be.isfce.tfe.metier.UtilisationCarte;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,9 +36,8 @@ public class InsertionCarteUtilisationJPanel extends javax.swing.JPanel {
         dateutiliqation = new javax.swing.JLabel();
         enregistrer = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        idutilisation = new javax.swing.JLabel();
-        idutilisationTextField = new javax.swing.JTextField();
         datecarteutilisation = new com.toedter.calendar.JDateChooser();
+        jButton2 = new javax.swing.JButton();
 
         dateutiliqation.setText("Date utilisation:");
 
@@ -48,54 +50,50 @@ public class InsertionCarteUtilisationJPanel extends javax.swing.JPanel {
 
         jButton1.setText("Annuler");
 
-        idutilisation.setText("Numero de transaction:");
+        jButton2.setText("Modifier");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(291, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(enregistrer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(24, 24, 24))
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(idutilisation)
-                    .addComponent(dateutiliqation))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(datecarteutilisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idutilisationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                        .addComponent(enregistrer)
+                        .addGap(24, 24, 24))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(dateutiliqation)
+                        .addGap(26, 26, 26)
+                        .addComponent(datecarteutilisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idutilisation)
-                    .addComponent(idutilisationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(dateutiliqation)
                     .addComponent(datecarteutilisation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                .addComponent(enregistrer)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(25, 25, 25))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enregistrer)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void enregistrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enregistrerActionPerformed
        UtilisationCarte utilisationcarte = new UtilisationCarte();
        
-         String id = idutilisationTextField.getText();
+         
         utilisationcarte.setIdutilisationcarte(0);
-        System.out.println(id);
+     
         
         Date dateUtilisationcarte = datecarteutilisation.getDate();
         if(dateUtilisationcarte!= null){
@@ -104,17 +102,29 @@ public class InsertionCarteUtilisationJPanel extends javax.swing.JPanel {
         }else{
             System.out.println("DATE UTILISATION  INCORRECTE");
         } 
-         TestUtlisationCarte.addUtilisationCarte(utilisationcarte );
-        // TestUtlisationCarte.selectUtilisationCarte(utilisationcarte);
+        
+         try {
+          UtilisationControleur.estValide(utilisationcarte);
+          TestUtlisationCarte.addUtilisationCarte(utilisationcarte );
+          TestUtlisationCarte.selectUtilisationCarte(utilisationcarte);
+        } 
+         catch (ValidationException ex) 
+         {
+            //TODO Afficher message d'erreur
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(),
+                    "Erreur",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_enregistrerActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser datecarteutilisation;
     private javax.swing.JLabel dateutiliqation;
     private javax.swing.JButton enregistrer;
-    private javax.swing.JLabel idutilisation;
-    private javax.swing.JTextField idutilisationTextField;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private com.toedter.components.JLocaleChooser jLocaleChooser1;
     // End of variables declaration//GEN-END:variables
 }

@@ -40,15 +40,10 @@ public class ContientDBHelper {
     }
     
       public static boolean selectContient( Contient contient ){
-        try{
- 
+        try{ PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from contient");
+           
             
-            
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from contient");
-            preparedStatement.setInt(1,contient.getIdcircuit() );
-            preparedStatement.setInt(2,contient.getIdarrets());
-            
-            preparedStatement.executeUpdate();
+            preparedStatement.execute();
             
             return true;
         } catch (Exception e) {

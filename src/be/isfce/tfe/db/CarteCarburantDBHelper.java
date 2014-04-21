@@ -22,13 +22,11 @@ public class CarteCarburantDBHelper {
 
     public static boolean addCarteCarburant( CarteCarburant cartecarburant ){
         try{
- 
-            
-            
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("Insert into cartecarburant (idcarte,kmutilisation,litrecarburant) values (? , ?, ?)");
             preparedStatement.setInt(1, cartecarburant.getId());
             preparedStatement.setInt(2, cartecarburant.getKmUtilisation());
             preparedStatement.setInt(3, cartecarburant.getLitreCarburant());
+            
             preparedStatement.executeUpdate();
             Connexion.getInstance().getConn().commit();
             return true;
@@ -40,16 +38,11 @@ public class CarteCarburantDBHelper {
         }
    
     }
-     /* public static boolean selectCarteCarburant( CarteCarburant cartecarburant ){
+      public static boolean selectCarteCarburant( CarteCarburant cartecarburant ){
        try{
- 
-            
-            
-           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from cartecarburant");
-           preparedStatement.setInt(1, cartecarburant.getId());
-            preparedStatement.setInt(2, cartecarburant.getKmUtilisation());
-            preparedStatement.setInt(3, cartecarburant.getLitreCarburant());
-            preparedStatement.executeUpdate();
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from cartecarburant");
+          
+            preparedStatement.execute();
             
            return true;
        } catch (Exception e) {
@@ -59,6 +52,6 @@ public class CarteCarburantDBHelper {
         
         }
    
-    }     */
+    }     
     
 }

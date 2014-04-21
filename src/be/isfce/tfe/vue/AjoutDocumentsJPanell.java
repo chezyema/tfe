@@ -5,10 +5,14 @@
 package be.isfce.tfe.vue;
 
 
+
+import be.isfce.tfe.controleur.DocumentsAdministratifsControleur;
+import be.isfce.tfe.controleur.ValidationException;
 import be.isfce.tfe.db.DocumentsAdministratifsDBHelper;
 import be.isfce.tfe.metier.DocumentsAdministratifs;
 import be.isfce.tfe.validation.StringValidation;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,21 +38,13 @@ public class AjoutDocumentsJPanell extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
-        iddocument = new javax.swing.JLabel();
         libelledocument = new javax.swing.JLabel();
         datedevaliditer = new javax.swing.JLabel();
-        iddocumentTextField = new javax.swing.JTextField();
         libelleTextField = new javax.swing.JTextField();
         Ajouterdocument = new javax.swing.JToggleButton();
         Modifierdocument = new javax.swing.JToggleButton();
         supprimerdocument = new javax.swing.JToggleButton();
-        rechercherdocument = new javax.swing.JToggleButton();
-        jTextField4 = new javax.swing.JTextField();
         datedocument = new com.toedter.calendar.JDateChooser();
-        idchauffeurdocument = new javax.swing.JLabel();
-        identifiantvehicule = new javax.swing.JLabel();
-        idchauffeurTextField = new javax.swing.JTextField();
-        idmaterielroulantTextField = new javax.swing.JTextField();
 
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -57,17 +53,9 @@ public class AjoutDocumentsJPanell extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jList1);
 
-        iddocument.setText("Id document:");
-
         libelledocument.setText("Libelle:");
 
         datedevaliditer.setText("Date de validiter:");
-
-        iddocumentTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iddocumentTextFieldActionPerformed(evt);
-            }
-        });
 
         libelleTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,96 +70,60 @@ public class AjoutDocumentsJPanell extends javax.swing.JPanel {
             }
         });
 
-        Modifierdocument.setText("Reset");
+        Modifierdocument.setText("Modifier");
 
         supprimerdocument.setText("Annuler");
-
-        rechercherdocument.setText("Rechercher");
-
-        idchauffeurdocument.setText("Identifiant chauffeur:");
-
-        identifiantvehicule.setText("Identifiant vehicule:");
-
-        idmaterielroulantTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idmaterielroulantTextFieldActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Ajouterdocument, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(supprimerdocument, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(35, 35, 35)
                         .addComponent(Modifierdocument, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(supprimerdocument)
-                        .addGap(40, 40, 40))
+                        .addGap(41, 41, 41)
+                        .addComponent(Ajouterdocument, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(iddocument, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(libelledocument, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(datedevaliditer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(rechercherdocument)
-                            .addComponent(idchauffeurdocument)
-                            .addComponent(identifiantvehicule))
-                        .addGap(39, 39, 39)
+                            .addComponent(libelledocument, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(datedevaliditer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(libelleTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
-                                .addComponent(iddocumentTextField)
-                                .addComponent(datedocument, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(idmaterielroulantTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                                .addComponent(idchauffeurTextField, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(datedocument, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(154, 154, 154))
+                            .addComponent(libelleTextField))
+                        .addGap(75, 75, 75))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rechercherdocument)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(iddocument)
-                    .addComponent(iddocumentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(libelledocument)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(libelledocument, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(libelleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(datedocument, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(datedevaliditer))
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(datedevaliditer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6))
+                    .addComponent(datedocument, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idchauffeurdocument)
-                    .addComponent(idchauffeurTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(identifiantvehicule)
-                    .addComponent(idmaterielroulantTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Ajouterdocument)
-                    .addComponent(Modifierdocument)
-                    .addComponent(supprimerdocument))
-                .addGap(27, 27, 27))
+                    .addComponent(Ajouterdocument, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Modifierdocument, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(supprimerdocument, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void iddocumentTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iddocumentTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iddocumentTextFieldActionPerformed
 
     private void libelleTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_libelleTextFieldActionPerformed
         // TODO add your handling code here:
@@ -180,9 +132,9 @@ public class AjoutDocumentsJPanell extends javax.swing.JPanel {
     private void AjouterdocumentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjouterdocumentActionPerformed
         // TODO add your handling code here:
         DocumentsAdministratifs documents = new DocumentsAdministratifs();
-        String id = iddocumentTextField.getText();
+      
         documents.setId(0);
-        System.out.println(id);
+        
         
          String libelle = libelleTextField.getText();
           if(!StringValidation.VerifString(libelle)){
@@ -201,43 +153,30 @@ public class AjoutDocumentsJPanell extends javax.swing.JPanel {
         }else{
             System.out.println("DATE CIRCUIT INCORRECTE");
         } 
-        
-         String idchauffeur = idchauffeurTextField.getText();
-         documents.setIdchauffeur(Long.valueOf(idchauffeur));
-         System.out.println(idchauffeur);
+         try {
+            DocumentsAdministratifsControleur.estValide(documents);
+            DocumentsAdministratifsDBHelper.addDocumentsAdministratifs(documents); 
+            DocumentsAdministratifsDBHelper.selectDocumentsAdministratifs(documents);  
          
-          String idvehicule = idmaterielroulantTextField.getText();
-         documents.setIdmaterielroulant(String.valueOf(idvehicule));
-         System.out.println(idvehicule);
-        
-        
-       DocumentsAdministratifsDBHelper.addDocumentsAdministratifs(documents); 
-       //DocumentsAdministratifsDBHelper.selectDocumentsAdministratifs(documents);  
-         
+        } catch (ValidationException ex) {
+      
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(),
+                    "Erreur",
+                    JOptionPane.ERROR_MESSAGE);
+        }
           
     }//GEN-LAST:event_AjouterdocumentActionPerformed
-
-    private void idmaterielroulantTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idmaterielroulantTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idmaterielroulantTextFieldActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton Ajouterdocument;
     private javax.swing.JToggleButton Modifierdocument;
     private javax.swing.JLabel datedevaliditer;
     private com.toedter.calendar.JDateChooser datedocument;
-    private javax.swing.JTextField idchauffeurTextField;
-    private javax.swing.JLabel idchauffeurdocument;
-    private javax.swing.JLabel iddocument;
-    private javax.swing.JTextField iddocumentTextField;
-    private javax.swing.JLabel identifiantvehicule;
-    private javax.swing.JTextField idmaterielroulantTextField;
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField libelleTextField;
     private javax.swing.JLabel libelledocument;
-    private javax.swing.JToggleButton rechercherdocument;
     private javax.swing.JToggleButton supprimerdocument;
     // End of variables declaration//GEN-END:variables
 }

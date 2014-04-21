@@ -37,13 +37,11 @@ public class TestUtlisationCarte {
     }
     
     
-   /*  public static boolean selectUtilisationCarte(UtilisationCarte carte) {
+     public static boolean selectUtilisationCarte(UtilisationCarte carte) {
         try {
-            System.out.println(carte.toString());
-            Date dateSql = new Date(carte.getDateUtilisation().getTime());
+            
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from utilisationcarte");
-            preparedStatement.setInt(1, carte.getIdutilisationcarte());
-            preparedStatement.setDate(2, dateSql);
+           
             preparedStatement.executeUpdate();
             
             return true;
@@ -51,5 +49,5 @@ public class TestUtlisationCarte {
             e.printStackTrace();
             return false;
         }
-    }*/
+    }
 }

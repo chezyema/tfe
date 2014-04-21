@@ -40,10 +40,8 @@ public class CarburantUtilisationDBHelper {
     public static boolean selectCarburantUtilisation(CarburantUtilisation carburantutilisation) {
         try {
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from carburant_utilisation");
-            preparedStatement.setInt(1, carburantutilisation.getIdUtilisation());
-            preparedStatement.setInt(2, carburantutilisation.getIdcarte());
-
-            preparedStatement.executeUpdate();
+            
+            preparedStatement.execute();
 
             return true;
         } catch (Exception e) {

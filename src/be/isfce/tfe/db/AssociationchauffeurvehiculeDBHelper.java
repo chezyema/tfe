@@ -43,9 +43,9 @@ public class AssociationchauffeurvehiculeDBHelper {
      public static boolean selectMaterielUtiliser(MaterielUtiliser materiel) {
         try {
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from utiliser");
-            preparedStatement.setLong(1, materiel.getIdchauffeur());
-            preparedStatement.setString(2, materiel.getId());
-            preparedStatement.executeUpdate();
+           
+            
+            preparedStatement.execute();
             
             return true;
         } catch (Exception e) {

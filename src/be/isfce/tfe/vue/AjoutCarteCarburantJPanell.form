@@ -17,68 +17,68 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="kmutilisation" max="32767" attributes="0"/>
+                      <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="litrecarburant" max="32767" attributes="0"/>
+                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="anulerinfo" max="32767" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="idcarte" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="kmutilisation" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="litrecarburant" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="numcartecarburantTextField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="kmutilisationTextField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="litrecarburantTextField" alignment="0" pref="225" max="32767" attributes="0"/>
+                          <Component id="kmutilisationTextField" max="32767" attributes="0"/>
+                          <Component id="litrecarburantTextField" pref="217" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="ajoutercarte" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                      <Component id="anulerinfo" min="-2" pref="91" max="-2" attributes="0"/>
-                      <EmptySpace pref="104" max="32767" attributes="0"/>
-                      <Component id="initialiser" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                      <Component id="initialiser" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <Component id="ajoutercarte" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="idcarte" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="numcartecarburantTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="kmutilisation" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                      <Component id="kmutilisation" max="32767" attributes="0"/>
+                  </Group>
                   <Component id="kmutilisationTextField" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="litrecarburant" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="litrecarburantTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                      <Component id="litrecarburant" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="litrecarburantTextField" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ajoutercarte" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="anulerinfo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="initialiser" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ajoutercarte" alignment="3" max="32767" attributes="0"/>
+                  <Component id="initialiser" alignment="3" max="32767" attributes="0"/>
+                  <Component id="anulerinfo" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="59" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="idcarte">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Numero de carte:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="kmutilisation">
       <Properties>
         <Property name="text" type="java.lang.String" value="Kmutilisation:"/>
@@ -88,8 +88,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Litre de carburant:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="numcartecarburantTextField">
     </Component>
     <Component class="javax.swing.JTextField" name="kmutilisationTextField">
     </Component>
@@ -110,7 +108,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="initialiser">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Reset"/>
+        <Property name="text" type="java.lang.String" value="Modifier"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="initialiserActionPerformed"/>

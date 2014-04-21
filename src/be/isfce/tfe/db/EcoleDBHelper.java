@@ -50,26 +50,13 @@ public static boolean addEcole(Ecole ecole){
     
    }
 
-/*public static boolean selectEcole(Ecole ecole){
+public static boolean selectEcole(Ecole ecole){
     
     
     try{
-             
-
-
-
            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from ecole");
-            preparedStatement.setInt(1,ecole.getId());
-                    
-            preparedStatement.setString(2, ecole.getNomecole());
-            preparedStatement.setString(3, ecole.getAdresseecole());
-            preparedStatement.setInt(4, ecole.getCdpostal());
-            preparedStatement.setString(5, ecole.getVil());
-            preparedStatement.setInt(6, ecole.getTelecole());
-            preparedStatement.setString(7, ecole.getEmailecole());
-            preparedStatement.setString(8, ecole.getNomdirecteur());
-            preparedStatement.setString(9, ecole.getAnneescolaire());
-            preparedStatement.executeUpdate();
+            
+            preparedStatement.execute();
             
             return true;
         } catch (Exception e) {
@@ -79,7 +66,7 @@ public static boolean addEcole(Ecole ecole){
     
     
     
- }*/
+ }
 }
 
 

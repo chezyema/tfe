@@ -4,7 +4,7 @@
  */
 package be.isfce.tfe.db;
 
-import be.isfce.tfe.metier.MaterielRoulant;
+
 import be.isfce.tfe.metier.DocumentsAdministratifs;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -20,13 +20,7 @@ public class DocumentsAdministratifsDBHelper {
         return uniqueInstance;
     }
 
-    
-    
-    
-    
-    
-    
-    public static boolean addDocumentsAdministratifs(DocumentsAdministratifs documents){
+  public static boolean addDocumentsAdministratifs(DocumentsAdministratifs documents){
         
         try{
             Date dateSql = new Date(documents.getDateValiditer().getTime());
@@ -50,20 +44,13 @@ public class DocumentsAdministratifsDBHelper {
     
     
 }
-  /* public static boolean selectDocumentsAdministratifs(DocumentsAdministratifs documents){
+   public static boolean selectDocumentsAdministratifs(DocumentsAdministratifs documents){
         
         try{
-            Date dateSql = new Date(documents.getDateValiditer().getTime());
+            
            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from documentsadministratifs");
            
-            preparedStatement.setInt(1, documents.getId());
-            preparedStatement.setString(2, documents.getLibelle());
-            preparedStatement.setDate (3, dateSql);
-            preparedStatement.setString(4,documents.getIdmaterielroulant());
-             preparedStatement.setLong(5,documents.getIdchauffeur());
-            //ajouter les clés étrangére
-            
-            preparedStatement.executeUpdate();
+           preparedStatement.execute();
             
             return true;
         } catch (Exception e) {
@@ -73,5 +60,5 @@ public class DocumentsAdministratifsDBHelper {
     
     
     
-}  */
+}  
 }

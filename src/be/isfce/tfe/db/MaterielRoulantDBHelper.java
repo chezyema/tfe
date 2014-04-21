@@ -58,11 +58,7 @@ public class MaterielRoulantDBHelper  {
      public static boolean selectMaterielRoulant(MaterielRoulant vehicule){
         
         try{
-             
-
-
-
-           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from materielroulant");
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from materielroulant");
            
             preparedStatement.execute();
             

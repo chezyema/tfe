@@ -24,11 +24,13 @@ public class ArretDBHelper {
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("Insert into arrets (idarrets,adressearrets) values ( ?, ?)");
             preparedStatement.setInt(1, arret.getId());
             preparedStatement.setString(2, arret.getAdresse());
+            
             preparedStatement.executeUpdate();
             Connexion.getInstance().getConn().commit();
             
-            return true;
+           return true;
         } catch (Exception e) {
+            
             e.printStackTrace();
             return false;
         }

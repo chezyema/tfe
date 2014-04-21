@@ -53,7 +53,7 @@ public class TFE {
         JPanel jpo = new CarburantUtilisationJPanell();
         JPanel jpp = new AtravaillerJPanell();
         JFrame jf = new JFrame();
-        jf.add(jpg);
+        jf.add(jpb);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.pack();
         jf.setVisible(true);

@@ -4,8 +4,12 @@
  */
 package be.isfce.tfe.vue;
 
+
+import be.isfce.tfe.controleur.CarteCarburantControleur;
+import be.isfce.tfe.controleur.ValidationException;
 import be.isfce.tfe.metier.CarteCarburant;
 import be.isfce.tfe.db.CarteCarburantDBHelper;
+import javax.swing.JOptionPane;
 /**
  *
  * @author yema
@@ -28,17 +32,13 @@ public class AjoutCarteCarburantJPanell extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        idcarte = new javax.swing.JLabel();
         kmutilisation = new javax.swing.JLabel();
         litrecarburant = new javax.swing.JLabel();
-        numcartecarburantTextField = new javax.swing.JTextField();
         kmutilisationTextField = new javax.swing.JTextField();
         litrecarburantTextField = new javax.swing.JTextField();
         ajoutercarte = new javax.swing.JButton();
         anulerinfo = new javax.swing.JButton();
         initialiser = new javax.swing.JButton();
-
-        idcarte.setText("Numero de carte:");
 
         kmutilisation.setText("Kmutilisation:");
 
@@ -53,7 +53,7 @@ public class AjoutCarteCarburantJPanell extends javax.swing.JPanel {
 
         anulerinfo.setText("Annuler");
 
-        initialiser.setText("Reset");
+        initialiser.setText("Modifier");
         initialiser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 initialiserActionPerformed(evt);
@@ -65,47 +65,49 @@ public class AjoutCarteCarburantJPanell extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(kmutilisation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(28, 28, 28))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(litrecarburant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(1, 1, 1))
+                    .addComponent(anulerinfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idcarte)
-                            .addComponent(kmutilisation)
-                            .addComponent(litrecarburant))
-                        .addGap(113, 113, 113)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(numcartecarburantTextField)
                             .addComponent(kmutilisationTextField)
-                            .addComponent(litrecarburantTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)))
+                            .addComponent(litrecarburantTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ajoutercarte)
-                        .addGap(91, 91, 91)
-                        .addComponent(anulerinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
-                        .addComponent(initialiser)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(69, 69, 69)
+                        .addComponent(initialiser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(68, 68, 68)
+                        .addComponent(ajoutercarte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idcarte)
-                    .addComponent(numcartecarburantTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kmutilisation)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(kmutilisation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(kmutilisationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(litrecarburant)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(litrecarburant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(litrecarburantTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ajoutercarte)
-                    .addComponent(anulerinfo)
-                    .addComponent(initialiser))
-                .addContainerGap(59, Short.MAX_VALUE))
+                    .addComponent(ajoutercarte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(initialiser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(anulerinfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(137, 137, 137))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -116,9 +118,9 @@ public class AjoutCarteCarburantJPanell extends javax.swing.JPanel {
     private void ajoutercarteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajoutercarteActionPerformed
         // TODO add your handling code here:
         CarteCarburant cartecarburant = new CarteCarburant();
-        String id = numcartecarburantTextField.getText();
+        
         cartecarburant.setId(0);
-        System.out.println(id);
+        
         
        
         
@@ -130,9 +132,19 @@ public class AjoutCarteCarburantJPanell extends javax.swing.JPanel {
         cartecarburant.setLitreCarburant(Integer.valueOf(litrecarburant));
         System.out.println(litrecarburant);
         
-          CarteCarburantDBHelper.addCarteCarburant(cartecarburant);
-        // CarteCarburantDBHelper.selectCarteCarburant(cartecarburant);
-       
+        
+        try {
+            CarteCarburantControleur.estValide(cartecarburant);
+            CarteCarburantDBHelper.addCarteCarburant(cartecarburant);
+            CarteCarburantDBHelper.selectCarteCarburant(cartecarburant);
+        } catch (ValidationException ex) {
+            //TODO Afficher message d'erreur
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(),
+                    "Erreur",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
         
     }//GEN-LAST:event_ajoutercarteActionPerformed
     
@@ -141,12 +153,10 @@ public class AjoutCarteCarburantJPanell extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ajoutercarte;
     private javax.swing.JButton anulerinfo;
-    private javax.swing.JLabel idcarte;
     private javax.swing.JButton initialiser;
     private javax.swing.JLabel kmutilisation;
     private javax.swing.JTextField kmutilisationTextField;
     private javax.swing.JLabel litrecarburant;
     private javax.swing.JTextField litrecarburantTextField;
-    private javax.swing.JTextField numcartecarburantTextField;
     // End of variables declaration//GEN-END:variables
 }

@@ -13,34 +13,24 @@ import java.sql.Date;
  * @author yema
  */
 public class ChauffeurDBHelper {
-    
-    
-    
-        private static ChauffeurDBHelper  uniqueInstance = new ChauffeurDBHelper ();
 
-    public static ChauffeurDBHelper  getInstance() {
+    private static ChauffeurDBHelper uniqueInstance = new ChauffeurDBHelper();
+
+    public static ChauffeurDBHelper getInstance() {
         return uniqueInstance;
     }
 
-    
-    
-    
-    
-    
-    
-    public static boolean addChauffeur(Chauffeur chauffeur){
-        
-        try{
-             Date dateSql  = new Date(chauffeur.getDateNaissance().getTime());
-             Date dateSqla = new Date(chauffeur.getSelectionmedicale().getTime()); 
-             Date dateSqlb = new Date(chauffeur.getValiditercartechauffeur().getTime());
-             Date dateSqlc = new Date(chauffeur.getValiditercap().getTime()); 
+    public static boolean addChauffeur(Chauffeur chauffeur) {
 
+        try {
+            Date dateSql = new Date(chauffeur.getDateNaissance().getTime());
+            Date dateSqla = new Date(chauffeur.getSelectionmedicale().getTime());
+            Date dateSqlb = new Date(chauffeur.getValiditercartechauffeur().getTime());
+            Date dateSqlc = new Date(chauffeur.getValiditercap().getTime());
 
-
-           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("Insert into chauffeur (idchauffeur,nom,prenom,datenaissance,adresse,codepostal,ville,numtelephone,email,selectionmedicale,validitercartechauffeur,validitercap) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("Insert into chauffeur (idchauffeur,nom,prenom,datenaissance,adresse,codepostal,ville,numtelephone,email,selectionmedicale,validitercartechauffeur,validitercap) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
             preparedStatement.setLong(1, chauffeur.getId());
-                    
+
             preparedStatement.setString(2, chauffeur.getNomChauffeur());
             preparedStatement.setString(3, chauffeur.getPrenomChauffeur());
             preparedStatement.setDate(4, dateSql);
@@ -60,24 +50,19 @@ public class ChauffeurDBHelper {
             return false;
         }
     }
-    public static boolean selectChauffeur(Chauffeur chauffeur){
-        
-        try{
-             
+
+    public static boolean selectChauffeur(Chauffeur chauffeur) {
+
+        try {
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from chauffeur");
 
 
-
-           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from chauffeur");
-           
-                    
-            
             preparedStatement.execute();
-            
+
             return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
-     
 }

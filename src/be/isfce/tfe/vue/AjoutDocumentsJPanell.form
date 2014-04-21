@@ -40,42 +40,32 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="Ajouterdocument" min="-2" pref="112" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Component id="supprimerdocument" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="Modifierdocument" max="32767" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="supprimerdocument" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="Ajouterdocument" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="iddocument" max="32767" attributes="0"/>
-                              <Component id="libelledocument" alignment="1" max="32767" attributes="0"/>
-                              <Component id="datedevaliditer" alignment="1" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="rechercherdocument" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="idchauffeurdocument" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="identifiantvehicule" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="libelledocument" alignment="0" max="32767" attributes="0"/>
+                          <Component id="datedevaliditer" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextField4" min="-2" pref="233" max="-2" attributes="0"/>
-                              <Component id="libelleTextField" alignment="0" pref="249" max="32767" attributes="0"/>
-                              <Component id="iddocumentTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="datedocument" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="datedocument" max="32767" attributes="0"/>
+                              <EmptySpace min="154" pref="154" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="idmaterielroulantTextField" alignment="0" pref="95" max="32767" attributes="0"/>
-                              <Component id="idchauffeurTextField" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="libelleTextField" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -84,53 +74,34 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                      <Component id="libelledocument" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="libelleTextField" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="datedevaliditer" max="32767" attributes="0"/>
+                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="datedocument" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="rechercherdocument" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Ajouterdocument" alignment="3" max="32767" attributes="0"/>
+                  <Component id="Modifierdocument" alignment="3" max="32767" attributes="0"/>
+                  <Component id="supprimerdocument" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="iddocument" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="iddocumentTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="libelledocument" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="libelleTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="datedocument" min="-2" max="-2" attributes="0"/>
-                  <Component id="datedevaliditer" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="idchauffeurdocument" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idchauffeurTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="identifiantvehicule" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idmaterielroulantTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Ajouterdocument" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Modifierdocument" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="supprimerdocument" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="iddocument">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Id document:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="libelledocument">
       <Properties>
         <Property name="text" type="java.lang.String" value="Libelle:"/>
@@ -140,11 +111,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Date de validiter:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="iddocumentTextField">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="iddocumentTextFieldActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="libelleTextField">
       <Events>
@@ -161,7 +127,7 @@
     </Component>
     <Component class="javax.swing.JToggleButton" name="Modifierdocument">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Reset"/>
+        <Property name="text" type="java.lang.String" value="Modifier"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="supprimerdocument">
@@ -169,31 +135,7 @@
         <Property name="text" type="java.lang.String" value="Annuler"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="rechercherdocument">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Rechercher"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
-    </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="datedocument">
-    </Component>
-    <Component class="javax.swing.JLabel" name="idchauffeurdocument">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Identifiant chauffeur:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="identifiantvehicule">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Identifiant vehicule:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="idchauffeurTextField">
-    </Component>
-    <Component class="javax.swing.JTextField" name="idmaterielroulantTextField">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idmaterielroulantTextFieldActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

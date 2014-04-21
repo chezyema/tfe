@@ -19,9 +19,6 @@ public class MrutilisationDBHelper {
 
     public static boolean addMrUtilisation( MrUtilisation mrutilisation ){
         try{
- 
-            
-            
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("Insert into mr_utilisation (id,idutilisation) values (? , ?)");
             preparedStatement.setString(1,mrutilisation.getId() );
             preparedStatement.setInt(2,mrutilisation.getIdutilisation());
@@ -44,10 +41,8 @@ public class MrutilisationDBHelper {
             
             
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from mr_utilisation");
-            preparedStatement.setString(1,mrutilisation.getId() );
-            preparedStatement.setInt(2,mrutilisation.getIdutilisation());
-            
-            preparedStatement.executeUpdate();
+           
+            preparedStatement.execute();
             
             return true;
         } catch (Exception e) {
@@ -58,7 +53,8 @@ public class MrutilisationDBHelper {
         }
    
     }
-    
-    
-    
 }
+    
+    
+    
+

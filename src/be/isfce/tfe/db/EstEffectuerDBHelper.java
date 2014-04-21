@@ -40,15 +40,10 @@ public class EstEffectuerDBHelper {
     }
     
      public static boolean selectEstEffectuer(EstEffectuer esteffectuer ){
-        try{
- 
-            
-            
+        try{ 
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from esteffectuer");
-            preparedStatement.setLong(1,esteffectuer.getIdchauffeur() );
-            preparedStatement.setInt(2,esteffectuer.getIdcircuit());
             
-            preparedStatement.executeUpdate();
+            preparedStatement.execute();
             
             return true;
         } catch (Exception e) {
@@ -59,8 +54,8 @@ public class EstEffectuerDBHelper {
         }
    
     }
-    
-    
-    
-    
 }
+    
+    
+    
+

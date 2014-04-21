@@ -27,7 +27,7 @@ public static boolean addEleve(Eleve eleve){
 
 
 
-           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("Insert into eleve (ideleve,nomeleve,prenomeleve,datedenaissance,adresseeleve,codepostal,ville,nomresponsable,telresponsable,emailresponsable) VALUES (? , ?, ?,?,?,?,?,?,?,?)");
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("Insert into eleve (ideleve,nomeleve,prenomeleve,datedenaissance,adresseeleve,codepostal,ville,nomresponsable,telresponsable,emailresponsable) VALUES (? , ?, ?,?,?,?,?,?,?,?)");
             preparedStatement.setString(1,eleve.getId());
             preparedStatement.setString(2, eleve.getNomEleve());
             preparedStatement.setString(3, eleve.getPrenomEleve());
@@ -52,15 +52,10 @@ public static boolean selectEleve(Eleve eleve){
     
     
     try{
-            
-
-
-
-           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from eleve");
+          PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from eleve");
             
                     
-                   
-            preparedStatement.execute();
+          preparedStatement.execute();
             
             return true;
         } catch (Exception e) {
