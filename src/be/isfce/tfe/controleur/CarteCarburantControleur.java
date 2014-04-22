@@ -17,9 +17,7 @@ public class CarteCarburantControleur {
         if(cartecarburant == null){
             throw new ValidationException("La carte est invalide");
         }
-        if(cartecarburant.getId() == 0){
-            throw new ValidationException("La carte n'est pas valide");
-        }
+        
           if(cartecarburant.getKmUtilisation() == 0 ){
             throw new ValidationException("Le kilométrage n'est pas valide");
         }

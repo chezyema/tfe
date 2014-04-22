@@ -26,10 +26,10 @@ public class ChauffeurControleur {
         if(chauffeur == null){
             throw new ValidationException("Le chauffeur est invalide");
         }
-        if(chauffeur.getAdresse() == null || StringValidation.VerifString(chauffeur.getAdresse())){
+        if(chauffeur.getAdresse() == null || ! StringValidation.VerifString(chauffeur.getAdresse())){
             throw new ValidationException("L'adresse n'est pas valide");
         }
-        if(chauffeur.getCodepostale() == 0 || CodePosalValidation.checkCodePostale(null)){
+        if(chauffeur.getCodepostale() == 0 || !CodePosalValidation.checkCodePostale(String.valueOf(chauffeur.getCodepostale()))){
             throw new ValidationException("Le code postal n'est pas valide");
             //ajouter argument
         }
@@ -40,18 +40,18 @@ public class ChauffeurControleur {
             throw new ValidationException("Le chauffeur doit avoir plus de 21 ans");
              //ajouter argument
         }
-        if(chauffeur.getVille() == null || StringValidation.VerifString(chauffeur.getVille())){
+        if(chauffeur.getVille() == null || ! StringValidation.VerifString(chauffeur.getVille())){
             throw new ValidationException("La ville n'est pas valide");
         }
-        if(chauffeur.getEmail() == null || EmailValidation.validateEmailAddress(chauffeur.getEmail())){
+        if(chauffeur.getEmail() == null || !EmailValidation.validateEmailAddress(chauffeur.getEmail())){
             throw new ValidationException("Le email  n'est pas valide");
         }
        
-         if(chauffeur.getPrenomChauffeur() == null || StringValidation.VerifString(chauffeur.getPrenomChauffeur())){
+         if(chauffeur.getPrenomChauffeur() == null || ! StringValidation.VerifString(chauffeur.getPrenomChauffeur())){
          throw new ValidationException("Le prenom n'est pas valide");
         }
          
-        if(chauffeur.getNumTelephone() == 0 || NumTelValidation.checkNumTel(null)){
+        if(chauffeur.getNumTelephone() == 0 || !NumTelValidation.checkNumTel(String.valueOf(chauffeur.getNumTelephone()))){
          throw new ValidationException("Le numero de telephone n'est pas valide");
           //ajouter argument
          
@@ -74,9 +74,9 @@ public class ChauffeurControleur {
         throw new ValidationException("Le date n'est pas valide");
         }
          
-         if(chauffeur.getId() == 0 || ChauffeurValidation.checkRegistreNational(null) ){
+         if(chauffeur.getId() == 0 || ChauffeurValidation.checkRegistreNational(String.valueOf(chauffeur.getId()))){
             throw new ValidationException("Le registre national n'est pas valide");
-             //ajouter argument
+             
             
         }
 }

@@ -18,7 +18,7 @@ public class EntretienControleur {
         if(entretien == null){
             throw new ValidationException("L'entretien est invalide");
         }
-        if(entretien.getDescription() == null || StringValidation.VerifString(entretien.getDescription())){
+        if(entretien.getDescription() == null || !StringValidation.VerifString(entretien.getDescription())){
             throw new ValidationException("la description n'est pas valide");
         }
         Calendar joura = Calendar.getInstance();

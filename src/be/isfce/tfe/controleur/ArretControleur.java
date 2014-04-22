@@ -15,7 +15,7 @@ public class ArretControleur {
     
     public static void estValide(Arret arret) throws ValidationException{
         if(!(arret != null && arret.getAdresse() != null && StringValidation.VerifString(arret.getAdresse()))){
-            throw new ValidationException("L'addresse n'est pas valide");
+            throw new ValidationException(" erreur L'adresse n'est pas valide");
         }
     }
     

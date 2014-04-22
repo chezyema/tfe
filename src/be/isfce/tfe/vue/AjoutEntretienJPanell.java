@@ -4,10 +4,14 @@
  */
 package be.isfce.tfe.vue;
 
+
+import be.isfce.tfe.controleur.EntretienControleur;
+import be.isfce.tfe.controleur.ValidationException;
 import be.isfce.tfe.db.EntretienDBHelper;
 import be.isfce.tfe.metier.Entretien;
 import be.isfce.tfe.validation.StringValidation;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -64,20 +68,20 @@ public class AjoutEntretienJPanell extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kmactuel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dateentretien, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(supprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dateentretien, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(supprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                         .addComponent(modifier, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(69, 69, 69)
                         .addComponent(ajouter, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
+                        .addComponent(kmactuel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(kmactuelTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -137,10 +141,19 @@ public class AjoutEntretienJPanell extends javax.swing.JPanel {
             System.out.println("DATE ENTRETIEN INCORRECTE");
         } 
         
-         
+          try {
+             EntretienControleur.estValide(entretien);
+            EntretienDBHelper.addEntretien(entretien);
+            EntretienDBHelper.selectEntretien(entretien); 
+            } 
+        catch (ValidationException ex) {
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(),
+                    "Erreur",
+                    JOptionPane.ERROR_MESSAGE);
+           }
         
-        EntretienDBHelper.addEntretien(entretien);
-        EntretienDBHelper.selectEntretien(entretien);     
+        
     }//GEN-LAST:event_ajouterActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

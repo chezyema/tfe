@@ -135,26 +135,17 @@ public class AjoutDocumentsJPanell extends javax.swing.JPanel {
       
         documents.setId(0);
         
-        
-         String libelle = libelleTextField.getText();
-          if(!StringValidation.VerifString(libelle)){
-             System.out.println(" NOM INCORRECT");}
-        else{
-            
+        String libelle = libelleTextField.getText();
+          
             documents.setLibelle(String.valueOf(libelle));
-            System.out.println("NOM CORRECT");
-            System.out.println(libelle);
-        }
+          
           
            Date dateDocument = datedocument.getDate();
-        if(dateDocument != null){
+       
             documents.setDateValiditer(dateDocument );
-            System.out.println(dateDocument);
-        }else{
-            System.out.println("DATE CIRCUIT INCORRECTE");
-        } 
+           
          try {
-            DocumentsAdministratifsControleur.estValide(documents);
+              DocumentsAdministratifsControleur.estValide(documents);
             DocumentsAdministratifsDBHelper.addDocumentsAdministratifs(documents); 
             DocumentsAdministratifsDBHelper.selectDocumentsAdministratifs(documents);  
          

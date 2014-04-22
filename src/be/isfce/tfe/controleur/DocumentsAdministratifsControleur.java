@@ -19,7 +19,7 @@ public class DocumentsAdministratifsControleur {
         if(documents == null){
             throw new ValidationException("Le document est invalide");
         }
-        if(documents.getLibelle() == null || StringValidation.VerifString(documents.getLibelle())){
+        if(documents.getLibelle() == null || !StringValidation.VerifString(documents.getLibelle())){
             throw new ValidationException("le  libelle n'est pas valide");
         }
         Calendar joura = Calendar.getInstance();

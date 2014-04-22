@@ -4,8 +4,12 @@
  */
 package be.isfce.tfe.vue;
 
+import be.isfce.tfe.controleur.UtilisationControleur;
+import be.isfce.tfe.controleur.ValidationException;
 import be.isfce.tfe.db.HeureDETravailDBHelper;
+import be.isfce.tfe.db.TestUtlisationCarte;
 import be.isfce.tfe.metier.HeureDeTravail;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -129,7 +133,8 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
          String heuredefin = "";// heuredefinTextField.getText();
          heuredetravail.setHeureDeFin(String.valueOf(heuredefin));
          System.out.println(heuredefin);
-        
+          try {
+       
          
          HeureDETravailDBHelper.addHeureDeTravail(heuredetravail); 
          HeureDETravailDBHelper.selectHeureDeTravail(heuredetravail);

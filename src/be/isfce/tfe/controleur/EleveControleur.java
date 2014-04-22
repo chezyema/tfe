@@ -21,41 +21,41 @@ public class EleveControleur {
         if(eleve == null){
             throw new ValidationException("Le chauffeur est invalide");
         }
-        if(eleve.getAdresseEleve() == null || StringValidation.VerifString(eleve.getAdresseEleve())){
+        if(eleve.getAdresseEleve() == null || !StringValidation.VerifString(eleve.getAdresseEleve())){
             throw new ValidationException("L'adresse n'est pas valide");
         }
-        if(eleve.getCdpostal() == 0 || CodePosalValidation.checkCodePostale(null)){
+        if(eleve.getCdpostal() == 0 || !CodePosalValidation.checkCodePostale(String.valueOf(eleve.getCdpostal()))){
             throw new ValidationException("Le code postal n'est pas valide");
             //ajouter argument
         }
         
         Calendar auj = Calendar.getInstance();
-        auj.add(Calendar.YEAR, -3);auj.getTime();
+        auj.add(Calendar.YEAR,-3);auj.getTime();
         if(eleve.getDatedenaissance() == null|| eleve.getDatedenaissance().before(auj.getTime())){
             throw new ValidationException("L'eleve doit avoir minimum 3 ans");
              //ajouter argument
         }
-        if(eleve.getNomEleve() == null || StringValidation.VerifString(eleve.getNomEleve())){
+        if(eleve.getNomEleve() == null || !StringValidation.VerifString(eleve.getNomEleve())){
             throw new ValidationException("Le nom de l'eleve n'est pas valide");
         }
-        if(eleve.getEmailResponsable() == null || EmailValidation.validateEmailAddress(eleve.getEmailResponsable())){
+        if(eleve.getEmailResponsable() == null || !EmailValidation.validateEmailAddress(eleve.getEmailResponsable())){
             throw new ValidationException("Le email  n'est pas valide");
         }
        
-         if(eleve.getPrenomEleve() == null || StringValidation.VerifString(eleve.getPrenomEleve())){
+         if(eleve.getPrenomEleve() == null || !StringValidation.VerifString(eleve.getPrenomEleve())){
          throw new ValidationException("Le prenom n'est pas valide");
         }
          
-         if(eleve.getNomResponsable() == null || StringValidation.VerifString(eleve.getNomResponsable())){
+         if(eleve.getNomResponsable() == null || !StringValidation.VerifString(eleve.getNomResponsable())){
             throw new ValidationException("Le nom du responsable de l'eleve n'est pas valide");
         }
          
-        if(eleve.getTelResponsable() == 0 || NumTelValidation.checkNumTel(null)){
+        if(eleve.getTelResponsable() == 0 || !NumTelValidation.checkNumTel(String.valueOf(eleve.getTelResponsable()))){
          throw new ValidationException("Le numero de telephone n'est pas valide");
           //ajouter argument
          
         }
-       if(eleve.getVil() == null || StringValidation.VerifString(eleve.getVil())){
+       if(eleve.getVil() == null || !StringValidation.VerifString(eleve.getVil())){
             throw new ValidationException("La ville n'est pas valide");
         }
 }

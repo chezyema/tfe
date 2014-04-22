@@ -3,11 +3,16 @@
  * and open the template in the editor.
  */
 package be.isfce.tfe.vue;
+import be.isfce.tfe.controleur.ChauffeurControleur;
+import be.isfce.tfe.controleur.MaterielRoulantControleur;
+import be.isfce.tfe.controleur.ValidationException;
+import be.isfce.tfe.db.ChauffeurDBHelper;
 import be.isfce.tfe.db.MaterielRoulantDBHelper;
 import be.isfce.tfe.metier.MaterielRoulant;
 import be.isfce.tfe.validation.StringValidation;
 import be.isfce.tfe.validation.ValidationPlaque;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 
 
@@ -284,11 +289,21 @@ public class AjoutMateielRoulantJPanell extends javax.swing.JPanel {
         }else{
             System.out.println("DATE EXCTINCTEUR INCORRECTE");
         } 
-        
-        
-         MaterielRoulantDBHelper.addMaterielRoulant(materielroulant);
-         MaterielRoulantDBHelper.selectMaterielRoulant(materielroulant);
+         try {
+            MaterielRoulantControleur.estValide(materielroulant);
+            MaterielRoulantDBHelper.addMaterielRoulant(materielroulant);
+            MaterielRoulantDBHelper.selectMaterielRoulant(materielroulant);
 
+            } 
+        catch (ValidationException ex) {
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(),
+                    "Erreur",
+                    JOptionPane.ERROR_MESSAGE);
+           }
+       
+        
+        
     }//GEN-LAST:event_ajoutervehiculeActionPerformed
   
                 

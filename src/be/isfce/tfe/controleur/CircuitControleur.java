@@ -17,7 +17,7 @@ public class CircuitControleur {
         if(circuit == null){
             throw new ValidationException("Le circuit est invalide");
         }
-        if(circuit.getNomCircuit() == null || StringValidation.VerifString(circuit.getNomCircuit())){
+        if(circuit.getNomCircuit() == null || !StringValidation.VerifString(circuit.getNomCircuit())){
             throw new ValidationException("le nom n'est pas valide");
         }
         if(circuit.getKmFin() == 0){

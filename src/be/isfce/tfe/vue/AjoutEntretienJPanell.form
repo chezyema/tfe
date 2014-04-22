@@ -17,23 +17,23 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="description" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="kmactuel" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="dateentretien" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="supprimer" min="-2" pref="100" max="-2" attributes="0"/>
-              </Group>
+              <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="description" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="dateentretien" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="supprimer" min="-2" pref="100" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace pref="88" max="32767" attributes="0"/>
                       <Component id="modifier" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                       <Component id="ajouter" min="-2" pref="101" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="53" pref="53" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="kmactuel" min="-2" pref="143" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                               <Component id="kmactuelTextField" min="-2" pref="258" max="-2" attributes="0"/>
