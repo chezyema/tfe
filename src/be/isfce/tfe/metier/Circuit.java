@@ -81,6 +81,18 @@ public class Circuit {
     public void setDateCircuit(Date DateCircuit) {
         this.DateCircuit = DateCircuit;
     }
+
+    public ArrayList<Arret> getLesarrets() {
+        return lesarrets;
+    }
+
+    public ArrayList<Chauffeur> getLeschauffeurs() {
+        return leschauffeurs;
+    }
+
+    public ArrayList<Eleve> getLeseleves() {
+        return leseleves;
+    }
     private Date DateCircuit;
 
     @Override

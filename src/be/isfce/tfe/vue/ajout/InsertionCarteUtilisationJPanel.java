@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.isfce.tfe.vue;
+package be.isfce.tfe.vue.ajout;
 import be.isfce.tfe.controleur.UtilisationControleur;
 import be.isfce.tfe.controleur.ValidationException;
 import be.isfce.tfe.db.TestUtlisationCarte;
@@ -106,7 +106,9 @@ public class InsertionCarteUtilisationJPanel extends javax.swing.JPanel {
          try {
           UtilisationControleur.estValide(utilisationcarte);
           TestUtlisationCarte.addUtilisationCarte(utilisationcarte );
-          TestUtlisationCarte.selectUtilisationCarte(utilisationcarte);
+          TestUtlisationCarte.selectUtilisationCarte();
+          TestUtlisationCarte.selectListeCarteCarburant();
+          TestUtlisationCarte.selectListeMaterielRoulant();
         } 
          catch (ValidationException ex) 
          {

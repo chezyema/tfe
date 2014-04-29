@@ -5,9 +5,13 @@
 package be.isfce.tfe.db;
 
 
+import be.isfce.tfe.metier.Circuit;
 import be.isfce.tfe.metier.DocumentsAdministratifs;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author yema
@@ -30,7 +34,7 @@ public class DocumentsAdministratifsDBHelper {
             preparedStatement.setString(2, documents.getLibelle());
             preparedStatement.setDate (3, dateSql);
             preparedStatement.setString(4,documents.getIdmaterielroulant());
-            preparedStatement.setLong(5,documents.getIdchauffeur());
+            preparedStatement.setString(5,documents.getIdchauffeur());
             //ajouter les clés étrangére
             
             preparedStatement.executeUpdate();
@@ -44,13 +48,75 @@ public class DocumentsAdministratifsDBHelper {
     
     
 }
-   public static boolean selectDocumentsAdministratifs(DocumentsAdministratifs documents){
+    public static List<DocumentsAdministratifs> selectDocuments(){
         
         try{
             
            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from documentsadministratifs");
            
+           ResultSet resultSet = preparedStatement.executeQuery();
+            List<DocumentsAdministratifs> allDocuments = new ArrayList<DocumentsAdministratifs>();
+            while(resultSet.next()){
+                DocumentsAdministratifs documents = new DocumentsAdministratifs();
+                documents.setId(resultSet.getInt("iddocument"));
+                documents.setLibelle(resultSet.getString("libelle"));
+                documents.setDateValiditer(resultSet.getDate("datevaliditer"));
+                documents.setIdmaterielroulant(resultSet.getString("id"));
+                documents.setIdchauffeur(resultSet.getString("idchauffeur"));
+                
+                allDocuments.add(documents);
+            }
+            System.out.println(allDocuments);
+            return allDocuments;
+                
+                
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+    }
+    
+    
+    
+}  
+    
+     public static List<DocumentsAdministratifs> selectListeDocuments(){
+        
+        try{
+            
+           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from documentsadministratifs");
+           
+           ResultSet resultSet = preparedStatement.executeQuery();
+            List<DocumentsAdministratifs> allDocuments = new ArrayList<DocumentsAdministratifs>();
+            while(resultSet.next()){
+                DocumentsAdministratifs documents = new DocumentsAdministratifs();
+                documents.setId(resultSet.getInt("iddocument"));
+                documents.setLibelle(resultSet.getString("libelle"));
+                documents.setDateValiditer(resultSet.getDate("datevaliditer"));
+                documents.setIdmaterielroulant(resultSet.getString("id"));
+                documents.setIdchauffeur(resultSet.getString("idchauffeur"));
+                
+                allDocuments.add(documents);
+            }
+            System.out.println(allDocuments);
+            return allDocuments;
+                
+                
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+    }
+    
+    
+    
+}  
+   public static boolean deleteDocumentsAdministratifs(DocumentsAdministratifs documents){
+        
+        try{
+            
+           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from documentsadministratifs");
+           
            preparedStatement.execute();
+           Connexion.getInstance().getConn().commit();
             
             return true;
         } catch (Exception e) {

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.isfce.tfe.vue;
+package be.isfce.tfe.vue.ajout;
 
 
 import be.isfce.tfe.controleur.CarteCarburantControleur;
@@ -136,7 +136,8 @@ public class AjoutCarteCarburantJPanell extends javax.swing.JPanel {
         try {
             CarteCarburantControleur.estValide(cartecarburant);
             CarteCarburantDBHelper.addCarteCarburant(cartecarburant);
-            CarteCarburantDBHelper.selectCarteCarburant(cartecarburant);
+            CarteCarburantDBHelper.selectCarteCarburant();
+            
         } catch (ValidationException ex) {
             //TODO Afficher message d'erreur
             JOptionPane.showMessageDialog(this,

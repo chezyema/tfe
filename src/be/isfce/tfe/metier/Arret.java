@@ -16,6 +16,10 @@ public class Arret {
     private String adresse;
     private ArrayList<Circuit> lescircuits;
 
+    public ArrayList<Circuit> getLescircuits() {
+        return lescircuits;
+    }
+
     public void setLesCircuits(ArrayList<Circuit> lesCircuits) {
         this.lescircuits = lesCircuits;
     }
@@ -30,6 +34,11 @@ public class Arret {
 
     public String getAdresse() {
         return adresse;
+    }
+
+    @Override
+    public String toString() {
+        return "Arret{" + "id=" + id + ", adresse=" + adresse + ", lescircuits=" + lescircuits + '}';
     }
 
     public void setAdresse(String adresse) {

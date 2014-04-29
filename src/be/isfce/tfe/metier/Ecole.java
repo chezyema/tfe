@@ -20,6 +20,9 @@ public class Ecole {
     private int telecole;
     private String emailecole;
     private String nomdirecteur;
+    private String anneescolaire;
+    private ArrayList<Eleve> leseleves;
+
 
     public int getCdpostal() {
         return cdpostal;
@@ -36,8 +39,7 @@ public class Ecole {
     public String getVil() {
         return vil;
     }
-    private String anneescolaire;
-    private ArrayList<Eleve> leseleves;
+   
 
     public void setNomecole(String nomecole) {
         this.nomecole = nomecole;
@@ -103,13 +105,14 @@ public class Ecole {
         this.emailecole = EmailEcole;
     }
 
-    public void setNomDirecteur(String NomDirecteur) {
-        this.nomdirecteur = NomDirecteur;
+    @Override
+    public String toString() {
+        return "Ecole{" + "id=" + id + ", nomecole=" + nomecole + ", adresseecole=" + adresseecole + ", cdpostal=" + cdpostal + ", vil=" + vil + ", telecole=" + telecole + ", emailecole=" + emailecole + ", nomdirecteur=" + nomdirecteur + ", anneescolaire=" + anneescolaire + ", leseleves=" + leseleves + '}';
     }
 
-    public void setAnneeScolaire(String AnneeScolaire) {
-        this.anneescolaire = AnneeScolaire;
-    }
+    
+
+   
 
     public int getId() {
         return id;

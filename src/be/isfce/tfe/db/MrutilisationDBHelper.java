@@ -37,12 +37,26 @@ public class MrutilisationDBHelper {
     
        public static boolean selectMrUtilisation( MrUtilisation mrutilisation ){
         try{
- 
-            
-            
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from mr_utilisation");
            
             preparedStatement.execute();
+            
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        
+        
+        }
+   
+    }
+       
+        public static boolean deleteMrUtilisation( MrUtilisation mrutilisation ){
+        try{
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from mr_utilisation");
+           
+            preparedStatement.execute();
+            Connexion.getInstance().getConn().commit();
             
             return true;
         } catch (Exception e) {

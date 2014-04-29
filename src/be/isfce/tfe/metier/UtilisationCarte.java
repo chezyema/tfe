@@ -15,6 +15,10 @@ public class UtilisationCarte {
     
     private  int idutilisationcarte;
     private Date dateutilisation;
+    private ArrayList<MaterielRoulant> lesvehicules;
+    private ArrayList<CarteCarburant> lescartes;
+    
+    
     public int getIdutilisationcarte() {
         return idutilisationcarte;
     }
@@ -26,8 +30,6 @@ public class UtilisationCarte {
     public UtilisationCarte() {
     }
 
-    private ArrayList<MaterielRoulant> lesvehicules;
-    private ArrayList<CarteCarburant> lescartes;
 
     public Date getDateUtilisation() {
         return dateutilisation;

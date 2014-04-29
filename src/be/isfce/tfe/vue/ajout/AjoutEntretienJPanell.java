@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.isfce.tfe.vue;
+package be.isfce.tfe.vue.ajout;
 
 
 import be.isfce.tfe.controleur.EntretienControleur;
@@ -144,7 +144,7 @@ public class AjoutEntretienJPanell extends javax.swing.JPanel {
           try {
              EntretienControleur.estValide(entretien);
             EntretienDBHelper.addEntretien(entretien);
-            EntretienDBHelper.selectEntretien(entretien); 
+            EntretienDBHelper.selectEntretien(); 
             } 
         catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this,

@@ -54,6 +54,24 @@ public class ContientDBHelper {
         }
    
     }
+      
+      public static boolean deleteContient( Contient contient ){
+        try{ PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from contient");
+           
+            
+            preparedStatement.execute();
+            Connexion.getInstance().getConn().commit();
+            
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        
+        
+        }
+   
+    }
+    
     
     
     

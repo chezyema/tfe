@@ -50,4 +50,19 @@ public class CarburantUtilisationDBHelper {
         }
 
     }
+    
+      public static boolean deleteCarburantUtilisation(CarburantUtilisation carburantutilisation) {
+        try {
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from carburant_utilisation");
+            
+            preparedStatement.execute();
+            Connexion.getInstance().getConn().commit();
+
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
 }

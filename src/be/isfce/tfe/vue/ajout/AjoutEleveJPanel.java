@@ -1,5 +1,5 @@
 
-package be.isfce.tfe.vue;
+package be.isfce.tfe.vue.ajout;
 import be.isfce.tfe.controleur.EleveControleur;
 import be.isfce.tfe.controleur.ValidationException;
 import be.isfce.tfe.metier.Eleve;
@@ -141,9 +141,8 @@ public class AjoutEleveJPanel extends javax.swing.JPanel {
                                     .addComponent(nomresponsableTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                                     .addComponent(telresponsableTextField)
                                     .addComponent(eleveDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(prenomeleveTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                        .addComponent(adresseTextField, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(prenomeleveTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(adresseTextField)
                                     .addComponent(villeTextField)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(45, 45, 45)
@@ -324,7 +323,7 @@ public class AjoutEleveJPanel extends javax.swing.JPanel {
            try {
              EleveControleur.estValide(eleve);
              EleveDBHelper.addEleve(eleve);
-             EleveDBHelper.selectEleve(eleve);
+             EleveDBHelper.selectEleve();
             } 
         catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this,

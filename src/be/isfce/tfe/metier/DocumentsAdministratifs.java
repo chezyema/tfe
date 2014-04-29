@@ -14,11 +14,16 @@ import java.util.Date;
  */
 public class DocumentsAdministratifs {
 
+    @Override
+    public String toString() {
+        return "DocumentsAdministratifs{" + "id=" + id + ", libelle=" + libelle + ", DateValiditer=" + DateValiditer + ", idmaterielroulant=" + idmaterielroulant + ", idchauffeur=" + idchauffeur + ", leschauffeurs=" + leschauffeurs + ", vehicule=" + vehicule + '}';
+    }
+
     public void setIdmaterielroulant(String idmaterielroulant) {
         this.idmaterielroulant = idmaterielroulant;
     }
 
-    public void setIdchauffeur(long idchauffeur) {
+    public void setIdchauffeur(String idchauffeur) {
         this.idchauffeur = idchauffeur;
     }
 
@@ -26,15 +31,15 @@ public class DocumentsAdministratifs {
     private String libelle;
     private Date DateValiditer;
     private String idmaterielroulant;
-    private Long idchauffeur;
+    private String idchauffeur;
     private ArrayList<Chauffeur> leschauffeurs;
-    private MaterielRoulant document;
+    private MaterielRoulant vehicule;
 
     public String getIdmaterielroulant() {
         return idmaterielroulant;
     }
 
-    public Long getIdchauffeur() {
+    public String getIdchauffeur() {
         return idchauffeur;
     }
 
@@ -74,12 +79,12 @@ public class DocumentsAdministratifs {
 
     
 
-    public MaterielRoulant getDocument() {
-        return document;
+    public MaterielRoulant getVehicule() {
+        return vehicule;
     }
 
-    public void setDocument(MaterielRoulant document) {
-        this.document = document;
+    public void setDocument(MaterielRoulant vehicule) {
+        this.vehicule = vehicule;
     }
 
     

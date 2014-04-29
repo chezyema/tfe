@@ -18,6 +18,15 @@ public class CarteCarburant {
    
     private ArrayList<UtilisationCarte> lesutilisations;
 
+    @Override
+    public String toString() {
+        return "CarteCarburant{" + "id=" + id + ", kmutilisation=" + kmutilisation + ", litrecarburant=" + litrecarburant + ", lesutilisations=" + lesutilisations + '}';
+    }
+
+    public ArrayList<UtilisationCarte> getLesutilisations() {
+        return lesutilisations;
+    }
+
     
 
     public void setId(int id) {

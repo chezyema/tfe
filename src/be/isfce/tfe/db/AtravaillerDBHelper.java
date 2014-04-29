@@ -20,9 +20,6 @@ public class AtravaillerDBHelper {
 
     public static boolean addAtravailler(Atravailler heuredetravail ){
         try{
- 
-            
-            
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("Insert into atravailler (idheuredetravail,idchauffeur) values (? , ?)");
             preparedStatement.setInt(1,heuredetravail.getIdheuredetravail());
             preparedStatement.setLong(2,heuredetravail.getIdchauffeur() );
@@ -55,7 +52,23 @@ public class AtravaillerDBHelper {
         }
    
     }
-    
+       
+      public static boolean deleteAtravailler(Atravailler heuredetravail ){
+        try{
+               PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from atravailler");
+          
+               preparedStatement.execute();
+               Connexion.getInstance().getConn().commit();
+            
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        
+        
+        }
+   
+    }
     
     
 }

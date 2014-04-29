@@ -26,9 +26,9 @@ public class EcoleControlleur {
             throw new ValidationException("L'adresse n'est pas valide");
         }
         
-        if(ecole.getCdpostal() == 0 || ! CodePosalValidation.checkCodePostale(String.valueOf(ecole.getCdpostal()))){
+        if(ecole.getCdpostal() == 0 ){
             throw new ValidationException("Le code postal n'est pas valide");
-            //encore ajouter l'argument
+            
         }
         
       
@@ -43,9 +43,9 @@ public class EcoleControlleur {
          throw new ValidationException("Le nom de l'ecole n'est pas valide");
         }
          
-        if(ecole.getTelecole() == 0 || ! NumTelValidation.checkNumTel(String.valueOf(ecole.getTelecole()))){
+        if(ecole.getTelecole() == 0 ){
          throw new ValidationException("Le numero de telephone n'est pas valide");
-         // encore ajouter l'argurment
+        
         }
         if(ecole.getNomdirecteur() == null  || ! StringValidation.VerifString(ecole.getNomdirecteur())){
           throw new ValidationException("Le nom du directeur de l'ecole n'est pas valide");

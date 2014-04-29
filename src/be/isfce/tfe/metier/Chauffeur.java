@@ -36,7 +36,7 @@ public class Chauffeur {
         this.lesdocuments = lesdocuments;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -95,7 +95,7 @@ public class Chauffeur {
 
     
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -126,7 +126,14 @@ public class Chauffeur {
     public void setSelectionMedicale(Date SelectionMedicale) {
         this.selectionmedicale = SelectionMedicale;
     }
-    private long id;
+
+    @Override
+    public String toString() {
+        return "Chauffeur{" + "id=" + id + ", nomchauffeur=" + nomchauffeur + ", prenomchauffeur=" + prenomchauffeur + ", datedenaissance=" + datedenaissance + ", adresse=" + adresse + ", codepostale=" + codepostale + ", ville=" + ville + ", numtelephone=" + numtelephone + ", email=" + email + ", selectionmedicale=" + selectionmedicale + ", validitercartechauffeur=" + validitercartechauffeur + ", validitercap=" + validitercap + ", lescircuits=" + lescircuits + ", lesvehicules=" + lesvehicules + ", lesdocuments=" + lesdocuments + '}';
+    }
+    
+    
+    private String id;
     private String nomchauffeur;
     private String prenomchauffeur;
     private Date datedenaissance;
@@ -139,6 +146,18 @@ public class Chauffeur {
     private Date validitercartechauffeur;
     private Date validitercap;
     private ArrayList<Circuit> lescircuits;
+
+    public ArrayList<Circuit> getLescircuits() {
+        return lescircuits;
+    }
+
+    public ArrayList<MaterielRoulant> getLesvehicules() {
+        return lesvehicules;
+    }
+
+    public ArrayList<DocumentsAdministratifs> getLesdocuments() {
+        return lesdocuments;
+    }
     private ArrayList<MaterielRoulant> lesvehicules;
     private ArrayList<DocumentsAdministratifs> lesdocuments;
 }

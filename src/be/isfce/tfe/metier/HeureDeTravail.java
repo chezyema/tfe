@@ -5,6 +5,7 @@
 package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -16,6 +17,10 @@ public class HeureDeTravail {
         this.idheuredetravail = idheuredetravail;
     }
 
+    public void setDateTravail(Date dateTravail) {
+        this.dateTravail = dateTravail;
+    }
+
     
 
     public int getIdheuredetravail() {
@@ -24,7 +29,12 @@ public class HeureDeTravail {
      private int idheuredetravail;
     private String heurededebut;
     private String heuredefin;
+    private Date dateTravail;
     private ArrayList<Circuit> lescircuits;
+
+    public Date getDateTravail() {
+        return dateTravail;
+    }
 
     public void setHeureDeDebut(String HeureDeDebut) {
         this.heurededebut = HeureDeDebut;

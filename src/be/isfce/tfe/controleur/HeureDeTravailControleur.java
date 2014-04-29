@@ -16,7 +16,7 @@ public class HeureDeTravailControleur {
        public static void estValide(HeureDeTravail heure) throws ValidationException{
         Calendar joura = Calendar.getInstance();
         joura.add(Calendar.HOUR, 0);joura.getTime();
-       // if( == null || heure.getHeureDeDebut(joura.getTime())){
+        //if( == null || heure.getHeureDeDebut(joura.getTime())){
         throw new ValidationException("Le date n'est pas valide");
         }
     

@@ -53,4 +53,19 @@ public class AssociationchauffeurvehiculeDBHelper {
             return false;
         }
 }
+     
+      public static boolean deleteMaterielUtiliser(MaterielUtiliser materiel) {
+        try {
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from utiliser");
+           
+            
+            preparedStatement.execute();
+            Connexion.getInstance().getConn().commit();
+            
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+}
 }

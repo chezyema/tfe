@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.isfce.tfe.vue;
+package be.isfce.tfe.vue.ajout;
 
 import be.isfce.tfe.db.ArretDBHelper;
 import be.isfce.tfe.metier.Arret;
@@ -103,7 +103,8 @@ public class AjoutArretJPanell extends javax.swing.JPanel {
         try {
             ArretControleur.estValide(arret);
             ArretDBHelper.addArret(arret);
-            ArretDBHelper.selectArret(arret);
+            ArretDBHelper.selectArrets();
+           
         } catch (ValidationException ex) {
             //TODO Afficher message d'erreur
             JOptionPane.showMessageDialog(this,

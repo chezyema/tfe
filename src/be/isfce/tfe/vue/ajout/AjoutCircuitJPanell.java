@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.isfce.tfe.vue;
+package be.isfce.tfe.vue.ajout;
 
 
 import be.isfce.tfe.controleur.CircuitControleur;
@@ -198,7 +198,7 @@ public class AjoutCircuitJPanell extends javax.swing.JPanel {
          try {
             CircuitControleur.estValide(circuit);
             CircuitDBHelper.addCircuit(circuit);
-            CircuitDBHelper.selectCircuit(circuit);
+            CircuitDBHelper.selectCircuit();
         } catch (ValidationException ex) {
       
             JOptionPane.showMessageDialog(this,

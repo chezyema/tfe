@@ -14,6 +14,11 @@ public class Eleve {
 
     private String id;
 
+    @Override
+    public String toString() {
+        return "Eleve{" + "id=" + id + ", nomeleve=" + nomeleve + ", prenomeleve=" + prenomeleve + ", adresseeleve=" + adresseeleve + ", datedenaissance=" + datedenaissance + ", cdpostal=" + cdpostal + ", vil=" + vil + ", nomresponsable=" + nomresponsable + ", telresponsable=" + telresponsable + ", idcircuit=" + idcircuit + ", idecole=" + idecole + ", emailresponsable=" + emailresponsable + ", coordonnee=" + coordonnee + ", empreinter=" + empreinter + '}';
+    }
+
     public void setDatedenaissance(Date datedenaissance) {
         this.datedenaissance = datedenaissance;
     }

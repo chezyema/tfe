@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.isfce.tfe.vue;
+package be.isfce.tfe.vue.ajout;
 
 
 
@@ -147,7 +147,7 @@ public class AjoutDocumentsJPanell extends javax.swing.JPanel {
          try {
               DocumentsAdministratifsControleur.estValide(documents);
             DocumentsAdministratifsDBHelper.addDocumentsAdministratifs(documents); 
-            DocumentsAdministratifsDBHelper.selectDocumentsAdministratifs(documents);  
+            DocumentsAdministratifsDBHelper.selectDocuments();  
          
         } catch (ValidationException ex) {
       

@@ -16,6 +16,11 @@ public class MaterielRoulant {
     private String id;
     private String marque;
     private String type;
+
+    @Override
+    public String toString() {
+        return "MaterielRoulant{" + "id=" + id + ", marque=" + marque + ", type=" + type + ", carburant=" + carburant + ", numImmatr=" + numImmatr + ", nbdeplaces=" + nbdeplaces + ", kmactuel=" + kmactuel + ", anneedeconstruction=" + anneedeconstruction + ", dateexctincteur=" + dateexctincteur + ", lesentretiens=" + lesentretiens + ", Leschauffeurs=" + Leschauffeurs + ", lescircuits=" + lescircuits + ", lesmemos=" + lesmemos + '}';
+    }
     private String carburant;
     private String numImmatr;
     private int nbdeplaces;

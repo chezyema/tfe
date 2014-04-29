@@ -2,21 +2,21 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.isfce.tfe.vue;
+package be.isfce.tfe.vue.ajout;
 
-import be.isfce.tfe.db.AssociationchauffeurvehiculeDBHelper;
-import be.isfce.tfe.metier.MaterielUtiliser;
+import be.isfce.tfe.db.EstEffectuerDBHelper;
+import be.isfce.tfe.metier.EstEffectuer;
 
 /**
  *
  * @author yema
  */
-public class AssociationvehiculechauffeurJPanell extends javax.swing.JPanel {
+public class EstEffectuerJPanell extends javax.swing.JPanel {
 
     /**
-     * Creates new form AssociationvehiculechauffeurJPanell
+     * Creates new form EstEffectuerJPanell
      */
-    public AssociationvehiculechauffeurJPanell() {
+    public EstEffectuerJPanell() {
         initComponents();
     }
 
@@ -32,13 +32,14 @@ public class AssociationvehiculechauffeurJPanell extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         idchauffeurTextField = new javax.swing.JTextField();
-        idvehiculeTextField = new javax.swing.JTextField();
+        idcircuitTextField = new javax.swing.JTextField();
         validerButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        annulerButton = new javax.swing.JButton();
+        modifierButton = new javax.swing.JButton();
 
         jLabel1.setText("Identifiant chauffeur:");
 
-        jLabel2.setText("Identifiant vehicule:");
+        jLabel2.setText("Identifiant circuit:");
 
         validerButton.setText("Valider");
         validerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -47,7 +48,9 @@ public class AssociationvehiculechauffeurJPanell extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Annuler");
+        annulerButton.setText("Annuler");
+
+        modifierButton.setText("Modifier");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -56,67 +59,65 @@ public class AssociationvehiculechauffeurJPanell extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(annulerButton)
+                        .addComponent(jLabel2)))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(47, 47, 47)
-                        .addComponent(idchauffeurTextField))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(idchauffeurTextField)
+                            .addComponent(idcircuitTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                        .addComponent(idvehiculeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(102, 102, 102))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(validerButton)
-                .addGap(23, 23, 23))
+                        .addComponent(modifierButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                        .addComponent(validerButton)
+                        .addGap(33, 33, 33))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(idchauffeurTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(idvehiculeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(validerButton)
-                        .addGap(36, 36, 36))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(44, 44, 44))))
+                    .addComponent(idcircuitTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(validerButton)
+                    .addComponent(annulerButton)
+                    .addComponent(modifierButton))
+                .addGap(36, 36, 36))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void validerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validerButtonActionPerformed
-    // TODO add your handling code here:
-         MaterielUtiliser association = new MaterielUtiliser();
+        // TODO add your handling code here:
+          EstEffectuer effectuer = new EstEffectuer();
          String idchauffeur = idchauffeurTextField.getText();
-         association.setIdchauffeur(Long.valueOf(idchauffeur));
+         effectuer.setIdchauffeur(Long.valueOf(idchauffeur));
          System.out.println(idchauffeur);
          
-          String idvehicule = idvehiculeTextField.getText();
-         association.setId(String.valueOf(idvehicule));
-         System.out.println(idvehicule);
-        
-        AssociationchauffeurvehiculeDBHelper.addMaterielUtiliser(association);
-        AssociationchauffeurvehiculeDBHelper.selectMaterielUtiliser(association);
-        
+          String idcircuit = idcircuitTextField.getText();
+          effectuer.setIdcircuit(Integer.valueOf(idcircuit));
+         System.out.println(idcircuit);
+         EstEffectuerDBHelper.addEstEffectuer(effectuer);
+         EstEffectuerDBHelper.selectEstEffectuer(effectuer); 
         
     }//GEN-LAST:event_validerButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton annulerButton;
     private javax.swing.JTextField idchauffeurTextField;
-    private javax.swing.JTextField idvehiculeTextField;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField idcircuitTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton modifierButton;
     private javax.swing.JButton validerButton;
     // End of variables declaration//GEN-END:variables
 }

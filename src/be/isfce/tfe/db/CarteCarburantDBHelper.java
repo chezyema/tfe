@@ -6,8 +6,13 @@
 package be.isfce.tfe.db;
 
 
+
 import be.isfce.tfe.metier.CarteCarburant;
+import be.isfce.tfe.metier.UtilisationCarte;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -38,11 +43,63 @@ public class CarteCarburantDBHelper {
         }
    
     }
-      public static boolean selectCarteCarburant( CarteCarburant cartecarburant ){
+      public static List<CarteCarburant> selectCarteCarburant(){
        try{
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from cartecarburant");
           
-            preparedStatement.execute();
+           ResultSet resultSet = preparedStatement.executeQuery();
+            List<CarteCarburant> allCarteCarburant = new ArrayList<CarteCarburant>();
+            while(resultSet.next()){
+                CarteCarburant cartecarburant = new CarteCarburant();
+                cartecarburant.setId(resultSet.getInt("idcarte"));
+                cartecarburant.setKmUtilisation(resultSet.getInt("kmutilisation"));
+                cartecarburant.setLitreCarburant(resultSet.getInt("litrecarburant"));
+                   
+                allCarteCarburant.add(cartecarburant);
+            }
+             System.out.println(allCarteCarburant);
+             return allCarteCarburant;
+       }
+            catch (Exception e){
+            e.printStackTrace();
+            return null;
+        
+        
+        }
+   
+    }
+      
+       public static List<UtilisationCarte> selectListeUtilisationCarte(){
+        
+        try{
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from utilisationcarte");
+           
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<UtilisationCarte> allUtilisationCarte = new ArrayList<UtilisationCarte>();
+            while(resultSet.next()){
+                UtilisationCarte heure = new UtilisationCarte();
+                heure.setIdutilisationcarte(resultSet.getInt("idutilisation"));
+                heure.setDateutilisation(resultSet.getDate("dateutilisation"));
+                
+                
+                allUtilisationCarte.add(heure);
+            }
+            System.out.println(allUtilisationCarte);
+            return allUtilisationCarte;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+    }
+    
+    
+}
+         public static boolean deleteCarteCarburant( CarteCarburant cartecarburant ){
+       try{
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from cartecarburant");
+          
+            preparedStatement.executeUpdate();
+            Connexion.getInstance().getConn().commit();
             
            return true;
        } catch (Exception e) {
@@ -51,7 +108,6 @@ public class CarteCarburantDBHelper {
         
         
         }
-   
-    }     
     
+}
 }

@@ -3,9 +3,13 @@
  * and open the template in the editor.
  */
 package be.isfce.tfe.db;
+import be.isfce.tfe.metier.Circuit;
 import be.isfce.tfe.metier.Entretien;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -40,21 +44,47 @@ public class EntretienDBHelper {
         }
    
     }
-     public static boolean selectEntretien(Entretien entretien ){
+     public static List<Entretien> selectEntretien(){
         try{
             
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from entretien");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<Entretien> allEntretien = new ArrayList<Entretien>();
+            while(resultSet.next()){
+                Entretien entretien = new Entretien();
+                entretien.setId(resultSet.getInt("identretien"));
+                entretien.setDescription(resultSet.getString("description"));
+                entretien.setKmEntretienFait(resultSet.getInt("kmentretienfait"));
+                entretien.setDateEntretien(resultSet.getDate("dateentretien"));
+                entretien.setIdmaterielroulant(resultSet.getString("id"));
+                
+                allEntretien.add(entretien);
+            }
+            System.out.println(allEntretien);
+            return allEntretien;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+    }
+    
+    
+}
+     
+       public static boolean deleteEntretien(Entretien entretien ){
+        try{
+            
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from entretien");
             preparedStatement.execute();
+            Connexion.getInstance().getConn().commit();
             
             return true;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         
-        
-        }
-   
-    }
+              }
+         }
     
     
 }

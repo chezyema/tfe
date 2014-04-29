@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.isfce.tfe.vue;
+package be.isfce.tfe.vue.ajout;
 
 import be.isfce.tfe.db.MrutilisationDBHelper;
 import be.isfce.tfe.metier.MrUtilisation;

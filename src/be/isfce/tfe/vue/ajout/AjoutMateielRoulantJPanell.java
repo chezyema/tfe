@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.isfce.tfe.vue;
+package be.isfce.tfe.vue.ajout;
 import be.isfce.tfe.controleur.ChauffeurControleur;
 import be.isfce.tfe.controleur.MaterielRoulantControleur;
 import be.isfce.tfe.controleur.ValidationException;
@@ -292,7 +292,7 @@ public class AjoutMateielRoulantJPanell extends javax.swing.JPanel {
          try {
             MaterielRoulantControleur.estValide(materielroulant);
             MaterielRoulantDBHelper.addMaterielRoulant(materielroulant);
-            MaterielRoulantDBHelper.selectMaterielRoulant(materielroulant);
+            MaterielRoulantDBHelper.selectMaterielRoulant();
 
             } 
         catch (ValidationException ex) {

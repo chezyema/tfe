@@ -14,6 +14,11 @@ public class Entretien {
 
     private int id;
 
+    @Override
+    public String toString() {
+        return "Entretien{" + "id=" + id + ", description=" + description + ", kmEntretienFait=" + kmEntretienFait + ", dateEntretien=" + dateEntretien + ", idmaterielroulant=" + idmaterielroulant + ", coordonnee=" + coordonnee + '}';
+    }
+
     public String getIdmaterielroulant() {
         return idmaterielroulant;
     }

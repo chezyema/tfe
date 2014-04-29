@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.isfce.tfe.vue;
+package be.isfce.tfe.vue.ajout;
 
 import be.isfce.tfe.controleur.ArretControleur;
 import be.isfce.tfe.controleur.ChauffeurControleur;
@@ -253,7 +253,7 @@ public class AjoutChauffeurJPanell extends javax.swing.JPanel {
             //Check a retourné false : Le chauffeur ne peut être créé.
             System.out.println("REGISTRE NATIONAL INCORRECT");
         } else {
-            chauffeur.setId(Long.valueOf(registreNational));
+            chauffeur.setId(String.valueOf(registreNational));
             //Sinon je peux setté son attribut avec la valeur récupérée.
             System.out.println("REGISTRE NATIONAL CORRECT");
         }
@@ -348,7 +348,7 @@ public class AjoutChauffeurJPanell extends javax.swing.JPanel {
         try {
             ChauffeurControleur.estValide(chauffeur);
             ChauffeurDBHelper.addChauffeur(chauffeur);
-            ChauffeurDBHelper.selectChauffeur(chauffeur);
+            ChauffeurDBHelper.selectChauffeur();
             } 
         catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this,

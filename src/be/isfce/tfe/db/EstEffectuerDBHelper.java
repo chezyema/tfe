@@ -54,6 +54,23 @@ public class EstEffectuerDBHelper {
         }
    
     }
+     
+      public static boolean deleteEstEffectuer(EstEffectuer esteffectuer ){
+        try{ 
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from esteffectuer");
+            
+            preparedStatement.execute();
+            Connexion.getInstance().getConn().commit();
+            
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        
+        
+        }
+   
+    }
 }
     
     
