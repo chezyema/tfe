@@ -5,6 +5,7 @@
 package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,13 +15,13 @@ public class Arret {
 
     private int id;
     private String adresse;
-    private ArrayList<Circuit> lescircuits;
+    private List<Circuit> lescircuits;
 
-    public ArrayList<Circuit> getLescircuits() {
+    public List<Circuit> getLescircuits() {
         return lescircuits;
     }
 
-    public void setLesCircuits(ArrayList<Circuit> lesCircuits) {
+    public void setLesCircuits(List<Circuit> lesCircuits) {
         this.lescircuits = lesCircuits;
     }
 

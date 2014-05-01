@@ -49,10 +49,11 @@ public class ArretDBHelper {
                 Arret arret = new Arret();
                 arret.setId(resultSet.getInt("idarrets"));
                 arret.setAdresse(resultSet.getString("adressearrets"));
-                
+                arret.setLesCircuits(selectListeCircuitPourArret(arret.getId()));
+                System.out.println(arret);
                 allArret.add(arret);
             }
-            System.out.println(allArret);
+            //System.out.println(allArret);
             return allArret;
         } catch (Exception e) {
             
@@ -61,11 +62,11 @@ public class ArretDBHelper {
         }
     } 
     
-     public static List<Circuit> selectListeCircuit(){
+     public static List<Circuit> selectListeCircuitPourArret(int arretId){
         
         try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from circuit");
-           
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from contient join circuit on contient.idcircuit = circuit.idcircuit where idarrets = ?");
+            preparedStatement.setInt(1, arretId);
             ResultSet resultSet = preparedStatement.executeQuery();
             List<Circuit> allCircuit = new ArrayList<Circuit>();
             while(resultSet.next()){
@@ -79,7 +80,7 @@ public class ArretDBHelper {
                 
                 allCircuit.add(circuit);
             }
-            System.out.println(allCircuit);
+            //System.out.println(allCircuit);
             return allCircuit;
             
         } catch (Exception e) {
