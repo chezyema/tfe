@@ -63,7 +63,9 @@ public class CircuitDBHelper {
                 circuit.setKmDepart(resultSet.getInt("kmdepart"));
                 circuit.setKmFin(resultSet.getInt("kmfin"));
                 circuit.setDateCircuit(resultSet.getDate("datecircuit"));
-                
+                circuit.setLesArrets( selectListeArretsPourCircuit(circuit.getId()));
+                circuit.setLesChauffeurs(selectListeChauffeurPourCircuit(circuit.getId()));
+                circuit.setLesEleves(selectListeElevePourCircuit(circuit.getId()));
                 allCircuit.add(circuit);
             }
             System.out.println(allCircuit);
@@ -77,10 +79,11 @@ public class CircuitDBHelper {
     
 }
       
-         public static List<Chauffeur> selectListeChauffeur() {
+         public static List<Chauffeur> selectListeChauffeurPourCircuit(int circuitId) {
 
         try {
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from chauffeur");
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from esteffectuer join chauffeur on esteffectuer.idchauffeur = chauffeur.idchauffeur where idcircuit = ?");
+            preparedStatement.setInt(1, circuitId);
             ResultSet resultSet = preparedStatement.executeQuery();
             List<Chauffeur> allChauffeurs = new ArrayList<Chauffeur>();
             while(resultSet.next()){
@@ -100,7 +103,7 @@ public class CircuitDBHelper {
                 allChauffeurs.add(chauffeur);
                 
                 }
-            System.out.println(allChauffeurs);
+           // System.out.println(allChauffeurs);
             return allChauffeurs;
         } catch (Exception e) {
             e.printStackTrace();
@@ -108,12 +111,13 @@ public class CircuitDBHelper {
         }
     }
          
-         public static List<Eleve> selectListeEleve(){
+         public static List<Eleve> selectListeElevePourCircuit(int circuitIda){
     
     
     try{
-          PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from eleve");
-         ResultSet resultSet = preparedStatement.executeQuery();
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from eleve join circuit on eleve.idcircuit = circuit.idcircuit where circuit.idcircuit = ?");
+            preparedStatement.setInt(1, circuitIda);
+            ResultSet resultSet = preparedStatement.executeQuery();
             List<Eleve> allEleve = new ArrayList<Eleve>();
             while(resultSet.next()){
                 Eleve eleve = new Eleve();
@@ -132,7 +136,7 @@ public class CircuitDBHelper {
                 allEleve.add(eleve);
                 
                 }
-            System.out.println(allEleve);
+            //System.out.println(allEleve);
             return allEleve;
         } catch (Exception e) {
             e.printStackTrace();
@@ -140,9 +144,10 @@ public class CircuitDBHelper {
         }
     }
          
-         public static List<Arret> selectListeArrets() {
+         public static List<Arret> selectListeArretsPourCircuit(int circuitIdb) {
         try {
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from arrets");
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from contient join arrets on contient.idarrets = arrets.idarrets where idcircuit = ?");
+            preparedStatement.setInt(1, circuitIdb);
             ResultSet resultSet = preparedStatement.executeQuery();
             List<Arret> allArret = new ArrayList<Arret>();
             while(resultSet.next()){
@@ -152,7 +157,7 @@ public class CircuitDBHelper {
                 
                 allArret.add(arret);
             }
-            System.out.println(allArret);
+           // System.out.println(allArret);
             return allArret;
         } catch (Exception e) {
             

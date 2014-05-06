@@ -52,7 +52,7 @@ public class HeureDETravailDBHelper {
                 heure.setHeureDeDebut(resultSet.getString("heurededebut"));
                 heure.setHeureDeFin(resultSet.getString("heuredefin"));
                 heure.setDateTravail(resultSet.getDate("datetravail"));
-                
+                heure.setLeschauffeurs(selectListeChauffeurPourHeureDeTravail(heure.getIdheuredetravail()));
                 allHeureDeTravail.add(heure);
             }
             System.out.println(allHeureDeTravail);
@@ -64,10 +64,11 @@ public class HeureDETravailDBHelper {
     }
       }
       
-         public static List<Chauffeur> selectListeChauffeur() {
+         public static List<Chauffeur> selectListeChauffeurPourHeureDeTravail(int heureDeTravailId) {
 
         try {
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from chauffeur");
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from atravailler join chauffeur on atravailler.idchauffeur = chauffeur.idchauffeur where idheuredetravail = ? ");
+             preparedStatement.setInt(1, heureDeTravailId);
             ResultSet resultSet = preparedStatement.executeQuery();
             List<Chauffeur> allChauffeurs = new ArrayList<Chauffeur>();
             while(resultSet.next()){
@@ -87,7 +88,7 @@ public class HeureDETravailDBHelper {
                 allChauffeurs.add(chauffeur);
                 
                 }
-            System.out.println(allChauffeurs);
+           // System.out.println(allChauffeurs);
             return allChauffeurs;
         } catch (Exception e) {
             e.printStackTrace();

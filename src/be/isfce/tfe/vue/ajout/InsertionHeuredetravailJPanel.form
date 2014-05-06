@@ -41,12 +41,12 @@
                           <Group type="102" attributes="0">
                               <Component id="heuredefinSpinField" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="heuredefinSpinField1" min="-2" max="-2" attributes="0"/>
+                              <Component id="minutefinSpinField" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="heuededebutSpinField" min="-2" max="-2" attributes="0"/>
+                              <Component id="heureDebutSpinField" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="heurededebutSpinField1" min="-2" max="-2" attributes="0"/>
+                              <Component id="minuteDebutSpinField" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -63,8 +63,8 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="heuededebutSpinField" min="-2" max="-2" attributes="0"/>
-                          <Component id="heurededebutSpinField1" min="-2" max="-2" attributes="0"/>
+                          <Component id="heureDebutSpinField" min="-2" max="-2" attributes="0"/>
+                          <Component id="minuteDebutSpinField" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -73,7 +73,7 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="heuredefinSpinField1" min="-2" max="-2" attributes="0"/>
+                              <Component id="minutefinSpinField" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -111,13 +111,13 @@
         <Property name="text" type="java.lang.String" value="Date du jour de travail:"/>
       </Properties>
     </Component>
-    <Component class="com.toedter.components.JSpinField" name="heuededebutSpinField">
+    <Component class="com.toedter.components.JSpinField" name="heureDebutSpinField">
     </Component>
-    <Component class="com.toedter.components.JSpinField" name="heurededebutSpinField1">
+    <Component class="com.toedter.components.JSpinField" name="minuteDebutSpinField">
     </Component>
     <Component class="com.toedter.components.JSpinField" name="heuredefinSpinField">
     </Component>
-    <Component class="com.toedter.components.JSpinField" name="heuredefinSpinField1">
+    <Component class="com.toedter.components.JSpinField" name="minutefinSpinField">
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="datedetravail">
     </Component>

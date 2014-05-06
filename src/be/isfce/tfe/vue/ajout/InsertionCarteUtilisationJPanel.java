@@ -5,7 +5,7 @@
 package be.isfce.tfe.vue.ajout;
 import be.isfce.tfe.controleur.UtilisationControleur;
 import be.isfce.tfe.controleur.ValidationException;
-import be.isfce.tfe.db.TestUtlisationCarte;
+import be.isfce.tfe.db.UtlisationCarteDBHelper;
 import be.isfce.tfe.metier.UtilisationCarte;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -105,10 +105,10 @@ public class InsertionCarteUtilisationJPanel extends javax.swing.JPanel {
         
          try {
           UtilisationControleur.estValide(utilisationcarte);
-          TestUtlisationCarte.addUtilisationCarte(utilisationcarte );
-          TestUtlisationCarte.selectUtilisationCarte();
-          TestUtlisationCarte.selectListeCarteCarburant();
-          TestUtlisationCarte.selectListeMaterielRoulant();
+          UtlisationCarteDBHelper.addUtilisationCarte(utilisationcarte );
+          UtlisationCarteDBHelper.selectUtilisationCarte();
+          
+         
         } 
          catch (ValidationException ex) 
          {

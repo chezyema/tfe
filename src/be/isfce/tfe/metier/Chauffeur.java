@@ -6,6 +6,7 @@ package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -24,17 +25,22 @@ public class Chauffeur {
         return validitercap;
     }
 
-    public void setLesCircuits(ArrayList<Circuit> LesCircuits) {
+    public void setLesCircuits(List<Circuit> LesCircuits) {
         this.lescircuits = LesCircuits;
     }
 
-    public void setLesvehicules(ArrayList<MaterielRoulant> lesvehicules) {
+    public void setLesvehicules(List<MaterielRoulant> lesvehicules) {
         this.lesvehicules = lesvehicules;
     }
 
-    public void setLesdocuments(ArrayList<DocumentsAdministratifs> lesdocuments) {
+    public void setLesdocuments(List<DocumentsAdministratifs> lesdocuments) {
         this.lesdocuments = lesdocuments;
     }
+
+    public void setLesheures(List<HeureDeTravail> lesheures) {
+        this.lesheures = lesheures;
+    }
+    
 
     public String getId() {
         return id;
@@ -127,11 +133,7 @@ public class Chauffeur {
         this.selectionmedicale = SelectionMedicale;
     }
 
-    @Override
-    public String toString() {
-        return "Chauffeur{" + "id=" + id + ", nomchauffeur=" + nomchauffeur + ", prenomchauffeur=" + prenomchauffeur + ", datedenaissance=" + datedenaissance + ", adresse=" + adresse + ", codepostale=" + codepostale + ", ville=" + ville + ", numtelephone=" + numtelephone + ", email=" + email + ", selectionmedicale=" + selectionmedicale + ", validitercartechauffeur=" + validitercartechauffeur + ", validitercap=" + validitercap + ", lescircuits=" + lescircuits + ", lesvehicules=" + lesvehicules + ", lesdocuments=" + lesdocuments + '}';
-    }
-    
+   
     
     private String id;
     private String nomchauffeur;
@@ -145,19 +147,31 @@ public class Chauffeur {
     private Date selectionmedicale;
     private Date validitercartechauffeur;
     private Date validitercap;
-    private ArrayList<Circuit> lescircuits;
+    private List<Circuit> lescircuits;
+    private List<HeureDeTravail> lesheures;
+    private List<MaterielRoulant> lesvehicules;
+    private List<DocumentsAdministratifs> lesdocuments;
 
-    public ArrayList<Circuit> getLescircuits() {
+    public List<Circuit> getLescircuits() {
         return lescircuits;
     }
 
-    public ArrayList<MaterielRoulant> getLesvehicules() {
+    public List<MaterielRoulant> getLesvehicules() {
         return lesvehicules;
     }
 
-    public ArrayList<DocumentsAdministratifs> getLesdocuments() {
+    public List<DocumentsAdministratifs> getLesdocuments() {
         return lesdocuments;
     }
-    private ArrayList<MaterielRoulant> lesvehicules;
-    private ArrayList<DocumentsAdministratifs> lesdocuments;
+
+    public List<HeureDeTravail> getLesheures() {
+        return lesheures;
+    }
+
+    @Override
+    public String toString() {
+        return "Chauffeur{" + "id=" + id + ", nomchauffeur=" + nomchauffeur + ", prenomchauffeur=" + prenomchauffeur + ", datedenaissance=" + datedenaissance + ", adresse=" + adresse + ", codepostale=" + codepostale + ", ville=" + ville + ", numtelephone=" + numtelephone + ", email=" + email + ", selectionmedicale=" + selectionmedicale + ", validitercartechauffeur=" + validitercartechauffeur + ", validitercap=" + validitercap + ", lescircuits=" + lescircuits + ", lesheures=" + lesheures + ", lesvehicules=" + lesvehicules + ", lesdocuments=" + lesdocuments + '}';
+    }
+    
+    
 }

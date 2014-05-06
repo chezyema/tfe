@@ -14,6 +14,7 @@ import be.isfce.tfe.db.EleveDBHelper;
 import be.isfce.tfe.db.EntretienDBHelper;
 import be.isfce.tfe.db.HeureDETravailDBHelper;
 import be.isfce.tfe.db.MaterielRoulantDBHelper;
+import be.isfce.tfe.db.UtlisationCarteDBHelper;
 import be.isfce.tfe.vue.affichage.AffichageArretPanel;
 import be.isfce.tfe.vue.affichage.AffichageCarteCarburantPanel;
 import be.isfce.tfe.vue.affichage.AffichageCircuitPanel;
@@ -24,7 +25,8 @@ import be.isfce.tfe.vue.affichage.AffichageEntretienPanel;
 import be.isfce.tfe.vue.affichage.AffichageHeureDeTravaiPanell;
 import be.isfce.tfe.vue.affichage.AffichageMaterielRoulantPanel;
 import be.isfce.tfe.vue.affichage.AffichagePanel;
-import be.isfce.tfe.vue.affichage.AffichangeChauffeurPanel;
+import be.isfce.tfe.vue.affichage.AffichageUtilisationCarteJPanel;
+import be.isfce.tfe.vue.affichage.AffichageChauffeurPanel;
 import be.isfce.tfe.vue.ajout.AjoutArretJPanell;
 import be.isfce.tfe.vue.ajout.AjoutCarteCarburantJPanell;
 import be.isfce.tfe.vue.ajout.AjoutChauffeurJPanell;
@@ -75,18 +77,38 @@ public class TFE {
         JPanel jpo = new CarburantUtilisationJPanell();
         JPanel jpp = new AtravaillerJPanell();
 
-        AffichagePanel aa = new AffichangeChauffeurPanel();
-        AffichagePanel ab = new AffichageArretPanel();
-        AffichagePanel ac = new AffichageCarteCarburantPanel();
-        AffichagePanel ad = new AffichageCircuitPanel();
-        AffichagePanel ae = new AffichageDocumentsPanel();
-        AffichagePanel af = new AffichageEcolePanel();
-        AffichagePanel ag = new AffichageElevePanel();
-        AffichagePanel ah = new AffichageEntretienPanel();
-        AffichagePanel ai = new AffichageHeureDeTravaiPanell();
-        AffichagePanel aj = new AffichageMaterielRoulantPanel();
-        /*
-         ChauffeurDBHelper.selectChauffeur();
+       // AffichagePanel aa = new AffichageChauffeurPanel(ChauffeurDBHelper.selectChauffeur());
+        
+        //AffichagePanel ab = new AffichageArretPanel(ArretDBHelper.selectArrets());
+        //AffichagePanel ac = new AffichageCarteCarburantPanel(CarteCarburantDBHelper.selectCarteCarburant());
+        //AffichagePanel ad = new AffichageCircuitPanel(CircuitDBHelper.selectCircuit());
+        //AffichagePanel ae = new AffichageDocumentsPanel(DocumentsAdministratifsDBHelper.selectDocuments());
+        // AffichagePanel af = new AffichageEcolePanel(EcoleDBHelper.selectEcole());
+        // AffichagePanel ag = new AffichageElevePanel(EleveDBHelper.selectEleve());
+        // AffichagePanel ah = new AffichageEntretienPanel(EntretienDBHelper.selectEntretien());
+        // AffichagePanel ai = new AffichageHeureDeTravaiPanell(HeureDETravailDBHelper.selectHeureDeTravail());
+        //AffichagePanel aj = new AffichageMaterielRoulantPanel(MaterielRoulantDBHelper.selectMaterielRoulant());
+        // AffichagePanel ak = new AffichageUtilisationCarteJPanel(UtlisationCarteDBHelper.selectUtilisationCarte());  
+         
+                
+       //  ChauffeurDBHelper.selectChauffeur();
+       //   ArretDBHelper.selectArrets();
+       //  CarteCarburantDBHelper.selectCarteCarburant();
+       //   CircuitDBHelper.selectCircuit();
+       //   DocumentsAdministratifsDBHelper.selectDocuments();
+       //   EcoleDBHelper.selectEcole();
+       //  EleveDBHelper.selectEleve();
+       //  EntretienDBHelper.selectEntretien();
+       //   HeureDETravailDBHelper.selectHeureDeTravail();
+       //   MaterielRoulantDBHelper.selectMaterielRoulant();
+
+
+        JFrame jf = new JFrame();
+        //jf.add(aj);
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf.pack();
+        jf.setVisible(true);
+        /*ChauffeurDBHelper.selectChauffeur();
          ArretDBHelper.selectArrets();
          CarteCarburantDBHelper.selectCarteCarburant();
          CircuitDBHelper.selectCircuit();
@@ -95,14 +117,9 @@ public class TFE {
          EleveDBHelper.selectEleve();
          EntretienDBHelper.selectEntretien();
          HeureDETravailDBHelper.selectHeureDeTravail();
-         MaterielRoulantDBHelper.selectMaterielRoulant();*/
+         MaterielRoulantDBHelper.selectMaterielRoulant();
+         UtlisationCarteDBHelper.selectUtilisationCarte();
+         HeureDETravailDBHelper.selectHeureDeTravail();*/
 
-
-        JFrame jf = new JFrame();
-        jf.add(ab);
-        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jf.pack();
-        jf.setVisible(true);
-        ArretDBHelper.selectArrets();
     }
 }

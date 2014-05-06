@@ -5,6 +5,7 @@
 package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -15,15 +16,14 @@ public class CarteCarburant {
     private int id;
     private int kmutilisation;
     private int litrecarburant;
-   
-    private ArrayList<UtilisationCarte> lesutilisations;
+    private List<UtilisationCarte> lesutilisations;
 
     @Override
     public String toString() {
         return "CarteCarburant{" + "id=" + id + ", kmutilisation=" + kmutilisation + ", litrecarburant=" + litrecarburant + ", lesutilisations=" + lesutilisations + '}';
     }
 
-    public ArrayList<UtilisationCarte> getLesutilisations() {
+    public List<UtilisationCarte> getLesutilisations() {
         return lesutilisations;
     }
 
@@ -53,7 +53,7 @@ public class CarteCarburant {
         return litrecarburant;
     }
 
-    public void setLesUtilisations(ArrayList<UtilisationCarte> LesUtilisations) {
+    public void setLesUtilisations(List<UtilisationCarte> LesUtilisations) {
         this.lesutilisations = LesUtilisations;
     }
 }

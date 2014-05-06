@@ -4,8 +4,9 @@
  */
 package be.isfce.tfe.vue.affichage;
 
-
-import be.isfce.tfe.metier.MaterielRoulant;
+import be.isfce.tfe.db.ChauffeurDBHelper;
+import be.isfce.tfe.metier.Chauffeur;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -13,30 +14,29 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author yema
  */
-public class AffichageMaterielRoulantPanel extends AffichagePanel{
-
-      List<MaterielRoulant> vehicules;
+public class AffichageChauffeurPanel extends AffichagePanel{
+    List<Chauffeur> chauffeurs;
     
-    String[] columnsNames = {"Numero de chassis","Marque","Type","Annee de construction","Carburant","Plaque","Nombre de place","Kilometre actuel"};
+    String[] columnsNames = {"Nom","Prénom","Date de Naissance","Adresse","Code Postal","Ville","Email","Selection Médicale","Validiter Carte Chauffeur","Validiter Cap"};
     
     
-    public AffichageMaterielRoulantPanel() {
+    public AffichageChauffeurPanel() {
         super();
     }
 
-    public void setVehicules(List<MaterielRoulant> vehicules) {
-        this.vehicules = vehicules;
+    public void setChauffeurs(List<Chauffeur> chauffeurs) {
+        this.chauffeurs = chauffeurs;
     }
     
-    public AffichageMaterielRoulantPanel(List<MaterielRoulant> vehicules) {
+    public AffichageChauffeurPanel(List<Chauffeur> chauffeurs) {
         super();
-        this.vehicules = vehicules;
+        this.chauffeurs = chauffeurs;
         displayData();
     }
 
     @Override
     public String getTitrePanel() {
-        return "Les vehicules";
+        return "Chauffeurs";
     }
 
     @Override
@@ -49,7 +49,7 @@ public class AffichageMaterielRoulantPanel extends AffichagePanel{
             }
             @Override
             public int getRowCount() {
-                return vehicules.size();
+                return chauffeurs.size();
             }
 
             @Override
@@ -65,25 +65,28 @@ public class AffichageMaterielRoulantPanel extends AffichagePanel{
              
             @Override
             public Object getValueAt(int rowIndex, int columnIndex) {
-                MaterielRoulant vehicule = vehicules.get(rowIndex);
+                Chauffeur chauffeur = chauffeurs.get(rowIndex);
                 switch(columnIndex){
                     case 0: 
-                        return vehicule.getId();
+                        return chauffeur.getNomChauffeur();
                     case 1: 
-                        return vehicule.getMarque();
+                        return chauffeur.getPrenomChauffeur();
                     case 2: 
-                        return vehicule.getType();
+                        return chauffeur.getDateNaissance();
                     case 3: 
-                        return vehicule.getAnneedeconstruction();
+                        return chauffeur.getAdresse();
                     case 4: 
-                        return vehicule.getCarburant();
+                        return chauffeur.getCodepostale();
                     case 5: 
-                        return vehicule.getNumImmatr();
+                        return chauffeur.getVille();
                     case 6: 
-                        return vehicule.getNbdeplaces();
+                        return chauffeur.getEmail();
                     case 7: 
-                        return vehicule.getKmactuel();
-                        
+                        return chauffeur.getSelectionmedicale();
+                    case 8:
+                        return chauffeur.getValiditercartechauffeur();
+                    case 9:
+                        return chauffeur.getValiditercap();
                     default :
                         return null;
                 }

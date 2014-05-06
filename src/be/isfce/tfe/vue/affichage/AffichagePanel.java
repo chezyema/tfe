@@ -5,6 +5,7 @@
 package be.isfce.tfe.vue.affichage;
 
 import be.isfce.tfe.metier.Chauffeur;
+import javax.swing.table.AbstractTableModel;
 
 /**
  *
@@ -17,15 +18,16 @@ public abstract class AffichagePanel extends javax.swing.JPanel {
      */
     public AffichagePanel() {
         initComponents();
-        BeanTableModel beanTableModel = new BeanTableModel(getClassToDisplay());
         setBorder(javax.swing.BorderFactory.createTitledBorder(getTitrePanel()));
-        jTable1.setModel(beanTableModel);
-        
     }
     
-    public abstract Class getClassToDisplay();
-    public abstract String getTitrePanel();
+    protected void displayData(){
+        jTable1.setModel(getTableModel());
+    }
     
+    public abstract AbstractTableModel getTableModel(); 
+
+    public abstract String getTitrePanel();
 
     /**
      * This method is called from within the constructor to initialize the form.

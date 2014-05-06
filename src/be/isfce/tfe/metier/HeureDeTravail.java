@@ -6,6 +6,7 @@ package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -30,7 +31,7 @@ public class HeureDeTravail {
     private String heurededebut;
     private String heuredefin;
     private Date dateTravail;
-    private ArrayList<Circuit> lescircuits;
+    private List<Chauffeur> leschauffeurs;
 
     public Date getDateTravail() {
         return dateTravail;
@@ -52,14 +53,23 @@ public class HeureDeTravail {
         return heuredefin;
     }
 
-    @Override
-    public String toString() {
-        return "HeureDeTravail{" + "idheuredetravail=" + idheuredetravail + ", heurededebut=" + heurededebut + ", heuredefin=" + heuredefin + ", lescircuits=" + lescircuits + '}';
+    public List<Chauffeur> getLeschauffeurs() {
+        return leschauffeurs;
     }
-
+    
     
 
-    public void setLesCircuits(ArrayList<Circuit> LesCircuits) {
-        this.lescircuits = LesCircuits;
+    public void setLeschauffeurs(List<Chauffeur> leschauffeurs) {
+        this.leschauffeurs = leschauffeurs;
     }
+
+    @Override
+    public String toString() {
+        return "HeureDeTravail{" + "idheuredetravail=" + idheuredetravail + ", heurededebut=" + heurededebut + ", heuredefin=" + heuredefin + ", dateTravail=" + dateTravail + ", leschauffeurs=" + leschauffeurs + '}';
+    }
+
+   
+   
+   
+    
 }

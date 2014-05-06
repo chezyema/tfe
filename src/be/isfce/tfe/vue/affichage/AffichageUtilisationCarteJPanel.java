@@ -5,7 +5,7 @@
 package be.isfce.tfe.vue.affichage;
 
 
-import be.isfce.tfe.metier.Ecole;
+import be.isfce.tfe.metier.UtilisationCarte;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -13,30 +13,30 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author yema
  */
-public class AffichageEcolePanel  extends AffichagePanel{
+public class AffichageUtilisationCarteJPanel extends AffichagePanel {
 
-
-     List<Ecole> ecoles;
     
-    String[] columnsNames = {"Nom ecole","Adresse ecole","Code postal","Ville"," Telephone","email","Nom du directeur","Annee scolaire"};
+    List<UtilisationCarte> utilisations;
     
-     public AffichageEcolePanel() {
+    String[] columnsNames = {"Date utilisation"};
+    
+     public AffichageUtilisationCarteJPanel() {
         super();
     }
-     public void setEcole(List<Ecole> ecoles) {
-        this.ecoles = ecoles;
+     public void setUtilisationCarte(List<UtilisationCarte> utilisationcarte) {
+        this.utilisations = utilisationcarte;
     }
     
-    public AffichageEcolePanel(List<Ecole> etablissement) {
+    public AffichageUtilisationCarteJPanel(List<UtilisationCarte> utilisationcarte) {
         super();
-        this.ecoles = etablissement;
+        this.utilisations = utilisationcarte;
         displayData();
     }
 
     
     @Override
     public String getTitrePanel() {
-        return "les Etablissements";
+        return "Carte utilisation";
     }
 
     @Override
@@ -49,7 +49,7 @@ public class AffichageEcolePanel  extends AffichagePanel{
             }
             @Override
             public int getRowCount() {
-                return ecoles.size();
+                return utilisations.size();
             }
 
             @Override
@@ -65,26 +65,11 @@ public class AffichageEcolePanel  extends AffichagePanel{
              
             @Override
             public Object getValueAt(int rowIndex, int columnIndex) {
-                Ecole ecole = ecoles.get(rowIndex);
+                UtilisationCarte utilisation = utilisations.get(rowIndex);
                 switch(columnIndex){
                
                     case 0: 
-                        return ecole.getNomecole();
-                    case 1:
-                        return ecole.getAdresseecole();
-                    case 2:
-                        return ecole.getCdpostal();
-                    case 3:
-                        return ecole.getVil();
-                    case 4:
-                        return ecole.getTelecole();
-                    case 5:
-                        return ecole.getEmailecole();
-                    case 6:
-                        return ecole.getNomdirecteur();
-                    case 7:
-                        return ecole.getAnneescolaire();
-                            
+                        return utilisation.getDateUtilisation();
                     
                     default :
                         return null;

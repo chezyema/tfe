@@ -5,6 +5,7 @@
 package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -21,7 +22,7 @@ public class Ecole {
     private String emailecole;
     private String nomdirecteur;
     private String anneescolaire;
-    private ArrayList<Eleve> leseleves;
+    private List<Eleve> leseleves;
 
 
     public int getCdpostal() {
@@ -73,7 +74,7 @@ public class Ecole {
         return anneescolaire;
     }
 
-    public ArrayList<Eleve> getLeseleves() {
+    public List<Eleve> getLeseleves() {
         return leseleves;
     }
 
@@ -93,7 +94,7 @@ public class Ecole {
         this.anneescolaire = anneescolaire;
     }
 
-    public void setLeseleves(ArrayList<Eleve> leseleves) {
+    public void setLeseleves(List<Eleve> leseleves) {
         this.leseleves = leseleves;
     }
 
@@ -105,16 +106,13 @@ public class Ecole {
         this.emailecole = EmailEcole;
     }
 
+   public int getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "Ecole{" + "id=" + id + ", nomecole=" + nomecole + ", adresseecole=" + adresseecole + ", cdpostal=" + cdpostal + ", vil=" + vil + ", telecole=" + telecole + ", emailecole=" + emailecole + ", nomdirecteur=" + nomdirecteur + ", anneescolaire=" + anneescolaire + ", leseleves=" + leseleves + '}';
     }
-
-    
-
    
-
-    public int getId() {
-        return id;
-    }
 }

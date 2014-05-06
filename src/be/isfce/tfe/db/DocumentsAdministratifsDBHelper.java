@@ -5,6 +5,7 @@
 package be.isfce.tfe.db;
 
 
+import be.isfce.tfe.metier.Chauffeur;
 import be.isfce.tfe.metier.Circuit;
 import be.isfce.tfe.metier.DocumentsAdministratifs;
 import java.sql.Date;
@@ -79,36 +80,8 @@ public class DocumentsAdministratifsDBHelper {
     
 }  
     
-     public static List<DocumentsAdministratifs> selectListeDocuments(){
-        
-        try{
-            
-           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from documentsadministratifs");
-           
-           ResultSet resultSet = preparedStatement.executeQuery();
-            List<DocumentsAdministratifs> allDocuments = new ArrayList<DocumentsAdministratifs>();
-            while(resultSet.next()){
-                DocumentsAdministratifs documents = new DocumentsAdministratifs();
-                documents.setId(resultSet.getInt("iddocument"));
-                documents.setLibelle(resultSet.getString("libelle"));
-                documents.setDateValiditer(resultSet.getDate("datevaliditer"));
-                documents.setIdmaterielroulant(resultSet.getString("id"));
-                documents.setIdchauffeur(resultSet.getString("idchauffeur"));
-                
-                allDocuments.add(documents);
-            }
-            System.out.println(allDocuments);
-            return allDocuments;
-                
-                
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-    }
     
     
-    
-}  
    public static boolean deleteDocumentsAdministratifs(DocumentsAdministratifs documents){
         
         try{

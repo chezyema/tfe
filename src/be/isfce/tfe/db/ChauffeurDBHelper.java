@@ -7,6 +7,7 @@ package be.isfce.tfe.db;
 import be.isfce.tfe.metier.Chauffeur;
 import be.isfce.tfe.metier.Circuit;
 import be.isfce.tfe.metier.DocumentsAdministratifs;
+import be.isfce.tfe.metier.HeureDeTravail;
 import be.isfce.tfe.metier.MaterielRoulant;
 import java.sql.PreparedStatement;
 import java.sql.Date;
@@ -29,7 +30,7 @@ public class ChauffeurDBHelper {
     public static boolean addChauffeur(Chauffeur chauffeur) {
 
         try {
-            Date dateSql = new Date(chauffeur.getDateNaissance().getTime());
+            Date dateSql  = new Date(chauffeur.getDateNaissance().getTime());
             Date dateSqla = new Date(chauffeur.getSelectionmedicale().getTime());
             Date dateSqlb = new Date(chauffeur.getValiditercartechauffeur().getTime());
             Date dateSqlc = new Date(chauffeur.getValiditercap().getTime());
@@ -77,6 +78,10 @@ public class ChauffeurDBHelper {
                 chauffeur.setSelectionMedicale(resultSet.getDate("selectionmedicale"));
                 chauffeur.setValiditercartechauffeur(resultSet.getDate("validitercartechauffeur"));
                 chauffeur.setValiditercap(resultSet.getDate("validitercap"));
+                chauffeur.setLesCircuits(selectListeCircuitPourChauffeur(chauffeur.getId()));
+                chauffeur.setLesdocuments(selectListeDocumentsPourChauffeur(chauffeur.getId()));
+                chauffeur.setLesheures(selectListeHeureDeTravailPourChauffeur(chauffeur.getId()));
+                chauffeur.setLesvehicules(selectListeMaterielRoulantPourChauffeur(chauffeur.getId()));
                 allChauffeurs.add(chauffeur);
                 
                 }
@@ -88,11 +93,11 @@ public class ChauffeurDBHelper {
         }
     }
     
-     public static List<Circuit> selectListeCircuit(){
+     public static List<Circuit> selectListeCircuitPourChauffeur(String chauffeurId){
         
         try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from circuit");
-           
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from esteffectuer join circuit on esteffectuer.idcircuit = circuit.idcircuit where idchauffeur = ?");
+             preparedStatement.setString(1, chauffeurId);
             ResultSet resultSet = preparedStatement.executeQuery();
             List<Circuit> allCircuit = new ArrayList<Circuit>();
             while(resultSet.next()){
@@ -106,7 +111,7 @@ public class ChauffeurDBHelper {
                 
                 allCircuit.add(circuit);
             }
-            System.out.println(allCircuit);
+            //System.out.println(allCircuit);
             return allCircuit;
             
         } catch (Exception e) {
@@ -117,11 +122,11 @@ public class ChauffeurDBHelper {
     
 }
      
-      public static List<MaterielRoulant> selectListeMaterielRoulant(){
+      public static List<MaterielRoulant> selectListeMaterielRoulantPourChauffeur(String chauffeurIda){
         
         try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from materielroulant");
-           
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from utiliser join materielroulant on utiliser.id = materielroulant.id where idchauffeur = ? ");
+             preparedStatement.setString(1, chauffeurIda);
           ResultSet resultSet = preparedStatement.executeQuery();
             List<MaterielRoulant> allMaterielRoulant = new ArrayList<MaterielRoulant>();
             while(resultSet.next()){
@@ -140,7 +145,7 @@ public class ChauffeurDBHelper {
                 allMaterielRoulant.add(vehicule);
                 
                 }
-            System.out.println(allMaterielRoulant);
+            //System.out.println(allMaterielRoulant);
             return allMaterielRoulant;
         } catch (Exception e) {
             e.printStackTrace();
@@ -148,12 +153,12 @@ public class ChauffeurDBHelper {
         }
     }
      
-       public static List<DocumentsAdministratifs> selectListeDocuments(){
+       public static List<DocumentsAdministratifs> selectListeDocumentsPourChauffeur(String chauffeurIdb){
         
         try{
             
-           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from documentsadministratifs");
-           
+           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from documentsadministratifs join chauffeur on  documentsadministratifs.idchauffeur = chauffeur.idchauffeur  where chauffeur.idchauffeur = ?");
+             preparedStatement.setString(1, chauffeurIdb);
            ResultSet resultSet = preparedStatement.executeQuery();
             List<DocumentsAdministratifs> allDocuments = new ArrayList<DocumentsAdministratifs>();
             while(resultSet.next()){
@@ -166,7 +171,7 @@ public class ChauffeurDBHelper {
                 
                 allDocuments.add(documents);
             }
-            System.out.println(allDocuments);
+            //System.out.println(allDocuments);
             return allDocuments;
                 
                 
@@ -178,6 +183,31 @@ public class ChauffeurDBHelper {
     
     
 }  
+         public static List<HeureDeTravail> selectListeHeureDeTravailPourChauffeur(String chauffeurIdc){
+        try{
+            
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from atravailler join heuredetravail on atravailler.idheuredetravail = heuredetravail.idheuredetravail where idchauffeur = ?");
+            preparedStatement.setString(1, chauffeurIdc);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<HeureDeTravail> allHeureDeTravail = new ArrayList<HeureDeTravail>();
+            while(resultSet.next()){
+                HeureDeTravail heure = new HeureDeTravail();
+                heure.setIdheuredetravail(resultSet.getInt("idheuredetravail"));
+                heure.setHeureDeDebut(resultSet.getString("heurededebut"));
+                heure.setHeureDeFin(resultSet.getString("heuredefin"));
+                heure.setDateTravail(resultSet.getDate("datetravail"));
+                
+                allHeureDeTravail.add(heure);
+            }
+          //  System.out.println(allHeureDeTravail);
+            return allHeureDeTravail;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+    }
+      }
+      
      public static boolean deleteChauffeur(Chauffeur chauffeur) {
 
         try {

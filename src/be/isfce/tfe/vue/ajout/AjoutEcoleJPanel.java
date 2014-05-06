@@ -126,7 +126,7 @@ public class AjoutEcoleJPanel extends javax.swing.JPanel {
                                 .addComponent(modifierecole)))))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(242, Short.MAX_VALUE)
+                .addContainerGap(254, Short.MAX_VALUE)
                 .addComponent(enregistrerecole)
                 .addGap(205, 205, 205))
         );
@@ -250,7 +250,7 @@ public class AjoutEcoleJPanel extends javax.swing.JPanel {
             EcoleControlleur.estValide(ecole);
             EcoleDBHelper.addEcole(ecole);
             EcoleDBHelper.selectEcole();
-            EcoleDBHelper.selectListeEleve();
+            EcoleDBHelper.selectEcole();
             } 
         catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this,

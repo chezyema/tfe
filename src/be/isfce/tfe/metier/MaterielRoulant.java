@@ -6,6 +6,7 @@ package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -16,21 +17,16 @@ public class MaterielRoulant {
     private String id;
     private String marque;
     private String type;
-
-    @Override
-    public String toString() {
-        return "MaterielRoulant{" + "id=" + id + ", marque=" + marque + ", type=" + type + ", carburant=" + carburant + ", numImmatr=" + numImmatr + ", nbdeplaces=" + nbdeplaces + ", kmactuel=" + kmactuel + ", anneedeconstruction=" + anneedeconstruction + ", dateexctincteur=" + dateexctincteur + ", lesentretiens=" + lesentretiens + ", Leschauffeurs=" + Leschauffeurs + ", lescircuits=" + lescircuits + ", lesmemos=" + lesmemos + '}';
-    }
     private String carburant;
     private String numImmatr;
     private int nbdeplaces;
     private int kmactuel;
     private Date anneedeconstruction;
     private Date dateexctincteur;
-    private ArrayList<Entretien> lesentretiens;
-    private ArrayList<Chauffeur> Leschauffeurs;
-    private ArrayList<Circuit> lescircuits;
-    private ArrayList<UtilisationCarte> lesmemos;
+    private List<Entretien> lesentretiens;
+    private List<Chauffeur> Leschauffeurs;
+    private List<DocumentsAdministratifs> lesdocuments;
+    private List<UtilisationCarte> lesmemos;
     
     
     public int getKmactuel() {
@@ -108,19 +104,50 @@ public class MaterielRoulant {
         return nbdeplaces;
     }
 
-    public void setLesEntretiens(ArrayList<Entretien> LesEntretiens) {
+    public void setLesEntretiens(List<Entretien> LesEntretiens) {
         this.lesentretiens = LesEntretiens;
     }
 
-    public void setLesChauffeurs(ArrayList<Chauffeur> LesChauffeurs) {
+    public void setLesChauffeurs(List<Chauffeur> LesChauffeurs) {
         this.Leschauffeurs = LesChauffeurs;
     }
 
-    public void setLesCircuits(ArrayList<Circuit> LesCircuits) {
-        this.lescircuits = LesCircuits;
+    public void setLesdocuments(List<DocumentsAdministratifs> lesdocuments) {
+        this.lesdocuments = lesdocuments;
     }
 
-    public void setLesMemos(ArrayList<UtilisationCarte> LesMemos) {
+    
+
+    public void setLesMemos(List<UtilisationCarte> LesMemos) {
         this.lesmemos = LesMemos;
     }
+
+    public int getNbdeplaces() {
+        return nbdeplaces;
+    }
+
+    public List<Entretien> getLesentretiens() {
+        return lesentretiens;
+    }
+
+    public List<Chauffeur> getLeschauffeurs() {
+        return Leschauffeurs;
+    }
+
+    public List<DocumentsAdministratifs> getLesdocuments() {
+        return lesdocuments;
+    }
+
+    public List<UtilisationCarte> getLesmemos() {
+        return lesmemos;
+    }
+
+    @Override
+    public String toString() {
+        return "MaterielRoulant{" + "id=" + id + ", marque=" + marque + ", type=" + type + ", carburant=" + carburant + ", numImmatr=" + numImmatr + ", nbdeplaces=" + nbdeplaces + ", kmactuel=" + kmactuel + ", anneedeconstruction=" + anneedeconstruction + ", dateexctincteur=" + dateexctincteur + ", lesentretiens=" + lesentretiens + ", Leschauffeurs=" + Leschauffeurs + ", lesdocuments=" + lesdocuments + ", lesmemos=" + lesmemos + '}';
+    }
+
+    
+    
+    
 }

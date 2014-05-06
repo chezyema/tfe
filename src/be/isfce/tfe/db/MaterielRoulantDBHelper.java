@@ -4,6 +4,7 @@
  */
 package be.isfce.tfe.db;
 import be.isfce.tfe.metier.Chauffeur;
+import be.isfce.tfe.metier.DocumentsAdministratifs;
 import be.isfce.tfe.metier.Entretien;
 import be.isfce.tfe.metier.MaterielRoulant;
 import be.isfce.tfe.metier.UtilisationCarte;
@@ -75,7 +76,10 @@ public class MaterielRoulantDBHelper  {
                 vehicule.setNbDePlaces(resultSet.getInt("nbdeplaces"));
                 vehicule.setKmactuel(resultSet.getInt("kmactuel"));
                 vehicule.setDateexctincteur(resultSet.getDate("validiterexctincteur"));
-               
+                vehicule.setLesChauffeurs( selectListeChauffeurPourMaterielRoulant(vehicule.getId()));
+                vehicule.setLesEntretiens(selectListeEntretienPourMaterielRoulant(vehicule.getId()));
+                vehicule.setLesdocuments(selectListeDocumentsPourMaterielRoulant(vehicule.getId()));
+                vehicule.setLesMemos(selectListeUtilisationCartePourMaterielRoulant(vehicule.getId()));
                 
                 allMaterielRoulant.add(vehicule);
                 
@@ -87,10 +91,11 @@ public class MaterielRoulantDBHelper  {
             return null;
         }
     }
-     public static List<Entretien> selectListeEntretien(){
+     public static List<Entretien> selectListeEntretienPourMaterielRoulant(String materielRoulantId){
         try{
             
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from entretien");
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from entretien join materielroulant on entretien.id = materielroulant.id where materielroulant.id = ?");
+            preparedStatement.setString(1,materielRoulantId );
             ResultSet resultSet = preparedStatement.executeQuery();
             List<Entretien> allEntretien = new ArrayList<Entretien>();
             while(resultSet.next()){
@@ -103,7 +108,7 @@ public class MaterielRoulantDBHelper  {
                 
                 allEntretien.add(entretien);
             }
-            System.out.println(allEntretien);
+            //System.out.println(allEntretien);
             return allEntretien;
             
         } catch (Exception e) {
@@ -114,10 +119,11 @@ public class MaterielRoulantDBHelper  {
     
 }
      
-        public static List<Chauffeur> selectListeChauffeur() {
+        public static List<Chauffeur> selectListeChauffeurPourMaterielRoulant(String materielRoulantIda) {
 
         try {
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from chauffeur");
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from utiliser join chauffeur on utiliser.idchauffeur = chauffeur.idchauffeur where id = ? ");
+             preparedStatement.setString(1, materielRoulantIda);
             ResultSet resultSet = preparedStatement.executeQuery();
             List<Chauffeur> allChauffeurs = new ArrayList<Chauffeur>();
             while(resultSet.next()){
@@ -137,7 +143,7 @@ public class MaterielRoulantDBHelper  {
                 allChauffeurs.add(chauffeur);
                 
                 }
-            System.out.println(allChauffeurs);
+            //System.out.println(allChauffeurs);
             return allChauffeurs;
         } catch (Exception e) {
             e.printStackTrace();
@@ -145,11 +151,11 @@ public class MaterielRoulantDBHelper  {
         }
     }
         
-         public static List<UtilisationCarte> selectListeUtilisationCarte(){
+         public static List<UtilisationCarte> selectListeUtilisationCartePourMaterielRoulant(String materielRoulantIdb){
         
         try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from utilisationcarte");
-           
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from mr_utilisation join utilisationcarte on mr_utilisation.idutilisation = utilisationcarte.idutilisation where id = ?");
+            preparedStatement.setString(1, materielRoulantIdb);
             ResultSet resultSet = preparedStatement.executeQuery();
             List<UtilisationCarte> allUtilisationCarte = new ArrayList<UtilisationCarte>();
             while(resultSet.next()){
@@ -160,7 +166,7 @@ public class MaterielRoulantDBHelper  {
                 
                 allUtilisationCarte.add(heure);
             }
-            System.out.println(allUtilisationCarte);
+           // System.out.println(allUtilisationCarte);
             return allUtilisationCarte;
             
         } catch (Exception e) {
@@ -170,6 +176,37 @@ public class MaterielRoulantDBHelper  {
     
     
 }
+           public static List<DocumentsAdministratifs> selectListeDocumentsPourMaterielRoulant(String materielRoulantIdc){
+        
+        try{
+            
+           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from  documentsadministratifs join  materielroulant  on documentsadministratifs.id = materielroulant.id where materielroulant.id = ?");
+           preparedStatement.setString(1, materielRoulantIdc);
+           ResultSet resultSet = preparedStatement.executeQuery();
+            List<DocumentsAdministratifs> allDocuments = new ArrayList<DocumentsAdministratifs>();
+            while(resultSet.next()){
+                DocumentsAdministratifs documents = new DocumentsAdministratifs();
+                documents.setId(resultSet.getInt("iddocument"));
+                documents.setLibelle(resultSet.getString("libelle"));
+                documents.setDateValiditer(resultSet.getDate("datevaliditer"));
+                documents.setIdmaterielroulant(resultSet.getString("id"));
+                documents.setIdchauffeur(resultSet.getString("idchauffeur"));
+                
+                allDocuments.add(documents);
+            }
+          //  System.out.println(allDocuments);
+            return allDocuments;
+                
+                
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+    }
+    
+    
+    
+}  
+      
     
        public static boolean deleteMaterielRoulant(MaterielRoulant vehicule){
         

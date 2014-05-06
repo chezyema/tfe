@@ -16,8 +16,11 @@ public class DocumentsAdministratifs {
 
     @Override
     public String toString() {
-        return "DocumentsAdministratifs{" + "id=" + id + ", libelle=" + libelle + ", DateValiditer=" + DateValiditer + ", idmaterielroulant=" + idmaterielroulant + ", idchauffeur=" + idchauffeur + ", leschauffeurs=" + leschauffeurs + ", vehicule=" + vehicule + '}';
+        return "DocumentsAdministratifs{" + "id=" + id + ", libelle=" + libelle + ", DateValiditer=" + DateValiditer + ", idmaterielroulant=" + idmaterielroulant + ", idchauffeur=" + idchauffeur + ", chauffeur=" + chauffeur + ", vehicule=" + vehicule + '}';
     }
+
+    
+  
 
     public void setIdmaterielroulant(String idmaterielroulant) {
         this.idmaterielroulant = idmaterielroulant;
@@ -32,7 +35,7 @@ public class DocumentsAdministratifs {
     private Date DateValiditer;
     private String idmaterielroulant;
     private String idchauffeur;
-    private ArrayList<Chauffeur> leschauffeurs;
+    private Chauffeur chauffeur;
     private MaterielRoulant vehicule;
 
     public String getIdmaterielroulant() {
@@ -43,9 +46,6 @@ public class DocumentsAdministratifs {
         return idchauffeur;
     }
 
-    public void setLeschauffeurs(ArrayList<Chauffeur> leschauffeurs) {
-        this.leschauffeurs = leschauffeurs;
-    }
 
     
 
@@ -73,9 +73,19 @@ public class DocumentsAdministratifs {
         return DateValiditer;
     }
 
-    public ArrayList<Chauffeur> getLeschauffeurs() {
-        return leschauffeurs;
+    public Chauffeur getChauffeur() {
+        return chauffeur;
     }
+
+    public void setChauffeur(Chauffeur chauffeur) {
+        this.chauffeur = chauffeur;
+    }
+
+    public void setVehicule(MaterielRoulant vehicule) {
+        this.vehicule = vehicule;
+    }
+
+   
 
     
 

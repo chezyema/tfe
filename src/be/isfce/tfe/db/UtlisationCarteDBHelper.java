@@ -18,11 +18,11 @@ import java.util.List;
  *
  * @author yema
  */
-public class TestUtlisationCarte {
+public class UtlisationCarteDBHelper {
 
-    private static TestUtlisationCarte uniqueInstance = new TestUtlisationCarte();
+    private static UtlisationCarteDBHelper uniqueInstance = new UtlisationCarteDBHelper();
 
-    public static TestUtlisationCarte getInstance() {
+    public static UtlisationCarteDBHelper getInstance() {
         return uniqueInstance;
     }
 
@@ -54,7 +54,8 @@ public class TestUtlisationCarte {
                 UtilisationCarte heure = new UtilisationCarte();
                 heure.setIdutilisationcarte(resultSet.getInt("idutilisation"));
                 heure.setDateutilisation(resultSet.getDate("dateutilisation"));
-                
+                heure.setLescartes(selectListeCarteCarburantPourUtilisationCarte(heure.getIdutilisationcarte()));
+                heure.setLesvehicules(selectListeMaterielRoulantPourUtilisationCarte(heure.getIdutilisationcarte()));
                 
                 allUtilisationCarte.add(heure);
             }
@@ -69,11 +70,11 @@ public class TestUtlisationCarte {
     
 }
      
-      public static List<MaterielRoulant> selectListeMaterielRoulant(){
+      public static List<MaterielRoulant> selectListeMaterielRoulantPourUtilisationCarte(int utilisationCarteId){
         
         try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from materielroulant");
-           
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from mr_utilisation join materielroulant on mr_utilisation.id = materielroulant.id where idutilisation = ?");
+            preparedStatement.setInt(1, utilisationCarteId);
           ResultSet resultSet = preparedStatement.executeQuery();
             List<MaterielRoulant> allMaterielRoulant = new ArrayList<MaterielRoulant>();
             while(resultSet.next()){
@@ -92,7 +93,7 @@ public class TestUtlisationCarte {
                 allMaterielRoulant.add(vehicule);
                 
                 }
-            System.out.println(allMaterielRoulant);
+           // System.out.println(allMaterielRoulant);
             return allMaterielRoulant;
         } catch (Exception e) {
             e.printStackTrace();
@@ -100,10 +101,10 @@ public class TestUtlisationCarte {
         }
     }
       
-         public static List<CarteCarburant> selectListeCarteCarburant(){
+         public static List<CarteCarburant> selectListeCarteCarburantPourUtilisationCarte(int utilisationCarteIda){
        try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from cartecarburant");
-          
+           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from carburant_utilisation join cartecarburant on carburant_utilisation.idcarte = cartecarburant.idcarte where idutilisation = ? ");
+           preparedStatement.setInt(1, utilisationCarteIda);
            ResultSet resultSet = preparedStatement.executeQuery();
             List<CarteCarburant> allCarteCarburant = new ArrayList<CarteCarburant>();
             while(resultSet.next()){
@@ -114,7 +115,7 @@ public class TestUtlisationCarte {
                    
                 allCarteCarburant.add(cartecarburant);
             }
-             System.out.println(allCarteCarburant);
+            // System.out.println(allCarteCarburant);
              return allCarteCarburant;
        }
             catch (Exception e){

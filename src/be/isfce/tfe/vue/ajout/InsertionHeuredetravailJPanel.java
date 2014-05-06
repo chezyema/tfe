@@ -7,7 +7,7 @@ package be.isfce.tfe.vue.ajout;
 import be.isfce.tfe.controleur.UtilisationControleur;
 import be.isfce.tfe.controleur.ValidationException;
 import be.isfce.tfe.db.HeureDETravailDBHelper;
-import be.isfce.tfe.db.TestUtlisationCarte;
+import be.isfce.tfe.db.UtlisationCarteDBHelper;
 import be.isfce.tfe.metier.HeureDeTravail;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -37,10 +37,10 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        heuededebutSpinField = new com.toedter.components.JSpinField();
-        heurededebutSpinField1 = new com.toedter.components.JSpinField();
+        heureDebutSpinField = new com.toedter.components.JSpinField();
+        minuteDebutSpinField = new com.toedter.components.JSpinField();
         heuredefinSpinField = new com.toedter.components.JSpinField();
-        heuredefinSpinField1 = new com.toedter.components.JSpinField();
+        minutefinSpinField = new com.toedter.components.JSpinField();
         datedetravail = new com.toedter.calendar.JDateChooser();
         annulerheuredetravail = new javax.swing.JButton();
         modifierheuredetravail = new javax.swing.JButton();
@@ -89,11 +89,11 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(heuredefinSpinField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(heuredefinSpinField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(minutefinSpinField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(heuededebutSpinField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(heureDebutSpinField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(heurededebutSpinField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(minuteDebutSpinField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -104,15 +104,15 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
-                            .addComponent(heuededebutSpinField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(heurededebutSpinField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(heureDebutSpinField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(minuteDebutSpinField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
                                 .addComponent(jLabel2))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(heuredefinSpinField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(minutefinSpinField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(heuredefinSpinField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,23 +133,13 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
          
          heuredetravail.setIdheuredetravail(0);
          
-          String heurededebut = "";//heurededebut.getText();
-         heuredetravail.setHeureDeDebut(String.valueOf(heurededebut));
-         System.out.println(heurededebut);
-         
-         String heuredefin = "";// heuredefinTextField.getText();
-         heuredetravail.setHeureDeFin(String.valueOf(heuredefin));
-         System.out.println(heuredefin);
-         
-          Date dateTravail = datedetravail.getDate();
-        if(dateTravail  != null){
-            heuredetravail.setDateTravail(dateTravail );
-            System.out.println(dateTravail);
-        }else{
-            System.out.println("DATE Travail INCORRECTE");
-        } 
-       
+         int heureDebut = heureDebutSpinField.getValue();
+         int minuteDebut = minuteDebutSpinField.getValue();
         
+         int heureFin =  heuredefinSpinField.getValue();
+         int minuteFin = minutefinSpinField.getValue();
+         
+         
          
          HeureDETravailDBHelper.addHeureDeTravail(heuredetravail); 
          HeureDETravailDBHelper.selectHeureDeTravail();
@@ -160,13 +150,13 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
     private javax.swing.JButton annulerheuredetravail;
     private com.toedter.calendar.JDateChooser datedetravail;
     private javax.swing.JButton enregistrerheuredetravail;
-    private com.toedter.components.JSpinField heuededebutSpinField;
-    private com.toedter.components.JSpinField heurededebutSpinField1;
+    private com.toedter.components.JSpinField heureDebutSpinField;
     private com.toedter.components.JSpinField heuredefinSpinField;
-    private com.toedter.components.JSpinField heuredefinSpinField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private com.toedter.components.JSpinField minuteDebutSpinField;
+    private com.toedter.components.JSpinField minutefinSpinField;
     private javax.swing.JButton modifierheuredetravail;
     // End of variables declaration//GEN-END:variables
 }

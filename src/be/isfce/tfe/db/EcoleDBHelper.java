@@ -68,7 +68,7 @@ public static List<Ecole> selectEcole(){
                 ecole.setEmailecole(resultSet.getString("emailecole"));
                 ecole.setNomdirecteur(resultSet.getString("nomdirecteur"));
                 ecole.setAnneescolaire(resultSet.getString("anneescolaire"));
-                
+                ecole.setLeseleves(selectListeElevePourEcole(ecole.getId()));
                 allEcole.add(ecole);
                 
                 }
@@ -80,12 +80,13 @@ public static List<Ecole> selectEcole(){
         }
     }
 
-public static List<Eleve> selectListeEleve(){
+public static List<Eleve> selectListeElevePourEcole(int ecoleId){
     
     
     try{
-          PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from eleve");
-         ResultSet resultSet = preparedStatement.executeQuery();
+          PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from eleve join ecole on eleve.idecole = ecole.idecole where ecole.idecole = ?");
+          preparedStatement.setInt(1, ecoleId);
+          ResultSet resultSet = preparedStatement.executeQuery();
             List<Eleve> allEleve = new ArrayList<Eleve>();
             while(resultSet.next()){
                 Eleve eleve = new Eleve();
@@ -104,7 +105,7 @@ public static List<Eleve> selectListeEleve(){
                 allEleve.add(eleve);
                 
                 }
-            System.out.println(allEleve);
+            //System.out.println(allEleve);
             return allEleve;
         } catch (Exception e) {
             e.printStackTrace();

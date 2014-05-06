@@ -6,6 +6,7 @@ package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -18,19 +19,19 @@ public class Circuit {
     private String tempsprevu;
     private int kmdepart;
     private int kmfin;
-    private ArrayList<Arret> lesarrets;
-    private ArrayList<Chauffeur> leschauffeurs;
-    private ArrayList<Eleve> leseleves;
+    private List<Arret> lesarrets;
+    private List<Chauffeur> leschauffeurs;
+    private List<Eleve> leseleves;
 
-    public void setLesArrets(ArrayList<Arret> LesArrets) {
+    public void setLesArrets(List<Arret> LesArrets) {
         this.lesarrets = LesArrets;
     }
 
-    public void setLesChauffeurs(ArrayList<Chauffeur> LesChauffeurs) {
+    public void setLesChauffeurs(List<Chauffeur> LesChauffeurs) {
         this.leschauffeurs = LesChauffeurs;
     }
 
-    public void setLesEleves(ArrayList<Eleve> LesEleves) {
+    public void setLesEleves(List<Eleve> LesEleves) {
         this.leseleves = LesEleves;
     }
 
@@ -82,15 +83,15 @@ public class Circuit {
         this.DateCircuit = DateCircuit;
     }
 
-    public ArrayList<Arret> getLesarrets() {
+    public List<Arret> getLesarrets() {
         return lesarrets;
     }
 
-    public ArrayList<Chauffeur> getLeschauffeurs() {
+    public List<Chauffeur> getLeschauffeurs() {
         return leschauffeurs;
     }
 
-    public ArrayList<Eleve> getLeseleves() {
+    public List<Eleve> getLeseleves() {
         return leseleves;
     }
     private Date DateCircuit;
@@ -99,4 +100,6 @@ public class Circuit {
     public String toString() {
         return "Circuit{" + "id=" + id + ", nomcircuit=" + nomcircuit + ", tempsprevu=" + tempsprevu + ", kmdepart=" + kmdepart + ", kmfin=" + kmfin + ", lesarrets=" + lesarrets + ", leschauffeurs=" + leschauffeurs + ", leseleves=" + leseleves + ", DateCircuit=" + DateCircuit + '}';
     }
+
+  
 }

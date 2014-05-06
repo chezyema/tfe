@@ -6,6 +6,7 @@ package be.isfce.tfe.metier;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -15,8 +16,8 @@ public class UtilisationCarte {
     
     private  int idutilisationcarte;
     private Date dateutilisation;
-    private ArrayList<MaterielRoulant> lesvehicules;
-    private ArrayList<CarteCarburant> lescartes;
+    private List<MaterielRoulant> lesvehicules;
+    private List<CarteCarburant> lescartes;
     
     
     public int getIdutilisationcarte() {
@@ -43,35 +44,33 @@ public class UtilisationCarte {
         this.dateutilisation = dateutilisation;
     }
 
-    public void setLesvehicules(ArrayList<MaterielRoulant> lesvehicules) {
+    public void setLesvehicules(List<MaterielRoulant> lesvehicules) {
         this.lesvehicules = lesvehicules;
     }
 
-    public void setLescartes(ArrayList<CarteCarburant> lescartes) {
+    public void setLescartes(List<CarteCarburant> lescartes) {
         this.lescartes = lescartes;
     }
 
-    public ArrayList<MaterielRoulant> getLesvehicules() {
+    public List<MaterielRoulant> getLesvehicules() {
         return lesvehicules;
     }
 
-    public ArrayList<CarteCarburant> getLescartes() {
+    public List<CarteCarburant> getLescartes() {
         return lescartes;
     }
 
 
-    public void setLesVehicules(ArrayList<MaterielRoulant> LesVehicules) {
-        this.lesvehicules = LesVehicules;
-    }
+   
 
-    public void setLesCartes(ArrayList<CarteCarburant> LesCartes) {
-        this.lescartes = LesCartes;
-    }
+    
 
     @Override
     public String toString() {
         return "UtilisationCarte{" + "idutilisationcarte=" + idutilisationcarte + ", dateutilisation=" + dateutilisation + ", lesvehicules=" + lesvehicules + ", lescartes=" + lescartes + '}';
     }
+
+   
     
     
 }

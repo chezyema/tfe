@@ -54,7 +54,7 @@ public class CarteCarburantDBHelper {
                 cartecarburant.setId(resultSet.getInt("idcarte"));
                 cartecarburant.setKmUtilisation(resultSet.getInt("kmutilisation"));
                 cartecarburant.setLitreCarburant(resultSet.getInt("litrecarburant"));
-                   
+                cartecarburant.setLesUtilisations(selectListeUtilisationCartePourCarteCarburant(cartecarburant.getId()));
                 allCarteCarburant.add(cartecarburant);
             }
              System.out.println(allCarteCarburant);
@@ -69,11 +69,11 @@ public class CarteCarburantDBHelper {
    
     }
       
-       public static List<UtilisationCarte> selectListeUtilisationCarte(){
+       public static List<UtilisationCarte> selectListeUtilisationCartePourCarteCarburant(int carteCarburantId){
         
         try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from utilisationcarte");
-           
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from carburant_utilisation join utilisationcarte on carburant_utilisation.idutilisation = utilisationcarte.idutilisation where idcarte = ?");
+            preparedStatement.setInt(1, carteCarburantId);
             ResultSet resultSet = preparedStatement.executeQuery();
             List<UtilisationCarte> allUtilisationCarte = new ArrayList<UtilisationCarte>();
             while(resultSet.next()){
@@ -84,7 +84,7 @@ public class CarteCarburantDBHelper {
                 
                 allUtilisationCarte.add(heure);
             }
-            System.out.println(allUtilisationCarte);
+            //System.out.println(allUtilisationCarte);
             return allUtilisationCarte;
             
         } catch (Exception e) {
