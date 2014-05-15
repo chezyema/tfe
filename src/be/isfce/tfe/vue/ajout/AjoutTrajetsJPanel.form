@@ -29,7 +29,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel3" min="-2" pref="130" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="datedetravail" min="-2" max="-2" attributes="0"/>
+                      <Component id="datetrajets" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -82,7 +82,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <Component id="datedetravail" min="-2" max="-2" attributes="0"/>
+                  <Component id="datetrajets" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="24" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -119,7 +119,7 @@
     </Component>
     <Component class="com.toedter.components.JSpinField" name="minutefinSpinField">
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="datedetravail">
+    <Component class="com.toedter.calendar.JDateChooser" name="datetrajets">
     </Component>
     <Component class="javax.swing.JButton" name="annulerheuredetravail">
       <Properties>

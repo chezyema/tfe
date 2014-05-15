@@ -8,13 +8,16 @@ import be.isfce.tfe.db.ChauffeurDBHelper;
 import be.isfce.tfe.metier.Chauffeur;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 
 /**
  *
  * @author yema
  */
-public class AffichageChauffeurPanel extends AffichagePanel{
+public class AffichageChauffeurPanel extends AffichagePanel implements Observer{
     List<Chauffeur> chauffeurs;
     
     String[] columnsNames = {"Nom","Prénom","Date de Naissance","Adresse","Code Postal","Ville","Email","Selection Médicale","Validiter Carte Chauffeur","Validiter Cap"};
@@ -26,6 +29,7 @@ public class AffichageChauffeurPanel extends AffichagePanel{
 
     public void setChauffeurs(List<Chauffeur> chauffeurs) {
         this.chauffeurs = chauffeurs;
+        displayData();
     }
     
     public AffichageChauffeurPanel(List<Chauffeur> chauffeurs) {
@@ -37,6 +41,21 @@ public class AffichageChauffeurPanel extends AffichagePanel{
     @Override
     public String getTitrePanel() {
         return "Chauffeurs";
+    }
+    
+    public void supprimeChauffeursSelectionnes(){
+        int selectedRow = jTable1.getSelectedRow();
+        //TODO Ajouter message validation
+        try{
+        ChauffeurDBHelper.deleteChauffeur(chauffeurs.get(selectedRow));
+        
+            }
+          catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(),
+                    "Erreur",
+                    JOptionPane.ERROR_MESSAGE);
+           }
     }
 
     @Override
@@ -92,6 +111,11 @@ public class AffichageChauffeurPanel extends AffichagePanel{
                 }
             }
         };
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

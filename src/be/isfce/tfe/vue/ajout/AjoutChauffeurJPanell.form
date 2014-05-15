@@ -16,45 +16,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="cartechauffeurLabel" min="-2" pref="181" max="-2" attributes="0"/>
                   <Component id="numChauffeur" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
                   <Component id="emailChauffeur" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="prenomChauffeur" min="-2" pref="94" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="prenomTextField" min="-2" pref="205" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="nomChauffeur" min="-2" pref="74" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="nomchauffeurTextField" min="-2" pref="205" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" attributes="0">
                           <Component id="idChauffeur" min="-2" pref="110" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="registreNationalTextField" min="-2" pref="205" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="validitercap" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
-                              <Component id="retour" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="modification" min="-2" pref="110" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="enregistrerChauffeur" min="-2" pref="108" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                  <Component id="cap" min="-2" pref="106" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -73,34 +44,65 @@
                                   <Component id="villeTextField" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <Component id="emailTextField" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
-                              <Component id="smdate" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
-                              <Component id="validitercartechauffeur" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="prenomChauffeur" min="-2" pref="94" max="-2" attributes="0"/>
+                              <Component id="nomChauffeur" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="prenomTextField" alignment="1" min="-2" pref="205" max="-2" attributes="0"/>
+                              <Component id="nomchauffeurTextField" alignment="1" min="-2" pref="205" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <Component id="smChauffeur" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="smChauffeur" min="-2" pref="181" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="smdate" min="-2" pref="106" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="cartechauffeurLabel" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                          <Component id="validitercap" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="cap" min="-2" pref="106" max="-2" attributes="0"/>
+                          <Component id="validitercartechauffeur" min="-2" pref="106" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="retour" min="-2" pref="108" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="modification" min="-2" pref="110" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="enregistrerChauffeur" min="-2" pref="108" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="91" max="32767" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="registreNationalTextField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="nomchauffeurTextField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="idChauffeur" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="idChauffeur" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="registreNationalTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="nomChauffeur" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace pref="16" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -111,22 +113,24 @@
                   <Component id="prenomTextField" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="dateChooser" min="-2" max="-2" attributes="0"/>
                   <Component id="dateChauffeur" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="AdresseChauffeur" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="adresseTextField" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="codepostale" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="codepostaleTextField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="AdresseChauffeur" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="adresseTextField" min="-2" pref="21" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace type="unrelated" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="codepostale" alignment="3" pref="42" max="32767" attributes="0"/>
+                  <Component id="codepostaleTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -143,28 +147,28 @@
                   <Component id="emailChauffeur" min="-2" max="-2" attributes="0"/>
                   <Component id="emailTextField" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="smChauffeur" min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="smdate" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="validitercartechauffeur" min="-2" max="-2" attributes="0"/>
                   <Component id="cartechauffeurLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="validitercartechauffeur" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="validitercap" min="-2" max="-2" attributes="0"/>
                   <Component id="cap" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="retour" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="modification" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="enregistrerChauffeur" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

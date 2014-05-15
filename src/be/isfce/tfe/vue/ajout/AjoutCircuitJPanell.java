@@ -42,11 +42,9 @@ public class AjoutCircuitJPanell extends javax.swing.JPanel {
         kmdedepartTextField = new javax.swing.JTextField();
         kmdefin = new javax.swing.JLabel();
         kmdefinTextField = new javax.swing.JTextField();
-        dateeffectuer6 = new javax.swing.JLabel();
         enregistercircuit = new javax.swing.JToggleButton();
         modifiercircuit = new javax.swing.JToggleButton();
         supprimercircuit = new javax.swing.JToggleButton();
-        datecircuit = new com.toedter.calendar.JDateChooser();
 
         nomoducircuit.setText("Nom du circuit:");
 
@@ -55,8 +53,6 @@ public class AjoutCircuitJPanell extends javax.swing.JPanel {
         kmdedepart.setText("Km de depart:");
 
         kmdefin.setText("Km de fin:");
-
-        dateeffectuer6.setText("Date effectuer:");
 
         enregistercircuit.setText("Enregistrer");
         enregistercircuit.addActionListener(new java.awt.event.ActionListener() {
@@ -90,19 +86,14 @@ public class AjoutCircuitJPanell extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(kmdedepart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(15, 15, 15))
+                                        .addGap(92, 92, 92))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(nomoducircuit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(12, 12, 12))
+                                        .addGap(89, 89, 89))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(kmdefin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(35, 35, 35))
-                                    .addComponent(dateeffectuer6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(77, 77, 77)
+                                        .addGap(112, 112, 112)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(datecircuit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(153, 153, 153))
                                     .addComponent(tempsprevuTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(nomcircuitTextField)
                                     .addComponent(kmdedepartTextField)
@@ -140,13 +131,7 @@ public class AjoutCircuitJPanell extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(kmdefin)
                     .addComponent(kmdefinTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(dateeffectuer6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(6, 6, 6))
-                    .addComponent(datecircuit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enregistercircuit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(modifiercircuit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -186,19 +171,13 @@ public class AjoutCircuitJPanell extends javax.swing.JPanel {
          circuit.setKmFin(Integer.valueOf(kmdefin));
          System.out.println(kmdefin);
          
-          Date dateCircuit = datecircuit.getDate();
-        if(dateCircuit  != null){
-            circuit.setDateCircuit(dateCircuit );
-            System.out.println(dateCircuit);
-        }else{
-            System.out.println("DATE CIRCUIT INCORRECTE");
-        } 
+       
        
                
          try {
             CircuitControleur.estValide(circuit);
             CircuitDBHelper.addCircuit(circuit);
-            CircuitDBHelper.selectCircuit();
+            CircuitDBHelper.deletetCircuit(circuit);
         } catch (ValidationException ex) {
       
             JOptionPane.showMessageDialog(this,
@@ -211,8 +190,6 @@ public class AjoutCircuitJPanell extends javax.swing.JPanel {
 
      
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser datecircuit;
-    private javax.swing.JLabel dateeffectuer6;
     private javax.swing.JToggleButton enregistercircuit;
     private javax.swing.JLabel kmdedepart;
     private javax.swing.JTextField kmdedepartTextField;

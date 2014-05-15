@@ -40,9 +40,19 @@ public class ArretDBHelper {
             return false;
         }
     }
-    public static List<Arret> selectArrets() {
+     public static List<Arret> getTousLesArrets() {
+        return getTousLesArrets(false);
+    }
+    
+    public static List<Arret> getTousLesArretsarchives() {
+        return getTousLesArrets(true);
+    }
+    
+    
+    public static List<Arret> getTousLesArrets(boolean arretsSupprimes) {
         try {
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from arrets");
+            String supprimes = arretsSupprimes ? "1" : "0";
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from arrets where supprimearrets = " + supprimes );
             ResultSet resultSet = preparedStatement.executeQuery();
             List<Arret> allArret = new ArrayList<Arret>();
             while(resultSet.next()){
@@ -76,7 +86,7 @@ public class ArretDBHelper {
                 circuit.setTempsPrevu(resultSet.getString("tempsprevu"));
                 circuit.setKmDepart(resultSet.getInt("kmdepart"));
                 circuit.setKmFin(resultSet.getInt("kmfin"));
-                circuit.setDateCircuit(resultSet.getDate("datecircuit"));
+                
                 
                 allCircuit.add(circuit);
             }
@@ -92,9 +102,10 @@ public class ArretDBHelper {
 }
     
 
-        public static boolean deleteArret(Arret arret) {
+        public static boolean deleteArret(Arret arrets) {
          try {
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete  idarrets,adressearrets from arrets");
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("update arrets set supprimearrets = 1 where arrets.idarrets = ?");
+             preparedStatement.setInt(1,arrets.getId());
             preparedStatement.executeUpdate();
             Connexion.getInstance().getConn().commit();
             

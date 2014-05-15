@@ -51,10 +51,10 @@ public class CarburantUtilisationDBHelper {
 
     }
     
-      public static boolean deleteCarburantUtilisation(CarburantUtilisation carburantutilisation) {
+      public static boolean deleteCarburantUtilisation(int idcarburantutilisation) {
         try {
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from carburant_utilisation");
-            
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from carburant_utilisation where carburant_utilisation.idutilisation = ?");
+            preparedStatement.setInt(1,idcarburantutilisation);
             preparedStatement.execute();
             Connexion.getInstance().getConn().commit();
 

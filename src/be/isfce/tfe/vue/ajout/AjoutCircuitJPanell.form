@@ -29,24 +29,18 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="kmdedepart" max="32767" attributes="0"/>
-                                      <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="nomoducircuit" max="32767" attributes="0"/>
-                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="kmdefin" max="32767" attributes="0"/>
-                                      <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="dateeffectuer6" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="datecircuit" max="32767" attributes="0"/>
-                                      <EmptySpace min="153" pref="153" max="-2" attributes="0"/>
-                                  </Group>
                                   <Component id="tempsprevuTextField" min="-2" pref="248" max="-2" attributes="0"/>
                                   <Component id="nomcircuitTextField" max="32767" attributes="0"/>
                                   <Component id="kmdedepartTextField" alignment="0" max="32767" attributes="0"/>
@@ -99,15 +93,7 @@
                   <Component id="kmdefin" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="kmdefinTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="dateeffectuer6" max="32767" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="datecircuit" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace pref="54" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="enregistercircuit" alignment="3" max="32767" attributes="0"/>
                   <Component id="modifiercircuit" alignment="3" max="32767" attributes="0"/>
@@ -147,11 +133,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="kmdefinTextField">
     </Component>
-    <Component class="javax.swing.JLabel" name="dateeffectuer6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Date effectuer:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JToggleButton" name="enregistercircuit">
       <Properties>
         <Property name="text" type="java.lang.String" value="Enregistrer"/>
@@ -172,8 +153,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Annuler"/>
       </Properties>
-    </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="datecircuit">
     </Component>
   </SubComponents>
 </Form>

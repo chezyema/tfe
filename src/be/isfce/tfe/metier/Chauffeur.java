@@ -37,14 +37,16 @@ public class Chauffeur {
         this.lesdocuments = lesdocuments;
     }
 
-    public void setLesheures(List<HeureDeTravail> lesheures) {
+    public void setLesheures(List<Trajets> lesheures) {
         this.lesheures = lesheures;
     }
-    
 
     public String getId() {
         return id;
     }
+    
+
+    
 
     public String getNomChauffeur() {
         return nomchauffeur;
@@ -62,7 +64,7 @@ public class Chauffeur {
         return datedenaissance;
     }
 
-    public int getNumTelephone() {
+    public String getNumTelephone() {
         return numtelephone;
     }
 
@@ -121,7 +123,7 @@ public class Chauffeur {
         this.datedenaissance = DateNaissance;
     }
 
-    public void setNumTelephone(int NumTelephone) {
+    public void setNumTelephone(String NumTelephone) {
         this.numtelephone = NumTelephone;
     }
 
@@ -142,13 +144,13 @@ public class Chauffeur {
     private String adresse;
     private int codepostale;
     private String ville;
-    private int numtelephone;
+    private String numtelephone;
     private String email;
     private Date selectionmedicale;
     private Date validitercartechauffeur;
     private Date validitercap;
     private List<Circuit> lescircuits;
-    private List<HeureDeTravail> lesheures;
+    private List<Trajets> lesheures;
     private List<MaterielRoulant> lesvehicules;
     private List<DocumentsAdministratifs> lesdocuments;
 
@@ -164,7 +166,7 @@ public class Chauffeur {
         return lesdocuments;
     }
 
-    public List<HeureDeTravail> getLesheures() {
+    public List<Trajets> getLesheures() {
         return lesheures;
     }
 
@@ -172,6 +174,8 @@ public class Chauffeur {
     public String toString() {
         return "Chauffeur{" + "id=" + id + ", nomchauffeur=" + nomchauffeur + ", prenomchauffeur=" + prenomchauffeur + ", datedenaissance=" + datedenaissance + ", adresse=" + adresse + ", codepostale=" + codepostale + ", ville=" + ville + ", numtelephone=" + numtelephone + ", email=" + email + ", selectionmedicale=" + selectionmedicale + ", validitercartechauffeur=" + validitercartechauffeur + ", validitercap=" + validitercap + ", lescircuits=" + lescircuits + ", lesheures=" + lesheures + ", lesvehicules=" + lesvehicules + ", lesdocuments=" + lesdocuments + '}';
     }
+
+  
     
     
 }

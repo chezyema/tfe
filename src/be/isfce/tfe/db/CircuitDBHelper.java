@@ -7,6 +7,7 @@ import be.isfce.tfe.metier.Arret;
 import be.isfce.tfe.metier.Chauffeur;
 import be.isfce.tfe.metier.Circuit;
 import be.isfce.tfe.metier.Eleve;
+import be.isfce.tfe.metier.Trajets;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,14 +31,15 @@ public class CircuitDBHelper {
         
         try{
             System.out.println(circuit.toString());
-            Date dateSql = new Date(circuit.getDateCircuit().getTime());
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("Insert into circuit (idcircuit,nomcircuit,tempsprevu,kmdepart,kmfin,datecircuit) values ( ?, ?, ?, ?, ?, ?)");
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("Insert into circuit (idcircuit,nomcircuit,tempsprevu,kmdepart,kmfin,idecole,id,idchauffeur) values ( ?, ?, ?, ?, ?,?,?,? )");
             preparedStatement.setInt(1, circuit.getId());
             preparedStatement.setString(2, circuit.getNomCircuit());
             preparedStatement.setString(3,circuit.getTempsPrevu());
             preparedStatement.setInt(4,circuit.getKmDepart());
             preparedStatement.setInt(5,circuit.getKmFin());
-            preparedStatement.setDate(6, dateSql);
+            preparedStatement.setInt(6,circuit.getIdecole());
+            preparedStatement.setString(7,circuit.getIdmaterielroulant());
+            preparedStatement.setString(8,circuit.getIdchauffeur());
             preparedStatement.executeUpdate();
             Connexion.getInstance().getConn().commit();
             return true;
@@ -48,10 +50,19 @@ public class CircuitDBHelper {
     
     
 }
-      public static List<Circuit> selectCircuit(){
+ 
+  public static List<Circuit> getTousLesCircuits() {
+        return getTousLesCircuits(false);
+    }
+    
+    public static List<Circuit> getTousLesCircuitssarchives() {
+        return getTousLesCircuits(true);
+    }
+      public static List<Circuit> getTousLesCircuits(boolean circuitsSupprimes){
         
         try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from circuit");
+            String supprimescircuits = circuitsSupprimes ? "1" : "0";
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from circuit where supprimecircuits = " + supprimescircuits);
            
             ResultSet resultSet = preparedStatement.executeQuery();
             List<Circuit> allCircuit = new ArrayList<Circuit>();
@@ -62,10 +73,12 @@ public class CircuitDBHelper {
                 circuit.setTempsPrevu(resultSet.getString("tempsprevu"));
                 circuit.setKmDepart(resultSet.getInt("kmdepart"));
                 circuit.setKmFin(resultSet.getInt("kmfin"));
-                circuit.setDateCircuit(resultSet.getDate("datecircuit"));
+                circuit.setIdecole(resultSet.getInt("idecole"));
+                circuit.setIdmaterielroulant(resultSet.getString("id"));
+                circuit.setIdchauffeur(resultSet.getString("idchauffeur"));
                 circuit.setLesArrets( selectListeArretsPourCircuit(circuit.getId()));
-                circuit.setLesChauffeurs(selectListeChauffeurPourCircuit(circuit.getId()));
                 circuit.setLesEleves(selectListeElevePourCircuit(circuit.getId()));
+                circuit.setLestrajets(selectTrajetsPourCircuit(circuit.getId()));
                 allCircuit.add(circuit);
             }
             System.out.println(allCircuit);
@@ -79,37 +92,36 @@ public class CircuitDBHelper {
     
 }
       
-         public static List<Chauffeur> selectListeChauffeurPourCircuit(int circuitId) {
-
-        try {
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from esteffectuer join chauffeur on esteffectuer.idchauffeur = chauffeur.idchauffeur where idcircuit = ?");
-            preparedStatement.setInt(1, circuitId);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            List<Chauffeur> allChauffeurs = new ArrayList<Chauffeur>();
+        
+         
+         public static List<Trajets> selectTrajetsPourCircuit(int circuitIdc){
+        try{
+            
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from trajets join circuit on trajets.idcircuit = circuit.idcircuit where circuit.idcircuit = ?");
+           
+           ResultSet resultSet = preparedStatement.executeQuery();
+           preparedStatement.setInt(1, circuitIdc);
+            List<Trajets> allTrajets = new ArrayList<Trajets>();
             while(resultSet.next()){
-                Chauffeur chauffeur = new Chauffeur();
-                chauffeur.setId(resultSet.getString("idchauffeur"));
-                chauffeur.setNomChauffeur(resultSet.getString("nom"));
-                chauffeur.setPrenomChauffeur(resultSet.getString("prenom"));
-                chauffeur.setDateNaissance(resultSet.getDate("datenaissance"));
-                chauffeur.setAdresse(resultSet.getString("adresse"));
-                chauffeur.setCodepostale(resultSet.getInt("codepostal"));
-                chauffeur.setVille(resultSet.getString("ville"));
-                chauffeur.setNumTelephone(resultSet.getInt("numtelephone"));
-                chauffeur.setEmail(resultSet.getString("email"));
-                chauffeur.setSelectionMedicale(resultSet.getDate("selectionmedicale"));
-                chauffeur.setValiditercartechauffeur(resultSet.getDate("validitercartechauffeur"));
-                chauffeur.setValiditercap(resultSet.getDate("validitercap"));
-                allChauffeurs.add(chauffeur);
-                
-                }
-           // System.out.println(allChauffeurs);
-            return allChauffeurs;
+                Trajets heure = new Trajets();
+                heure.setIdtrajets(resultSet.getInt("idtrajets"));
+                heure.setHeureDeDebut(resultSet.getString("heurededebut"));
+                heure.setHeureDeFin(resultSet.getString("heuredefin"));
+                heure.setDateTravail(resultSet.getDate("datetravail"));
+                heure.setIdmaterielroulant(resultSet.getString("id"));
+                heure.setIdchauffeur(resultSet.getString("idchauffeur"));
+                heure.setIdcircuit(resultSet.getInt("idcircuit"));
+                allTrajets.add(heure);
+            }
+            System.out.println(allTrajets);
+            return allTrajets;
+            
         } catch (Exception e) {
             e.printStackTrace();
             return null;
-        }
     }
+      }
+      
          
          public static List<Eleve> selectListeElevePourCircuit(int circuitIda){
     
@@ -129,7 +141,7 @@ public class CircuitDBHelper {
                 eleve.setCdpostal(resultSet.getInt("codepostal"));
                 eleve.setVil(resultSet.getString("ville"));
                 eleve.setNomResponsable(resultSet.getString("nomresponsable"));
-                eleve.setTelResponsable(resultSet.getInt("telresponsable"));
+                eleve.setTelResponsable(resultSet.getString("telresponsable"));
                 eleve.setEmailResponsable(resultSet.getString("emailresponsable"));
                 eleve.setIdcircuit(resultSet.getInt("idcircuit"));
                 eleve.setIdecole(resultSet.getInt("idecole"));
@@ -170,8 +182,8 @@ public class CircuitDBHelper {
        public static boolean deletetCircuit(Circuit circuit){
         
         try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from circuit");
-           
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("update circuit set supprimecircuits = 1 where circuit.idcircuit = ?");
+             preparedStatement.setInt(1, circuit.getId());
              preparedStatement.execute();
              Connexion.getInstance().getConn().commit();
             

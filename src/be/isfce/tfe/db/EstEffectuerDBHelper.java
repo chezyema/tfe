@@ -24,7 +24,7 @@ public class EstEffectuerDBHelper {
             
             
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("Insert into esteffectuer (idchauffeur,idcircuit) values (? , ?)");
-            preparedStatement.setLong(1,esteffectuer.getIdchauffeur() );
+            preparedStatement.setLong(1,esteffectuer.getIdchauffeur());
             preparedStatement.setInt(2,esteffectuer.getIdcircuit());
             
             preparedStatement.executeUpdate();
@@ -55,10 +55,10 @@ public class EstEffectuerDBHelper {
    
     }
      
-      public static boolean deleteEstEffectuer(EstEffectuer esteffectuer ){
+      public static boolean deleteEstEffectuer(String idesteffectuer ){
         try{ 
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from esteffectuer");
-            
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from esteffectuer where esteffectuer.idchauffeur = ?");
+            preparedStatement.setString(1,idesteffectuer );
             preparedStatement.execute();
             Connexion.getInstance().getConn().commit();
             

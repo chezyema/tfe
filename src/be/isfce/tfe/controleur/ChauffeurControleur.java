@@ -49,7 +49,7 @@ public class ChauffeurControleur {
             throw new ValidationException("Le prenom n'est pas valide");
         }
 
-        if (chauffeur.getNumTelephone() == 0) {
+        if (chauffeur.getNumTelephone() == null) {
             throw new ValidationException("Le numero de telephone n'est pas valide");
         }
         Calendar joura = Calendar.getInstance();

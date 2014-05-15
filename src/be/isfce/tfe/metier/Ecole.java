@@ -18,11 +18,30 @@ public class Ecole {
     private String adresseecole;
     private int cdpostal;
     private String vil;
-    private int telecole;
+    private String telecole;
     private String emailecole;
     private String nomdirecteur;
-    private String anneescolaire;
     private List<Eleve> leseleves;
+    private Circuit circuit;
+    private int idcircuit;
+
+    public Circuit getCircuit() {
+        return circuit;
+    }
+
+    public int getIdcircuit() {
+        return idcircuit;
+    }
+
+    public void setCircuit(Circuit circuit) {
+        this.circuit = circuit;
+    }
+
+    public void setIdcircuit(int idcircuit) {
+        this.idcircuit = idcircuit;
+    }
+    
+    
 
 
     public int getCdpostal() {
@@ -58,7 +77,7 @@ public class Ecole {
         return adresseecole;
     }
 
-    public int getTelecole() {
+    public String getTelecole() {
         return telecole;
     }
 
@@ -70,15 +89,13 @@ public class Ecole {
         return nomdirecteur;
     }
 
-    public String getAnneescolaire() {
-        return anneescolaire;
-    }
+  
 
     public List<Eleve> getLeseleves() {
         return leseleves;
     }
 
-    public void setTelecole(int telecole) {
+    public void setTelecole(String telecole) {
         this.telecole = telecole;
     }
 
@@ -90,9 +107,7 @@ public class Ecole {
         this.nomdirecteur = nomdirecteur;
     }
 
-    public void setAnneescolaire(String anneescolaire) {
-        this.anneescolaire = anneescolaire;
-    }
+    
 
     public void setLeseleves(List<Eleve> leseleves) {
         this.leseleves = leseleves;
@@ -112,7 +127,10 @@ public class Ecole {
 
     @Override
     public String toString() {
-        return "Ecole{" + "id=" + id + ", nomecole=" + nomecole + ", adresseecole=" + adresseecole + ", cdpostal=" + cdpostal + ", vil=" + vil + ", telecole=" + telecole + ", emailecole=" + emailecole + ", nomdirecteur=" + nomdirecteur + ", anneescolaire=" + anneescolaire + ", leseleves=" + leseleves + '}';
+        return "Ecole{" + "id=" + id + ", nomecole=" + nomecole + ", adresseecole=" + adresseecole + ", cdpostal=" + cdpostal + ", vil=" + vil + ", telecole=" + telecole + ", emailecole=" + emailecole + ", nomdirecteur=" + nomdirecteur + ", leseleves=" + leseleves + ", circuit=" + circuit + ", idcircuit=" + idcircuit + '}';
     }
+
+    
+  
    
 }

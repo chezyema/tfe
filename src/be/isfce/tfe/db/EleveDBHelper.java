@@ -40,7 +40,7 @@ public static boolean addEleve(Eleve eleve){
             preparedStatement.setInt(6, eleve.getCdpostal());
             preparedStatement.setString(7, eleve.getVil());
             preparedStatement.setString(8, eleve.getNomResponsable());
-            preparedStatement.setInt(9, eleve.getTelResponsable());
+            preparedStatement.setString(9, eleve.getTelResponsable());
             preparedStatement.setString(10, eleve.getEmailResponsable());
                  
             preparedStatement.executeUpdate();
@@ -69,7 +69,7 @@ public static List<Eleve> selectEleve(){
                 eleve.setCdpostal(resultSet.getInt("codepostal"));
                 eleve.setVil(resultSet.getString("ville"));
                 eleve.setNomResponsable(resultSet.getString("nomresponsable"));
-                eleve.setTelResponsable(resultSet.getInt("telresponsable"));
+                eleve.setTelResponsable(resultSet.getString("telresponsable"));
                 eleve.setEmailResponsable(resultSet.getString("emailresponsable"));
                 eleve.setIdcircuit(resultSet.getInt("idcircuit"));
                 eleve.setIdecole(resultSet.getInt("idecole"));
@@ -84,12 +84,12 @@ public static List<Eleve> selectEleve(){
         }
     }
 
-public static boolean deleteEleve(Eleve eleve){
+public static boolean deleteEleve(String ideleve){
     
     
     try{
-          PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from eleve");
-            
+          PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from eleve where eleve.ideleve = ?");
+          preparedStatement.setString(1, ideleve);  
                     
           preparedStatement.execute();
           Connexion.getInstance().getConn().commit();

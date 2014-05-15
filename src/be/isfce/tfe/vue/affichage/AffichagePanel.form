@@ -44,6 +44,9 @@
               </Table>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

@@ -43,13 +43,11 @@ public class AjoutEcoleJPanel extends javax.swing.JPanel {
         telephoneecole = new javax.swing.JLabel();
         emailecole = new javax.swing.JLabel();
         nomdirecteur = new javax.swing.JLabel();
-        annescolaire = new javax.swing.JLabel();
         nomecoleTextField = new javax.swing.JTextField();
         adresseTextField = new javax.swing.JTextField();
         telTextField = new javax.swing.JTextField();
         emailTextField = new javax.swing.JTextField();
         nomdirecteurTextField = new javax.swing.JTextField();
-        anneescolaireTextField = new javax.swing.JTextField();
         enregistrerecole = new javax.swing.JButton();
         annulerecole = new javax.swing.JButton();
         modifierecole = new javax.swing.JButton();
@@ -67,8 +65,6 @@ public class AjoutEcoleJPanel extends javax.swing.JPanel {
         emailecole.setText("Email:");
 
         nomdirecteur.setText("Nom directeur:");
-
-        annescolaire.setText("Annee scolaire:");
 
         enregistrerecole.setText("Enregistrer");
         enregistrerecole.addActionListener(new java.awt.event.ActionListener() {
@@ -110,8 +106,7 @@ public class AjoutEcoleJPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(telephoneecole)
                                 .addComponent(emailecole)
-                                .addComponent(nomdirecteur)
-                                .addComponent(annescolaire)))
+                                .addComponent(nomdirecteur)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -119,8 +114,7 @@ public class AjoutEcoleJPanel extends javax.swing.JPanel {
                                     .addComponent(vilTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
                                     .addComponent(telTextField)
                                     .addComponent(emailTextField)
-                                    .addComponent(nomdirecteurTextField)
-                                    .addComponent(anneescolaireTextField)))
+                                    .addComponent(nomdirecteurTextField)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
                                 .addComponent(modifierecole)))))
@@ -161,16 +155,12 @@ public class AjoutEcoleJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomdirecteur)
                     .addComponent(nomdirecteurTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(annescolaire)
-                    .addComponent(anneescolaireTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enregistrerecole)
                     .addComponent(modifierecole)
                     .addComponent(annulerecole))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -219,7 +209,7 @@ public class AjoutEcoleJPanel extends javax.swing.JPanel {
           numtel = numtel.replace(".", "");
           numtel = numtel.replace("/", "");
           
-          ecole.setTelecole(Integer.valueOf(numtel));
+          ecole.setTelecole(String.valueOf(numtel));
           System.out.println(numtel);
           
            String email = emailTextField.getText();
@@ -242,15 +232,13 @@ public class AjoutEcoleJPanel extends javax.swing.JPanel {
                 System.out.println(nomdirecteur);
                 }
                  
-            String anneescolaire = anneescolaireTextField.getText();
-            ecole.setAnneescolaire(anneescolaire);
-            System.out.println(anneescolaire);
+           
         
            try {
             EcoleControlleur.estValide(ecole);
             EcoleDBHelper.addEcole(ecole);
-            EcoleDBHelper.selectEcole();
-            EcoleDBHelper.selectEcole();
+            EcoleDBHelper.getTousLesEcoles();
+            
             } 
         catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this,
@@ -266,8 +254,6 @@ public class AjoutEcoleJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField adresseTextField;
     private javax.swing.JLabel adresseecole;
-    private javax.swing.JTextField anneescolaireTextField;
-    private javax.swing.JLabel annescolaire;
     private javax.swing.JButton annulerecole;
     private javax.swing.JTextField cdpostalTextField;
     private javax.swing.JTextField emailTextField;

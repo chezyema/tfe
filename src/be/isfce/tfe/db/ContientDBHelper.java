@@ -55,13 +55,11 @@ public class ContientDBHelper {
    
     }
       
-      public static boolean deleteContient( Contient contient ){
-        try{ PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from contient");
-           
-            
+      public static boolean deleteContient( int idcontient ){
+        try{ PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from contient where contient.idcircuit = ?");
+            preparedStatement.setInt(1,idcontient);
             preparedStatement.execute();
             Connexion.getInstance().getConn().commit();
-            
             return true;
         } catch (Exception e) {
             e.printStackTrace();

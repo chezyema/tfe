@@ -50,7 +50,7 @@ public class EleveControleur {
             throw new ValidationException("Le nom du responsable de l'eleve n'est pas valide");
         }
          
-        if(eleve.getTelResponsable() == 0 ){
+        if(eleve.getTelResponsable() == null ){
          throw new ValidationException("Le numero de telephone n'est pas valide");
           
          

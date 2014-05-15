@@ -4,29 +4,36 @@
  */
 package be.isfce.tfe.metier;
 
+import java.util.logging.Logger;
+
 /**
  *
  * @author yema
  */
 public class Atravailler {
-     private int idheuredetravail;
+     private int idtrajets;
      private long idchauffeur;
 
-    public int getIdheuredetravail() {
-        return idheuredetravail;
-    }
-
+ 
     public long getIdchauffeur() {
         return idchauffeur;
     }
 
-    public void setIdheuredetravail(int idheuredetravail) {
-        this.idheuredetravail = idheuredetravail;
-    }
-
+    
     public void setIdchauffeur(long idchauffeur) {
         this.idchauffeur = idchauffeur;
     }
+
+    public int getIdtrajets() {
+        return idtrajets;
+    }
+
+    @Override
+    public String toString() {
+        return "Atravailler{" + "idtrajets=" + idtrajets + ", idchauffeur=" + idchauffeur + '}';
+    }
+    
+    
      
     
 }

@@ -94,10 +94,10 @@ public class CarteCarburantDBHelper {
     
     
 }
-         public static boolean deleteCarteCarburant( CarteCarburant cartecarburant ){
+         public static boolean deleteCarteCarburant( int idcartecarburant ){
        try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from cartecarburant");
-          
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from cartecarburant where cartecarburant.idcarte = ?");
+            preparedStatement.setInt(1, idcartecarburant);
             preparedStatement.executeUpdate();
             Connexion.getInstance().getConn().commit();
             

@@ -51,10 +51,10 @@ public class MrutilisationDBHelper {
    
     }
        
-        public static boolean deleteMrUtilisation( MrUtilisation mrutilisation ){
+        public static boolean deleteMrUtilisation( String idmrutilisation ){
         try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from mr_utilisation");
-           
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from mr_utilisation where mr_utilisation.id = ?");
+            preparedStatement.setString(1,idmrutilisation );
             preparedStatement.execute();
             Connexion.getInstance().getConn().commit();
             

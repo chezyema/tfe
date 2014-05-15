@@ -26,7 +26,7 @@ public class Connexion {
         }
         connected = false;
 
-        String url = "jdbc:mysql://localhost/tfe4"; //en local
+        String url = "jdbc:mysql://localhost/tfe"; //en local
         //String url = "jdbc:mysql://sql.info.iepscf-uccle.be/grosapp8"; //à l'école
         try {
             /* setup the properties: si les accents ne sont pas Unicode ds la BDD

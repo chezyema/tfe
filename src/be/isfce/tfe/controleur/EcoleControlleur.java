@@ -43,7 +43,7 @@ public class EcoleControlleur {
          throw new ValidationException("Le nom de l'ecole n'est pas valide");
         }
          
-        if(ecole.getTelecole() == 0 ){
+        if(ecole.getTelecole() == null ){
          throw new ValidationException("Le numero de telephone n'est pas valide");
         
         }
@@ -51,9 +51,7 @@ public class EcoleControlleur {
           throw new ValidationException("Le nom du directeur de l'ecole n'est pas valide");
         }
         
-         if(ecole.getAnneescolaire() == null){
-            throw new ValidationException("L'annee scolaire n'est pas valide");
-        }
+        
         }
      }
     

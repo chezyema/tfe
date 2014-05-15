@@ -307,7 +307,7 @@ public class AjoutEleveJPanel extends javax.swing.JPanel {
           telresponsable = telresponsable.replace(".", "");
           telresponsable = telresponsable.replace("/", "");
           NumTelValidation.checkNumTel(telresponsable);
-          eleve.setTelResponsable(Integer.valueOf(telresponsable));
+          eleve.setTelResponsable(String.valueOf(telresponsable));
           System.out.println(telresponsable);
           
           String emailresponsable = emailresponsableTextField.getText();

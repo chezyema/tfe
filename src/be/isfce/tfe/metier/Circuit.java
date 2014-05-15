@@ -19,17 +19,49 @@ public class Circuit {
     private String tempsprevu;
     private int kmdepart;
     private int kmfin;
+    private MaterielRoulant materielroulant;
+    private String idmaterielroulant;
+    private String idchauffeur;
+    private Ecole ecole;
+    private int idecole;
+    private Chauffeur chauffeurs;
     private List<Arret> lesarrets;
-    private List<Chauffeur> leschauffeurs;
     private List<Eleve> leseleves;
+    private List<Trajets> lestrajets;
+
+    public List<Trajets> getLestrajets() {
+        return lestrajets;
+    }
+
+    public void setLestrajets(List<Trajets> lestrajets) {
+        this.lestrajets = lestrajets;
+    }
+
+    public Ecole getEcole() {
+        return ecole;
+    }
+
+    public int getIdecole() {
+        return idecole;
+    }
+
+    public void setEcole(Ecole ecole) {
+        this.ecole = ecole;
+    }
+
+    public void setIdecole(int idecole) {
+        this.idecole = idecole;
+    }
+    
+    
+    
+    
 
     public void setLesArrets(List<Arret> LesArrets) {
         this.lesarrets = LesArrets;
     }
 
-    public void setLesChauffeurs(List<Chauffeur> LesChauffeurs) {
-        this.leschauffeurs = LesChauffeurs;
-    }
+   
 
     public void setLesEleves(List<Eleve> LesEleves) {
         this.leseleves = LesEleves;
@@ -55,9 +87,7 @@ public class Circuit {
         return kmfin;
     }
 
-    public Date getDateCircuit() {
-        return DateCircuit;
-    }
+ 
 
     public void setId(int id) {
         this.id = id;
@@ -79,27 +109,70 @@ public class Circuit {
         this.kmfin = KmFin;
     }
 
-    public void setDateCircuit(Date DateCircuit) {
-        this.DateCircuit = DateCircuit;
-    }
+   
 
     public List<Arret> getLesarrets() {
         return lesarrets;
     }
 
-    public List<Chauffeur> getLeschauffeurs() {
-        return leschauffeurs;
-    }
+
 
     public List<Eleve> getLeseleves() {
         return leseleves;
     }
-    private Date DateCircuit;
+
+    public MaterielRoulant getMaterielroulant() {
+        return materielroulant;
+    }
+
+    public void setMaterielroulant(MaterielRoulant materielroulant) {
+        this.materielroulant = materielroulant;
+    }
+
+    public String getIdmaterielroulant() {
+        return idmaterielroulant;
+    }
+
+    public void setIdmaterielroulant(String idmaterielroulant) {
+        this.idmaterielroulant = idmaterielroulant;
+    }
+
+    public String getIdchauffeur() {
+        return idchauffeur;
+    }
+
+  
+    public Chauffeur getChauffeurs() {
+        return chauffeurs;
+    }
+
+    public void setIdchauffeur(String idchauffeur) {
+        this.idchauffeur = idchauffeur;
+    }
+
+   
+
+    public void setChauffeurs(Chauffeur chauffeurs) {
+        this.chauffeurs = chauffeurs;
+    }
 
     @Override
     public String toString() {
-        return "Circuit{" + "id=" + id + ", nomcircuit=" + nomcircuit + ", tempsprevu=" + tempsprevu + ", kmdepart=" + kmdepart + ", kmfin=" + kmfin + ", lesarrets=" + lesarrets + ", leschauffeurs=" + leschauffeurs + ", leseleves=" + leseleves + ", DateCircuit=" + DateCircuit + '}';
+        return "Circuit{" + "id=" + id + ", nomcircuit=" + nomcircuit + ", tempsprevu=" + tempsprevu + ", kmdepart=" + kmdepart + ", kmfin=" + kmfin + ", materielroulant=" + materielroulant + ", idmaterielroulant=" + idmaterielroulant + ", idchauffeur=" + idchauffeur + ", ecole=" + ecole + ", idecole=" + idecole + ", chauffeurs=" + chauffeurs + ", lesarrets=" + lesarrets + ", leseleves=" + leseleves + ", lestrajets=" + lestrajets + '}';
     }
+
+  
+   
+
+    
+
+
+
+    
+   
+
+   
+  
 
   
 }

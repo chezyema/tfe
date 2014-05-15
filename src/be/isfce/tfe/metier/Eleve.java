@@ -12,27 +12,24 @@ import java.util.Date;
  */
 public class Eleve {
 
+    
+  
     private String id;
-
-    @Override
-    public String toString() {
-        return "Eleve{" + "id=" + id + ", nomeleve=" + nomeleve + ", prenomeleve=" + prenomeleve + ", adresseeleve=" + adresseeleve + ", datedenaissance=" + datedenaissance + ", cdpostal=" + cdpostal + ", vil=" + vil + ", nomresponsable=" + nomresponsable + ", telresponsable=" + telresponsable + ", idcircuit=" + idcircuit + ", idecole=" + idecole + ", emailresponsable=" + emailresponsable + ", coordonnee=" + coordonnee + ", empreinter=" + empreinter + '}';
-    }
-
-    public void setDatedenaissance(Date datedenaissance) {
-        this.datedenaissance = datedenaissance;
-    }
-
-    public void setIdcircuit(int idcircuit) {
-        this.idcircuit = idcircuit;
-    }
-
-    public void setIdecole(int idecole) {
-        this.idecole = idecole;
-    }
     private String nomeleve;
     private String prenomeleve;
     private String adresseeleve;
+    private Date datedenaissance;
+    private int cdpostal;
+    private String vil;
+    private String nomresponsable;
+    private String telresponsable;
+    private int idcircuit;
+    private int idecole;
+    private String emailresponsable;
+    private Ecole coordonnee;
+    private Circuit empreinter;
+
+
 
     public int getIdcircuit() {
         return idcircuit;
@@ -41,21 +38,11 @@ public class Eleve {
     public int getIdecole() {
         return idecole;
     }
-    private Date datedenaissance;
-    private int cdpostal;
-    private String vil;
-    private String nomresponsable;
-    private int telresponsable;
-    private int idcircuit;
-    private int idecole;
-
+    
     public Date getDatedenaissance() {
         return datedenaissance;
     }
-    private String emailresponsable;
-    private Ecole coordonnee;
-    private Circuit empreinter;
-
+    
     public void setId(String id) {
         this.id = id;
     }
@@ -76,7 +63,7 @@ public class Eleve {
         this.nomresponsable = NomResponsable;
     }
 
-    public void setTelResponsable(int TelResponsable) {
+    public void setTelResponsable(String TelResponsable) {
         this.telresponsable = TelResponsable;
     }
 
@@ -128,7 +115,7 @@ public class Eleve {
         return nomresponsable;
     }
 
-    public int getTelResponsable() {
+    public String getTelResponsable() {
         return telresponsable;
     }
 
@@ -143,5 +130,22 @@ public class Eleve {
     public Circuit getEmpreinter() {
         return empreinter;
 
+    }
+    
+      @Override
+    public String toString() {
+        return "Eleve{" + "id=" + id + ", nomeleve=" + nomeleve + ", prenomeleve=" + prenomeleve + ", adresseeleve=" + adresseeleve + ", datedenaissance=" + datedenaissance + ", cdpostal=" + cdpostal + ", vil=" + vil + ", nomresponsable=" + nomresponsable + ", telresponsable=" + telresponsable + ", idcircuit=" + idcircuit + ", idecole=" + idecole + ", emailresponsable=" + emailresponsable + ", coordonnee=" + coordonnee + ", empreinter=" + empreinter + '}';
+    }
+
+    public void setDatedenaissance(Date datedenaissance) {
+        this.datedenaissance = datedenaissance;
+    }
+
+    public void setIdcircuit(int idcircuit) {
+        this.idcircuit = idcircuit;
+    }
+
+    public void setIdecole(int idecole) {
+        this.idecole = idecole;
     }
 }

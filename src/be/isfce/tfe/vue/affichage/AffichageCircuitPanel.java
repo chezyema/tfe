@@ -5,8 +5,10 @@
 package be.isfce.tfe.vue.affichage;
 
 
+import be.isfce.tfe.db.CircuitDBHelper;
 import be.isfce.tfe.metier.Circuit;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -17,13 +19,14 @@ public class AffichageCircuitPanel extends AffichagePanel {
     
     List<Circuit> circuits;
     
-    String[] columnsNames = {"Nom circuit","Temps prevu","Kilometre de depart","kilometre de fin"," Date de circuit"};
+    String[] columnsNames = {"Nom circuit","Temps prevu","Kilometre de depart","kilometre de fin"};
     
      public AffichageCircuitPanel() {
         super();
     }
      public void setCircuit(List<Circuit> circuits) {
         this.circuits = circuits;
+         displayData();
     }
     
     public AffichageCircuitPanel(List<Circuit> circuits) {
@@ -36,6 +39,19 @@ public class AffichageCircuitPanel extends AffichagePanel {
     @Override
     public String getTitrePanel() {
         return "Les Circuits";
+    }
+    
+     public void supprimeCircuitsSelectionnes(){
+        int selectedRow = jTable1.getSelectedRow();
+        try{
+        CircuitDBHelper.deletetCircuit(circuits.get(selectedRow));
+           }
+       catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(),
+                    "Erreur",
+                    JOptionPane.ERROR_MESSAGE);
+           }
     }
 
     @Override
@@ -75,8 +91,7 @@ public class AffichageCircuitPanel extends AffichagePanel {
                         return trajet.getKmDepart();
                     case 3:
                         return trajet.getKmFin();
-                    case 4:
-                        return trajet.getDateCircuit();
+                    
                     
                     default :
                         return null;

@@ -103,7 +103,7 @@ public class AjoutArretJPanell extends javax.swing.JPanel {
         try {
             ArretControleur.estValide(arret);
             ArretDBHelper.addArret(arret);
-            ArretDBHelper.selectArrets();
+            ArretDBHelper.getTousLesArrets();
            
         } catch (ValidationException ex) {
             //TODO Afficher message d'erreur

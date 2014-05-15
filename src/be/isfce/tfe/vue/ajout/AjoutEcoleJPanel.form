@@ -41,7 +41,6 @@
                               <Component id="telephoneecole" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="emailecole" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="nomdirecteur" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="annescolaire" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -52,7 +51,6 @@
                                   <Component id="telTextField" max="32767" attributes="0"/>
                                   <Component id="emailTextField" max="32767" attributes="0"/>
                                   <Component id="nomdirecteurTextField" max="32767" attributes="0"/>
-                                  <Component id="anneescolaireTextField" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -109,18 +107,13 @@
                   <Component id="nomdirecteur" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="nomdirecteurTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="annescolaire" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="anneescolaireTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="enregistrerecole" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="modifierecole" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="annulerecole" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -151,11 +144,6 @@
         <Property name="text" type="java.lang.String" value="Nom directeur:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="annescolaire">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Annee scolaire:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="nomecoleTextField">
     </Component>
     <Component class="javax.swing.JTextField" name="adresseTextField">
@@ -165,8 +153,6 @@
     <Component class="javax.swing.JTextField" name="emailTextField">
     </Component>
     <Component class="javax.swing.JTextField" name="nomdirecteurTextField">
-    </Component>
-    <Component class="javax.swing.JTextField" name="anneescolaireTextField">
     </Component>
     <Component class="javax.swing.JButton" name="enregistrerecole">
       <Properties>

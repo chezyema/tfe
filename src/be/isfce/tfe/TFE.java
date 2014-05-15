@@ -12,7 +12,7 @@ import be.isfce.tfe.db.DocumentsAdministratifsDBHelper;
 import be.isfce.tfe.db.EcoleDBHelper;
 import be.isfce.tfe.db.EleveDBHelper;
 import be.isfce.tfe.db.EntretienDBHelper;
-import be.isfce.tfe.db.HeureDETravailDBHelper;
+import be.isfce.tfe.db.TrajetsDBHELPER;
 import be.isfce.tfe.db.MaterielRoulantDBHelper;
 import be.isfce.tfe.db.UtlisationCarteDBHelper;
 import be.isfce.tfe.vue.affichage.AffichageArretPanel;
@@ -22,7 +22,7 @@ import be.isfce.tfe.vue.affichage.AffichageDocumentsPanel;
 import be.isfce.tfe.vue.affichage.AffichageEcolePanel;
 import be.isfce.tfe.vue.affichage.AffichageElevePanel;
 import be.isfce.tfe.vue.affichage.AffichageEntretienPanel;
-import be.isfce.tfe.vue.affichage.AffichageHeureDeTravaiPanell;
+import be.isfce.tfe.vue.affichage.AffichageTrajetsPanell;
 import be.isfce.tfe.vue.affichage.AffichageMaterielRoulantPanel;
 import be.isfce.tfe.vue.affichage.AffichagePanel;
 import be.isfce.tfe.vue.affichage.AffichageUtilisationCarteJPanel;
@@ -36,15 +36,9 @@ import be.isfce.tfe.vue.ajout.AjoutEcoleJPanel;
 import be.isfce.tfe.vue.ajout.AjoutEleveJPanel;
 import be.isfce.tfe.vue.ajout.AjoutEntretienJPanell;
 import be.isfce.tfe.vue.ajout.AjoutMateielRoulantJPanell;
-import be.isfce.tfe.vue.ajout.InsertionCarteUtilisationJPanel;
-
-import be.isfce.tfe.vue.ajout.AssociationvehiculechauffeurJPanell;
-import be.isfce.tfe.vue.ajout.AtravaillerJPanell;
-import be.isfce.tfe.vue.ajout.CarburantUtilisationJPanell;
-import be.isfce.tfe.vue.ajout.ContientJPanell;
-import be.isfce.tfe.vue.ajout.EstEffectuerJPanell;
-import be.isfce.tfe.vue.ajout.InsertionHeuredetravailJPanel;
-import be.isfce.tfe.vue.ajout.MrutilisationJPanell;
+import be.isfce.tfe.vue.ajout.AjoutUtilisationCarteJPanell;
+import be.isfce.tfe.vue.ajout.AjoutTrajetsJPanel;
+import be.isfce.tfe.vue.ajout.AjoutTrajetsJPanel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -68,14 +62,10 @@ public class TFE {
         JPanel jpf = new AjoutEleveJPanel();
         JPanel jpg = new AjoutEntretienJPanell();
         JPanel jph = new AjoutMateielRoulantJPanell();
-        JPanel jpi = new InsertionCarteUtilisationJPanel();
-        JPanel jpj = new InsertionHeuredetravailJPanel();
-        JPanel jpk = new AssociationvehiculechauffeurJPanell();
-        JPanel jpl = new MrutilisationJPanell();
-        JPanel jpm = new EstEffectuerJPanell();
-        JPanel jpn = new ContientJPanell();
-        JPanel jpo = new CarburantUtilisationJPanell();
-        JPanel jpp = new AtravaillerJPanell();
+        JPanel jpi = new AjoutUtilisationCarteJPanell();
+        JPanel jpj = new AjoutTrajetsJPanel();
+      
+       
 
        // AffichagePanel aa = new AffichageChauffeurPanel(ChauffeurDBHelper.selectChauffeur());
         
@@ -86,7 +76,7 @@ public class TFE {
         // AffichagePanel af = new AffichageEcolePanel(EcoleDBHelper.selectEcole());
         // AffichagePanel ag = new AffichageElevePanel(EleveDBHelper.selectEleve());
         // AffichagePanel ah = new AffichageEntretienPanel(EntretienDBHelper.selectEntretien());
-        // AffichagePanel ai = new AffichageHeureDeTravaiPanell(HeureDETravailDBHelper.selectHeureDeTravail());
+        // AffichagePanel ai = new AffichageTrajetsPanell(TrajetsDBHELPER.selectHeureDeTravail());
         //AffichagePanel aj = new AffichageMaterielRoulantPanel(MaterielRoulantDBHelper.selectMaterielRoulant());
         // AffichagePanel ak = new AffichageUtilisationCarteJPanel(UtlisationCarteDBHelper.selectUtilisationCarte());  
          
@@ -99,7 +89,7 @@ public class TFE {
        //   EcoleDBHelper.selectEcole();
        //  EleveDBHelper.selectEleve();
        //  EntretienDBHelper.selectEntretien();
-       //   HeureDETravailDBHelper.selectHeureDeTravail();
+       //   TrajetsDBHELPER.selectHeureDeTravail();
        //   MaterielRoulantDBHelper.selectMaterielRoulant();
 
 
@@ -116,10 +106,10 @@ public class TFE {
          EcoleDBHelper.selectEcole();
          EleveDBHelper.selectEleve();
          EntretienDBHelper.selectEntretien();
-         HeureDETravailDBHelper.selectHeureDeTravail();
+         TrajetsDBHELPER.selectHeureDeTravail();
          MaterielRoulantDBHelper.selectMaterielRoulant();
          UtlisationCarteDBHelper.selectUtilisationCarte();
-         HeureDETravailDBHelper.selectHeureDeTravail();*/
+         TrajetsDBHELPER.selectHeureDeTravail();*/
 
     }
 }

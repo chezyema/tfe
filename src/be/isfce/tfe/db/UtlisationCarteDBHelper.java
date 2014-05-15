@@ -54,8 +54,8 @@ public class UtlisationCarteDBHelper {
                 UtilisationCarte heure = new UtilisationCarte();
                 heure.setIdutilisationcarte(resultSet.getInt("idutilisation"));
                 heure.setDateutilisation(resultSet.getDate("dateutilisation"));
-                heure.setLescartes(selectListeCarteCarburantPourUtilisationCarte(heure.getIdutilisationcarte()));
-                heure.setLesvehicules(selectListeMaterielRoulantPourUtilisationCarte(heure.getIdutilisationcarte()));
+                heure.setIdvehicule(resultSet.getString("id"));
+                heure.setIdcartecarburant(resultSet.getInt("idcarte"));
                 
                 allUtilisationCarte.add(heure);
             }
@@ -70,67 +70,12 @@ public class UtlisationCarteDBHelper {
     
 }
      
-      public static List<MaterielRoulant> selectListeMaterielRoulantPourUtilisationCarte(int utilisationCarteId){
-        
-        try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from mr_utilisation join materielroulant on mr_utilisation.id = materielroulant.id where idutilisation = ?");
-            preparedStatement.setInt(1, utilisationCarteId);
-          ResultSet resultSet = preparedStatement.executeQuery();
-            List<MaterielRoulant> allMaterielRoulant = new ArrayList<MaterielRoulant>();
-            while(resultSet.next()){
-                MaterielRoulant vehicule = new MaterielRoulant();
-                vehicule.setId(resultSet.getString("id"));
-                vehicule.setMarque(resultSet.getString("marque"));
-                vehicule.setType(resultSet.getString("type"));
-                vehicule.setAnneedeconstruction(resultSet.getDate("anneedeconstruction"));
-                vehicule.setCarburant(resultSet.getString("carburant"));
-                vehicule.setNumImmatr(resultSet.getString("numimmatr"));
-                vehicule.setNbDePlaces(resultSet.getInt("nbdeplaces"));
-                vehicule.setKmactuel(resultSet.getInt("kmactuel"));
-                vehicule.setDateexctincteur(resultSet.getDate("validiterexctincteur"));
-               
-                
-                allMaterielRoulant.add(vehicule);
-                
-                }
-           // System.out.println(allMaterielRoulant);
-            return allMaterielRoulant;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-      
-         public static List<CarteCarburant> selectListeCarteCarburantPourUtilisationCarte(int utilisationCarteIda){
-       try{
-           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from carburant_utilisation join cartecarburant on carburant_utilisation.idcarte = cartecarburant.idcarte where idutilisation = ? ");
-           preparedStatement.setInt(1, utilisationCarteIda);
-           ResultSet resultSet = preparedStatement.executeQuery();
-            List<CarteCarburant> allCarteCarburant = new ArrayList<CarteCarburant>();
-            while(resultSet.next()){
-                CarteCarburant cartecarburant = new CarteCarburant();
-                cartecarburant.setId(resultSet.getInt("idcarte"));
-                cartecarburant.setKmUtilisation(resultSet.getInt("kmutilisation"));
-                cartecarburant.setLitreCarburant(resultSet.getInt("litrecarburant"));
-                   
-                allCarteCarburant.add(cartecarburant);
-            }
-            // System.out.println(allCarteCarburant);
-             return allCarteCarburant;
-       }
-            catch (Exception e){
-            e.printStackTrace();
-            return null;
-        
-        
-        }
-   
-    }
-       public static boolean deleteUtilisationCarte(UtilisationCarte carte) {
+    
+       public static boolean deleteUtilisationCarte(int idutilisation) {
         try {
             
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from utilisationcarte");
-           
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from utilisationcarte where utilisationcarte.idutilisation = ?");
+             preparedStatement.setInt(1, idutilisation);
             preparedStatement.executeUpdate();
             Connexion.getInstance().getConn().commit();
             

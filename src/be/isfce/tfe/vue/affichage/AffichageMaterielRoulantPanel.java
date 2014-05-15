@@ -5,8 +5,10 @@
 package be.isfce.tfe.vue.affichage;
 
 
+import be.isfce.tfe.db.MaterielRoulantDBHelper;
 import be.isfce.tfe.metier.MaterielRoulant;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -26,6 +28,7 @@ public class AffichageMaterielRoulantPanel extends AffichagePanel{
 
     public void setVehicules(List<MaterielRoulant> vehicules) {
         this.vehicules = vehicules;
+         displayData();
     }
     
     public AffichageMaterielRoulantPanel(List<MaterielRoulant> vehicules) {
@@ -39,6 +42,21 @@ public class AffichageMaterielRoulantPanel extends AffichagePanel{
         return "Les vehicules";
     }
 
+     public void supprimeVehiculesSelectionnes(){
+        int selectedRow = jTable1.getSelectedRow();
+        try{
+        MaterielRoulantDBHelper.deleteMaterielRoulant(vehicules.get(selectedRow));
+           }
+       catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(),
+                    "Erreur",
+                    JOptionPane.ERROR_MESSAGE);
+           }
+    }
+    
+    
+    
     @Override
     public AbstractTableModel getTableModel() {
         return new AbstractTableModel() {

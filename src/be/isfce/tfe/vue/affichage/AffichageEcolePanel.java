@@ -5,8 +5,10 @@
 package be.isfce.tfe.vue.affichage;
 
 
+import be.isfce.tfe.db.EcoleDBHelper;
 import be.isfce.tfe.metier.Ecole;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -18,13 +20,14 @@ public class AffichageEcolePanel  extends AffichagePanel{
 
      List<Ecole> ecoles;
     
-    String[] columnsNames = {"Nom ecole","Adresse ecole","Code postal","Ville"," Telephone","email","Nom du directeur","Annee scolaire"};
+    String[] columnsNames = {"Nom ecole","Adresse ecole","Code postal","Ville"," Telephone","email","Nom du directeur"};
     
      public AffichageEcolePanel() {
         super();
     }
      public void setEcole(List<Ecole> ecoles) {
         this.ecoles = ecoles;
+         displayData();
     }
     
     public AffichageEcolePanel(List<Ecole> etablissement) {
@@ -37,6 +40,19 @@ public class AffichageEcolePanel  extends AffichagePanel{
     @Override
     public String getTitrePanel() {
         return "les Etablissements";
+    }
+    
+     public void supprimeEcolesSelectionnes(){
+        int selectedRow = jTable1.getSelectedRow();
+        try{
+        EcoleDBHelper.deleteEcole(ecoles.get(selectedRow));
+           }
+       catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(),
+                    "Erreur",
+                    JOptionPane.ERROR_MESSAGE);
+           }
     }
 
     @Override
@@ -82,8 +98,7 @@ public class AffichageEcolePanel  extends AffichagePanel{
                         return ecole.getEmailecole();
                     case 6:
                         return ecole.getNomdirecteur();
-                    case 7:
-                        return ecole.getAnneescolaire();
+                    
                             
                     
                     default :

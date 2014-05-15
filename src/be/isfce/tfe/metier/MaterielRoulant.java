@@ -26,7 +26,9 @@ public class MaterielRoulant {
     private List<Entretien> lesentretiens;
     private List<Chauffeur> Leschauffeurs;
     private List<DocumentsAdministratifs> lesdocuments;
+    private List<Circuit> lescircuits;
     private List<UtilisationCarte> lesmemos;
+    private List<Trajets> lestrajets;
     
     
     public int getKmactuel() {
@@ -142,10 +144,32 @@ public class MaterielRoulant {
         return lesmemos;
     }
 
+    public List<Circuit> getLescircuits() {
+        return lescircuits;
+    }
+
+    public void setLescircuits(List<Circuit> lescircuits) {
+        this.lescircuits = lescircuits;
+    }
+
+    public List<Trajets> getLestrajets() {
+        return lestrajets;
+    }
+
+    public void setLestrajets(List<Trajets> lestrajets) {
+        this.lestrajets = lestrajets;
+    }
+
     @Override
     public String toString() {
-        return "MaterielRoulant{" + "id=" + id + ", marque=" + marque + ", type=" + type + ", carburant=" + carburant + ", numImmatr=" + numImmatr + ", nbdeplaces=" + nbdeplaces + ", kmactuel=" + kmactuel + ", anneedeconstruction=" + anneedeconstruction + ", dateexctincteur=" + dateexctincteur + ", lesentretiens=" + lesentretiens + ", Leschauffeurs=" + Leschauffeurs + ", lesdocuments=" + lesdocuments + ", lesmemos=" + lesmemos + '}';
+        return "MaterielRoulant{" + "id=" + id + ", marque=" + marque + ", type=" + type + ", carburant=" + carburant + ", numImmatr=" + numImmatr + ", nbdeplaces=" + nbdeplaces + ", kmactuel=" + kmactuel + ", anneedeconstruction=" + anneedeconstruction + ", dateexctincteur=" + dateexctincteur + ", lesentretiens=" + lesentretiens + ", Leschauffeurs=" + Leschauffeurs + ", lesdocuments=" + lesdocuments + ", lescircuits=" + lescircuits + ", lesmemos=" + lesmemos + ", lestrajets=" + lestrajets + '}';
     }
+     
+    
+   
+    
+    
+    
 
     
     

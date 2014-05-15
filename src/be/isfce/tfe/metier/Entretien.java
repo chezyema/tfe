@@ -12,20 +12,11 @@ import java.util.Date;
  */
 public class Entretien {
 
+    
+
+  
+    
     private int id;
-
-    @Override
-    public String toString() {
-        return "Entretien{" + "id=" + id + ", description=" + description + ", kmEntretienFait=" + kmEntretienFait + ", dateEntretien=" + dateEntretien + ", idmaterielroulant=" + idmaterielroulant + ", coordonnee=" + coordonnee + '}';
-    }
-
-    public String getIdmaterielroulant() {
-        return idmaterielroulant;
-    }
-
-    public void setIdmaterielroulant(String idmaterielroulant) {
-        this.idmaterielroulant = idmaterielroulant;
-    }
     private String description;
     private int kmEntretienFait;
     private Date dateEntretien;
@@ -70,5 +61,18 @@ public class Entretien {
 
     public void setCoordonnee(MaterielRoulant Coordonnee) {
         this.coordonnee = Coordonnee;
+    }
+     
+
+    public String getIdmaterielroulant() {
+        return idmaterielroulant;
+    }
+
+    public void setIdmaterielroulant(String idmaterielroulant) {
+        this.idmaterielroulant = idmaterielroulant;
+    }
+     @Override
+    public String toString() {
+        return "Entretien{" + "id=" + id + ", description=" + description + ", kmEntretienFait=" + kmEntretienFait + ", dateEntretien=" + dateEntretien + ", idmaterielroulant=" + idmaterielroulant + ", coordonnee=" + coordonnee + '}';
     }
 }

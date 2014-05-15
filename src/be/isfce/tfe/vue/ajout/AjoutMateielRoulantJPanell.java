@@ -292,7 +292,7 @@ public class AjoutMateielRoulantJPanell extends javax.swing.JPanel {
          try {
             MaterielRoulantControleur.estValide(materielroulant);
             MaterielRoulantDBHelper.addMaterielRoulant(materielroulant);
-            MaterielRoulantDBHelper.selectMaterielRoulant();
+            MaterielRoulantDBHelper.getTousLesVehicules();
 
             } 
         catch (ValidationException ex) {

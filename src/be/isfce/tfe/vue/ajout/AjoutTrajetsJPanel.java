@@ -6,9 +6,9 @@ package be.isfce.tfe.vue.ajout;
 
 import be.isfce.tfe.controleur.UtilisationControleur;
 import be.isfce.tfe.controleur.ValidationException;
-import be.isfce.tfe.db.HeureDETravailDBHelper;
+import be.isfce.tfe.db.TrajetsDBHELPER;
 import be.isfce.tfe.db.UtlisationCarteDBHelper;
-import be.isfce.tfe.metier.HeureDeTravail;
+import be.isfce.tfe.metier.Trajets;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -16,12 +16,12 @@ import javax.swing.JOptionPane;
  *
  * @author yema
  */
-public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
+public class AjoutTrajetsJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form InsertionHeuredetravailJPanel1
      */
-    public InsertionHeuredetravailJPanel() {
+    public AjoutTrajetsJPanel() {
         initComponents();
     }
 
@@ -41,7 +41,7 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
         minuteDebutSpinField = new com.toedter.components.JSpinField();
         heuredefinSpinField = new com.toedter.components.JSpinField();
         minutefinSpinField = new com.toedter.components.JSpinField();
-        datedetravail = new com.toedter.calendar.JDateChooser();
+        datetrajets = new com.toedter.calendar.JDateChooser();
         annulerheuredetravail = new javax.swing.JButton();
         modifierheuredetravail = new javax.swing.JButton();
         enregistrerheuredetravail = new javax.swing.JButton();
@@ -79,7 +79,7 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(datedetravail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(datetrajets, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,7 +117,7 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(datedetravail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(datetrajets, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(annulerheuredetravail)
@@ -129,9 +129,9 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
 
     private void enregistrerheuredetravailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enregistrerheuredetravailActionPerformed
         // TODO add your handling code here:
-           HeureDeTravail heuredetravail = new HeureDeTravail();
+         Trajets heuredetravail = new Trajets();
          
-         heuredetravail.setIdheuredetravail(0);
+         heuredetravail.setIdtrajets(0);
          
          int heureDebut = heureDebutSpinField.getValue();
          int minuteDebut = minuteDebutSpinField.getValue();
@@ -139,16 +139,24 @@ public class InsertionHeuredetravailJPanel extends javax.swing.JPanel {
          int heureFin =  heuredefinSpinField.getValue();
          int minuteFin = minutefinSpinField.getValue();
          
+            Date dateTrajets = datetrajets.getDate();
+        if(dateTrajets  != null){
+            heuredetravail.setDateTravail(dateTrajets );
+            System.out.println(dateTrajets);
+        }else{
+            System.out.println("DATE CIRCUIT INCORRECTE");
+        } 
          
          
-         HeureDETravailDBHelper.addHeureDeTravail(heuredetravail); 
-         HeureDETravailDBHelper.selectHeureDeTravail();
+         
+         TrajetsDBHELPER.addTrajets(heuredetravail); ;
+         TrajetsDBHELPER.selectTrajets(true);
     
     }//GEN-LAST:event_enregistrerheuredetravailActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton annulerheuredetravail;
-    private com.toedter.calendar.JDateChooser datedetravail;
+    private com.toedter.calendar.JDateChooser datetrajets;
     private javax.swing.JButton enregistrerheuredetravail;
     private com.toedter.components.JSpinField heureDebutSpinField;
     private com.toedter.components.JSpinField heuredefinSpinField;

@@ -29,16 +29,16 @@ public static boolean addEcole(Ecole ecole){
     
     
     try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("Insert into ecole (idecole,nomecole,adresseecole,cdpostal,vil,telecole,emailecole,nomdirecteur,anneescolaire) VALUES (? , ?, ?,?,?,?,?,?,?)");
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("Insert into ecole (idecole,nomecole,adresseecole,cdpostal,vil,telecole,emailecole,nomdirecteur,idcircuit) VALUES (? , ?, ?,?,?,?,?,?,?)");
             preparedStatement.setInt(1,ecole.getId());
             preparedStatement.setString(2, ecole.getNomecole());
             preparedStatement.setString(3, ecole.getAdresseecole());
             preparedStatement.setInt(4, ecole.getCdpostal());
             preparedStatement.setString(5, ecole.getVil());
-            preparedStatement.setInt(6, ecole.getTelecole());
+            preparedStatement.setString(6, ecole.getTelecole());
             preparedStatement.setString(7, ecole.getEmailecole());
             preparedStatement.setString(8, ecole.getNomdirecteur());
-            preparedStatement.setString(9, ecole.getAnneescolaire());
+            preparedStatement.setInt(9,ecole.getIdcircuit() );
             preparedStatement.executeUpdate();
             Connexion.getInstance().getConn().commit();
             return true;
@@ -50,10 +50,19 @@ public static boolean addEcole(Ecole ecole){
     
    }
 
-public static List<Ecole> selectEcole(){
+  public static List<Ecole> getTousLesEcoles() {
+        return  getTousLesEcole(false);
+    }
+    
+    public static List<Ecole> getTousLesEcolesarchives() {
+        return  getTousLesEcole(true);
+    }
+
+public static List<Ecole> getTousLesEcole(boolean ecolessupprimes){
     
     try{
-           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from ecole");
+           String supprimesecoles = ecolessupprimes ? "1" : "0";
+           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from ecole where supprimeecole ="+supprimesecoles);
             
             List<Ecole> allEcole = new ArrayList<Ecole>();
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -64,10 +73,10 @@ public static List<Ecole> selectEcole(){
                 ecole.setAdresseecole(resultSet.getString("adresseecole"));
                 ecole.setCdpostal(resultSet.getInt("cdpostal"));
                 ecole.setVil(resultSet.getString("vil"));
-                ecole.setTelecole(resultSet.getInt("telecole"));
+                ecole.setTelecole(resultSet.getString("telecole"));
                 ecole.setEmailecole(resultSet.getString("emailecole"));
                 ecole.setNomdirecteur(resultSet.getString("nomdirecteur"));
-                ecole.setAnneescolaire(resultSet.getString("anneescolaire"));
+                ecole.setIdcircuit(resultSet.getInt("idcircuit"));
                 ecole.setLeseleves(selectListeElevePourEcole(ecole.getId()));
                 allEcole.add(ecole);
                 
@@ -98,7 +107,7 @@ public static List<Eleve> selectListeElevePourEcole(int ecoleId){
                 eleve.setCdpostal(resultSet.getInt("codepostal"));
                 eleve.setVil(resultSet.getString("ville"));
                 eleve.setNomResponsable(resultSet.getString("nomresponsable"));
-                eleve.setTelResponsable(resultSet.getInt("telresponsable"));
+                eleve.setTelResponsable(resultSet.getString("telresponsable"));
                 eleve.setEmailResponsable(resultSet.getString("emailresponsable"));
                 eleve.setIdcircuit(resultSet.getInt("idcircuit"));
                 eleve.setIdecole(resultSet.getInt("idecole"));
@@ -117,8 +126,8 @@ public static List<Eleve> selectListeElevePourEcole(int ecoleId){
 public static boolean deleteEcole(Ecole ecole){
     
     try{
-           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from ecole");
-            
+           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("update ecole set supprimeecole = 1 where ecole.idecole = ?");
+              preparedStatement.setInt(1, ecole.getId());
             preparedStatement.execute();
             Connexion.getInstance().getConn().commit();
             

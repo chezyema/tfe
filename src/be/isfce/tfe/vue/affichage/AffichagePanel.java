@@ -67,6 +67,6 @@ public abstract class AffichagePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    protected javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

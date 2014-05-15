@@ -7,7 +7,7 @@ package be.isfce.tfe.db;
 import be.isfce.tfe.metier.Chauffeur;
 import be.isfce.tfe.metier.Circuit;
 import be.isfce.tfe.metier.DocumentsAdministratifs;
-import be.isfce.tfe.metier.HeureDeTravail;
+import be.isfce.tfe.metier.Trajets;
 import be.isfce.tfe.metier.MaterielRoulant;
 import java.sql.PreparedStatement;
 import java.sql.Date;
@@ -30,7 +30,7 @@ public class ChauffeurDBHelper {
     public static boolean addChauffeur(Chauffeur chauffeur) {
 
         try {
-            Date dateSql  = new Date(chauffeur.getDateNaissance().getTime());
+            Date dateSql = new Date(chauffeur.getDateNaissance().getTime());
             Date dateSqla = new Date(chauffeur.getSelectionmedicale().getTime());
             Date dateSqlb = new Date(chauffeur.getValiditercartechauffeur().getTime());
             Date dateSqlc = new Date(chauffeur.getValiditercap().getTime());
@@ -44,7 +44,7 @@ public class ChauffeurDBHelper {
             preparedStatement.setString(5, chauffeur.getAdresse());
             preparedStatement.setInt(6, chauffeur.getCodepostale());
             preparedStatement.setString(7, chauffeur.getVille());
-            preparedStatement.setInt(8, chauffeur.getNumTelephone());
+            preparedStatement.setString(8, chauffeur.getNumTelephone());
             preparedStatement.setString(9, chauffeur.getEmail());
             preparedStatement.setDate(10, dateSqla);
             preparedStatement.setDate(11, dateSqlb);
@@ -58,13 +58,22 @@ public class ChauffeurDBHelper {
         }
     }
 
-    public static List<Chauffeur> selectChauffeur() {
+    public static List<Chauffeur> getTousLesChauffeurs() {
+        return getTousLesChauffeurs(false);
+    }
+
+    public static List<Chauffeur> getTousLesChauffeursarchives() {
+        return getTousLesChauffeurs(true);
+    }
+
+    private static List<Chauffeur> getTousLesChauffeurs(boolean chauffeursSupprimes) {
 
         try {
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from chauffeur");
+            String supprimes = chauffeursSupprimes ? "1" : "0";
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from chauffeur where supprime = " + supprimes);
             ResultSet resultSet = preparedStatement.executeQuery();
             List<Chauffeur> allChauffeurs = new ArrayList<Chauffeur>();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 Chauffeur chauffeur = new Chauffeur();
                 chauffeur.setId(resultSet.getString("idchauffeur"));
                 chauffeur.setNomChauffeur(resultSet.getString("nom"));
@@ -73,146 +82,117 @@ public class ChauffeurDBHelper {
                 chauffeur.setAdresse(resultSet.getString("adresse"));
                 chauffeur.setCodepostale(resultSet.getInt("codepostal"));
                 chauffeur.setVille(resultSet.getString("ville"));
-                chauffeur.setNumTelephone(resultSet.getInt("numtelephone"));
+                chauffeur.setNumTelephone(resultSet.getString("numtelephone"));
                 chauffeur.setEmail(resultSet.getString("email"));
                 chauffeur.setSelectionMedicale(resultSet.getDate("selectionmedicale"));
                 chauffeur.setValiditercartechauffeur(resultSet.getDate("validitercartechauffeur"));
                 chauffeur.setValiditercap(resultSet.getDate("validitercap"));
                 chauffeur.setLesCircuits(selectListeCircuitPourChauffeur(chauffeur.getId()));
                 chauffeur.setLesdocuments(selectListeDocumentsPourChauffeur(chauffeur.getId()));
-                chauffeur.setLesheures(selectListeHeureDeTravailPourChauffeur(chauffeur.getId()));
-                chauffeur.setLesvehicules(selectListeMaterielRoulantPourChauffeur(chauffeur.getId()));
+                chauffeur.setLesheures(selectListeTrajetsPourChauffeur(chauffeur.getId()));
                 allChauffeurs.add(chauffeur);
-                
-                }
+
+            }
             System.out.println(allChauffeurs);
             return allChauffeurs;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
+
     }
-    
-     public static List<Circuit> selectListeCircuitPourChauffeur(String chauffeurId){
-        
-        try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from esteffectuer join circuit on esteffectuer.idcircuit = circuit.idcircuit where idchauffeur = ?");
-             preparedStatement.setString(1, chauffeurId);
+
+    public static List<Circuit> selectListeCircuitPourChauffeur(String chauffeurId) {
+
+        try {
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from circuit where idchauffeur = ?");
+            preparedStatement.setString(1, chauffeurId);
             ResultSet resultSet = preparedStatement.executeQuery();
             List<Circuit> allCircuit = new ArrayList<Circuit>();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 Circuit circuit = new Circuit();
                 circuit.setId(resultSet.getInt("idcircuit"));
                 circuit.setNomCircuit(resultSet.getString("nomcircuit"));
                 circuit.setTempsPrevu(resultSet.getString("tempsprevu"));
                 circuit.setKmDepart(resultSet.getInt("kmdepart"));
                 circuit.setKmFin(resultSet.getInt("kmfin"));
-                circuit.setDateCircuit(resultSet.getDate("datecircuit"));
-                
+
+
                 allCircuit.add(circuit);
             }
             //System.out.println(allCircuit);
             return allCircuit;
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-    }
-    
-    
-}
-     
-      public static List<MaterielRoulant> selectListeMaterielRoulantPourChauffeur(String chauffeurIda){
-        
-        try{
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from utiliser join materielroulant on utiliser.id = materielroulant.id where idchauffeur = ? ");
-             preparedStatement.setString(1, chauffeurIda);
-          ResultSet resultSet = preparedStatement.executeQuery();
-            List<MaterielRoulant> allMaterielRoulant = new ArrayList<MaterielRoulant>();
-            while(resultSet.next()){
-                MaterielRoulant vehicule = new MaterielRoulant();
-                vehicule.setId(resultSet.getString("id"));
-                vehicule.setMarque(resultSet.getString("marque"));
-                vehicule.setType(resultSet.getString("type"));
-                vehicule.setAnneedeconstruction(resultSet.getDate("anneedeconstruction"));
-                vehicule.setCarburant(resultSet.getString("carburant"));
-                vehicule.setNumImmatr(resultSet.getString("numimmatr"));
-                vehicule.setNbDePlaces(resultSet.getInt("nbdeplaces"));
-                vehicule.setKmactuel(resultSet.getInt("kmactuel"));
-                vehicule.setDateexctincteur(resultSet.getDate("validiterexctincteur"));
-               
-                
-                allMaterielRoulant.add(vehicule);
-                
-                }
-            //System.out.println(allMaterielRoulant);
-            return allMaterielRoulant;
+
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
+
+
     }
-     
-       public static List<DocumentsAdministratifs> selectListeDocumentsPourChauffeur(String chauffeurIdb){
-        
-        try{
-            
-           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from documentsadministratifs join chauffeur on  documentsadministratifs.idchauffeur = chauffeur.idchauffeur  where chauffeur.idchauffeur = ?");
-             preparedStatement.setString(1, chauffeurIdb);
-           ResultSet resultSet = preparedStatement.executeQuery();
+
+
+    public static List<DocumentsAdministratifs> selectListeDocumentsPourChauffeur(String chauffeurIdb) {
+
+        try {
+
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from documentsadministratifs join chauffeur on  documentsadministratifs.idchauffeur = chauffeur.idchauffeur  where chauffeur.idchauffeur = ?");
+            preparedStatement.setString(1, chauffeurIdb);
+            ResultSet resultSet = preparedStatement.executeQuery();
             List<DocumentsAdministratifs> allDocuments = new ArrayList<DocumentsAdministratifs>();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 DocumentsAdministratifs documents = new DocumentsAdministratifs();
                 documents.setId(resultSet.getInt("iddocument"));
                 documents.setLibelle(resultSet.getString("libelle"));
                 documents.setDateValiditer(resultSet.getDate("datevaliditer"));
                 documents.setIdmaterielroulant(resultSet.getString("id"));
                 documents.setIdchauffeur(resultSet.getString("idchauffeur"));
-                
+
                 allDocuments.add(documents);
             }
             //System.out.println(allDocuments);
             return allDocuments;
-                
-                
+
+
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+
+
+
     }
-    
-    
-    
-}  
-         public static List<HeureDeTravail> selectListeHeureDeTravailPourChauffeur(String chauffeurIdc){
-        try{
-            
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from atravailler join heuredetravail on atravailler.idheuredetravail = heuredetravail.idheuredetravail where idchauffeur = ?");
+
+    public static List<Trajets> selectListeTrajetsPourChauffeur(String chauffeurIdc) {
+        try {
+
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from trajets where idchauffeur = ?");
             preparedStatement.setString(1, chauffeurIdc);
             ResultSet resultSet = preparedStatement.executeQuery();
-            List<HeureDeTravail> allHeureDeTravail = new ArrayList<HeureDeTravail>();
-            while(resultSet.next()){
-                HeureDeTravail heure = new HeureDeTravail();
-                heure.setIdheuredetravail(resultSet.getInt("idheuredetravail"));
+            List<Trajets> allHeureDeTravail = new ArrayList<Trajets>();
+            while (resultSet.next()) {
+                Trajets heure = new Trajets();
+                heure.setIdtrajets(resultSet.getInt("idtrajets"));
                 heure.setHeureDeDebut(resultSet.getString("heurededebut"));
                 heure.setHeureDeFin(resultSet.getString("heuredefin"));
                 heure.setDateTravail(resultSet.getDate("datetravail"));
-                
+
                 allHeureDeTravail.add(heure);
             }
-          //  System.out.println(allHeureDeTravail);
+            //  System.out.println(allHeureDeTravail);
             return allHeureDeTravail;
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
     }
-      }
-      
-     public static boolean deleteChauffeur(Chauffeur chauffeur) {
+
+    public static boolean deleteChauffeur(Chauffeur chauffeur) {
 
         try {
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from chauffeur");
-            
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("update chauffeur set supprime = 1 where chauffeur.idchauffeur = ?");
+            preparedStatement.setString(1, chauffeur.getId());
             preparedStatement.execute();
             Connexion.getInstance().getConn().commit();
 

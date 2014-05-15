@@ -43,9 +43,7 @@ public class AssociationchauffeurvehiculeDBHelper {
      public static boolean selectMaterielUtiliser(MaterielUtiliser materiel) {
         try {
             PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("select * from utiliser");
-           
-            
-            preparedStatement.execute();
+             preparedStatement.execute();
             
             return true;
         } catch (Exception e) {
@@ -54,10 +52,10 @@ public class AssociationchauffeurvehiculeDBHelper {
         }
 }
      
-      public static boolean deleteMaterielUtiliser(MaterielUtiliser materiel) {
+      public static boolean deleteMaterielUtiliser(String idmateriel) {
         try {
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from utiliser");
-           
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from utiliser where utiliser.id = ?");
+           preparedStatement.setString(1,idmateriel);
             
             preparedStatement.execute();
             Connexion.getInstance().getConn().commit();

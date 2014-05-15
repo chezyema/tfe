@@ -82,12 +82,12 @@ public class DocumentsAdministratifsDBHelper {
     
     
     
-   public static boolean deleteDocumentsAdministratifs(DocumentsAdministratifs documents){
+   public static boolean deleteDocumentsAdministratifs(int iddocuments){
         
         try{
             
-           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from documentsadministratifs");
-           
+           PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from documentsadministratifs where documentsadministratifs.iddocument = ?");
+           preparedStatement.setInt(1, iddocuments);
            preparedStatement.execute();
            Connexion.getInstance().getConn().commit();
             

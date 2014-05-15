@@ -5,7 +5,7 @@
 package be.isfce.tfe.vue.affichage;
 
 
-import be.isfce.tfe.metier.HeureDeTravail;
+import be.isfce.tfe.metier.Trajets;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -13,21 +13,21 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author yema
  */
-public class AffichageHeureDeTravaiPanell  extends AffichagePanel {
+public class AffichageTrajetsPanell  extends AffichagePanel {
     
 
-   List<HeureDeTravail> heures;
+   List<Trajets> heures;
     
     String[] columnsNames = {"heure de debut","Heure de fin","Date de travail"};
     
-     public AffichageHeureDeTravaiPanell() {
+     public AffichageTrajetsPanell() {
         super();
     }
-     public void setArret(List<HeureDeTravail> arrets) {
+     public void setArret(List<Trajets> arrets) {
         this.heures = heures;
     }
     
-    public AffichageHeureDeTravaiPanell(List<HeureDeTravail> heures) {
+      public AffichageTrajetsPanell(List<Trajets> heures) {
         super();
         this.heures = heures;
         displayData();
@@ -36,7 +36,7 @@ public class AffichageHeureDeTravaiPanell  extends AffichagePanel {
     
     @Override
     public String getTitrePanel() {
-        return "Les heures de travail";
+        return "Les Trajets";
     }
 
     @Override
@@ -65,7 +65,7 @@ public class AffichageHeureDeTravaiPanell  extends AffichagePanel {
              
             @Override
             public Object getValueAt(int rowIndex, int columnIndex) {
-                HeureDeTravail heure = heures.get(rowIndex);
+                Trajets heure = heures.get(rowIndex);
                 switch(columnIndex){
                
                     case 0: 
@@ -74,6 +74,7 @@ public class AffichageHeureDeTravaiPanell  extends AffichagePanel {
                         return heure.getHeureDeFin();
                     case 2:
                         return heure.getDateTravail();
+                        
                     
                     default :
                         return null;

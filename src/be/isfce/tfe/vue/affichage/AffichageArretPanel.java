@@ -4,9 +4,12 @@
  */
 package be.isfce.tfe.vue.affichage;
 
+import be.isfce.tfe.controleur.ValidationException;
+import be.isfce.tfe.db.ArretDBHelper;
 import be.isfce.tfe.metier.Arret;
 import be.isfce.tfe.metier.Chauffeur;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -38,10 +41,22 @@ public class AffichageArretPanel extends AffichagePanel {
         return "Arret";
     }
 
+  public void supprimeArretsSelectionnes(){
+        int selectedRow = jTable1.getSelectedRow();
+        try{
+        ArretDBHelper.deleteArret(arrets.get(selectedRow));
+           }
+       catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this,
+                    ex.getMessage(),
+                    "Erreur",
+                    JOptionPane.ERROR_MESSAGE);
+           }
+    }
+ 
     @Override
     public AbstractTableModel getTableModel() {
         return new AbstractTableModel() {
-
             @Override
             public String getColumnName(int col) {
                 return columnsNames[col].toString();

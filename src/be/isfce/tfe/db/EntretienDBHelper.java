@@ -71,10 +71,11 @@ public class EntretienDBHelper {
     
 }
      
-       public static boolean deleteEntretien(Entretien entretien ){
+       public static boolean deleteEntretien(int identretien ){
         try{
             
-            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from entretien");
+            PreparedStatement preparedStatement = Connexion.getInstance().getConn().prepareStatement("delete * from entretien where entretien.identretien = ?");
+              preparedStatement.setInt(1, identretien);
             preparedStatement.execute();
             Connexion.getInstance().getConn().commit();
             
