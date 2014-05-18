@@ -8,10 +8,13 @@ import be.isfce.tfe.db.ChauffeurDBHelper;
 import be.isfce.tfe.db.CircuitDBHelper;
 import be.isfce.tfe.db.EcoleDBHelper;
 import be.isfce.tfe.db.MaterielRoulantDBHelper;
+import be.isfce.tfe.vue.affichage.PopUpMenu;
 import be.isfce.tfe.vue.ajout.AjoutChauffeurJPanell;
 import be.isfce.tfe.vue.ajout.AjoutCircuitJPanell;
 import be.isfce.tfe.vue.ajout.AjoutEcoleJPanel;
 import be.isfce.tfe.vue.ajout.AjoutMateielRoulantJPanell;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 
@@ -34,6 +37,7 @@ public class MainFrame extends javax.swing.JFrame {
         affichageMaterielRoulantPanel1.setVehicules(MaterielRoulantDBHelper.getTousLesVehicules());
         affichageCircuitPanel1.setCircuit(CircuitDBHelper.getTousLesCircuits());
         affichageEcolePanel1.setEcole(EcoleDBHelper.getTousLesEcoles());
+        
     }
 
     /**
@@ -344,6 +348,16 @@ public class MainFrame extends javax.swing.JFrame {
         affichageEcolePanel1.supprimeEcolesSelectionnes();
     }//GEN-LAST:event_jButton8ActionPerformed
     
+   /* void mouseClicked(MouseEvent evt) {
+    if (evt.getButton() == MouseEvent.BUTTON1) {
+   // Bouton gauche
+      } else if (evt;getButton() == MouseEvent.BUTTON3) {
+   // Bouton droit
+    }
+    }*/
+    
+  
+
     private void afficheDialog(JPanel jpanel){
         JDialog jDialog = new JDialog(this);
         jDialog.add(jpanel);
@@ -383,6 +397,9 @@ public class MainFrame extends javax.swing.JFrame {
                 new MainFrame().setVisible(true);
             }
         });
+         
+         PopUpMenu p = new PopUpMenu();
+  
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private be.isfce.tfe.vue.affichage.AffichageChauffeurPanel affichageChauffeurPanel2;

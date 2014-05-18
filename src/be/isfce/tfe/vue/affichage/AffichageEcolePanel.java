@@ -46,12 +46,19 @@ public class AffichageEcolePanel  extends AffichagePanel{
         int selectedRow = jTable1.getSelectedRow();
         try{
         EcoleDBHelper.deleteEcole(ecoles.get(selectedRow));
-           }
-       catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this,
-                    ex.getMessage(),
-                    "Erreur",
-                    JOptionPane.ERROR_MESSAGE);
+            JOptionPane jop1;
+            jop1 = new JOptionPane();
+            jop1.showMessageDialog(null, "Suppression éxecuter", "Information", JOptionPane.INFORMATION_MESSAGE);
+            
+            
+        
+            }
+          catch (NumberFormatException ex) {
+            
+            JOptionPane jop3;
+            jop3 = new JOptionPane();
+            jop3.showMessageDialog(null, "Suppression échoué", "Erreur", JOptionPane.ERROR_MESSAGE);
+            
            }
     }
 

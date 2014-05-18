@@ -6,11 +6,19 @@ package be.isfce.tfe.vue.affichage;
 
 import be.isfce.tfe.db.ChauffeurDBHelper;
 import be.isfce.tfe.metier.Chauffeur;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.InputEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
+import javax.swing.JTable;
+import javax.swing.SwingUtilities;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -48,13 +56,19 @@ public class AffichageChauffeurPanel extends AffichagePanel implements Observer{
         //TODO Ajouter message validation
         try{
         ChauffeurDBHelper.deleteChauffeur(chauffeurs.get(selectedRow));
+            JOptionPane jop1;
+            jop1 = new JOptionPane();
+            jop1.showMessageDialog(null, "Suppression éxecuter", "Information", JOptionPane.INFORMATION_MESSAGE);
+            
+            
         
             }
           catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this,
-                    ex.getMessage(),
-                    "Erreur",
-                    JOptionPane.ERROR_MESSAGE);
+            
+            JOptionPane jop3;
+            jop3 = new JOptionPane();
+            jop3.showMessageDialog(null, "Suppression échoué", "Erreur", JOptionPane.ERROR_MESSAGE);
+            
            }
     }
 
@@ -117,5 +131,7 @@ public class AffichageChauffeurPanel extends AffichagePanel implements Observer{
     public void update(Observable o, Object arg) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    
+  
     
 }
